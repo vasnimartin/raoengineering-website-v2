@@ -261,4 +261,4 @@ import { RouterModule } from '@angular/router';
     }
   `]
 })
-export class ExperienceComponent {}
+export class ExperienceComponent { }

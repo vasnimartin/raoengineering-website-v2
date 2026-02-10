@@ -14,14 +14,39 @@
   <!-- Content Overlay -->
   <div class="relative z-10 text-center max-w-4xl px-6">
     <h1 class="text-4xl md:text-6xl font-bold text-slate-800 mb-6 tracking-tight leading-tight">
-      Consulting Engineers<br />for a Resilient World.
+      <span class="text-[#d5a021]">Engineering</span><br>
+      The Future of Texas
     </h1>
     <p class="text-xl md:text-2xl text-slate-600/90 mb-10 max-w-2xl mx-auto font-light">
-      Delivering precision in water resources, land development, and transportation infrastructure.
+      Comprehensive Civil Engineering, Land Development, and Public Infrastructure Solutions.<br>
+      <strong>Build Texas Together.</strong>
     </p>
-    <button
-      class="bg-[#2C3E50] text-white px-8 py-4 rounded-sm font-medium tracking-wide hover:bg-[#34495E] transition p-ripple shadow-sm border border-transparent">
-      Explore Capabilities
-    </button>
+    <div class="flex gap-4 justify-center">
+      <a routerLink="/contact"
+        class="bg-[#2C3E50] text-white px-8 py-4 rounded-sm font-medium tracking-wide hover:bg-[#34495E] transition p-ripple shadow-sm border border-transparent cursor-pointer">
+        Start Your Project
+      </a>
+      <a routerLink="/projects"
+        class="bg-transparent text-[#2C3E50] px-8 py-4 rounded-sm font-medium tracking-wide hover:bg-white/10 transition border border-[#2C3E50] hover:border-[#34495E] cursor-pointer">
+        View Portfolio
+      </a>
+    </div>
+  </div>
+
+  <!-- Trust Bar (v1 Content) -->
+  <div class="absolute bottom-10 left-0 right-0 z-20 flex justify-center w-full px-4">
+    <div
+      class="bg-white/80 backdrop-blur-md border border-white/40 px-8 py-4 rounded-full shadow-lg flex flex-col md:flex-row items-center gap-2 md:gap-4 max-w-3xl">
+      <span class="text-xs uppercase tracking-widest text-slate-500 font-bold">Trusted Partners in:</span>
+      <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+        <span>San Antonio</span>
+        <span class="text-[#d5a021]">/</span>
+        <span>Austin</span>
+        <span class="text-[#d5a021]">/</span>
+        <span>Cedar Park</span>
+        <span class="text-[#d5a021]">/</span>
+        <span>Houston</span>
+      </div>
+    </div>
   </div>
 </section>

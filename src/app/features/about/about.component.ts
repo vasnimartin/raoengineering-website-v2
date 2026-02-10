@@ -15,108 +15,128 @@ import { RouterModule } from '@angular/router';
         <div class="technical-overlay"></div>
       </div>
       <div class="hero-content">
-        <h1>About RCE</h1>
-        <p class="subtitle">
-          RCE has over 18 years of engineering planning and design experience 
-          working in land development projects all over Texas.
-        </p>
+        <h1>Legacy of <span class="text-gold">Trust</span></h1>
+        <p class="subtitle">Serving Texas with integrity since 2006.</p>
       </div>
     </section>
 
-    <!-- COMPANY OVERVIEW -->
-    <section class="overview">
+    <!-- HISTORY SECTION -->
+    <section class="history-section">
       <div class="container">
-        <h2>Who We Are</h2>
-        <p>
-          Ramirez Consulting Engineers, PLLC (RCE) is a full-service civil engineering
-          firm specializing in land development, water resources, transportation, 
-          environmental services, and permitting support.
-        </p>
-        <p>
-          With a deep commitment to technical excellence and local expertise, 
-          we deliver infrastructure solutions that empower growth across Texas.
-        </p>
-      </div>
-    </section>
-
-    <!-- GUIDING PRINCIPLES -->
-    <section class="principles">
-      <div class="container">
-        <h2>Guiding Principles</h2>
-        <div class="principles-grid">
-          <div class="principle-item">
-            <span class="icon">L</span>
-            <h3>Logic</h3>
-          </div>
-          <div class="principle-item">
-            <span class="icon">E</span>
-            <h3>Excellence</h3>
-          </div>
-          <div class="principle-item">
-            <span class="icon">R</span>
-            <h3>Relatives</h3>
-          </div>
-          <div class="principle-item">
-            <span class="icon">R</span>
-            <h3>Religion</h3>
-          </div>
-          <div class="principle-item">
-            <span class="icon">M</span>
-            <h3>Mercy</h3>
-          </div>
-          <div class="principle-item">
-            <span class="icon">P</span>
-            <h3>Productivity</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CULTURE & TRAINING -->
-    <section class="culture">
-      <div class="container">
-        <div class="culture-content">
-          <h2>Our Culture & People</h2>
-          <p>
-            The guiding principles of RCE shape every aspect of our workplace. 
-            Every employee is treated as a member of the family and receives 
-            land development consulting training that is client-focused.
-          </p>
-          <div class="training-box">
+        <div class="grid-2">
+          <div class="text-content">
+            <h2>Our <span class="text-cyan">Story</span></h2>
             <p>
-              For the benefit of both the company and individual careers, 
-              we cross-train and offer special possibilities for continuous education. 
-              We believe that investing in our people is the cornerstone of 
-              delivering precision for our clients.
+              Founded on the belief that civil engineering should be about more than just plans and permits—it should be about building relationships.
+            </p>
+            <p>
+              For over 18 years, Rao's Consulting Engineers has been a cornerstone of development in San Antonio, Cedar Park, and beyond. We navigate the complexities of municipal regulations so our clients can focus on their vision.
+            </p>
+          </div>
+          <div class="stat-box">
+            <span class="big-number">18+</span>
+            <span class="label">Years of Excellence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section class="video-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>See Our Work <span class="text-gold">In Action</span></h2>
+          <p class="section-subtitle">Engineering excellence across Central Texas</p>
+        </div>
+        <div class="video-container">
+          <video controls class="showcase-video">
+            <source src="assets/videos/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="philosophy-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our <span class="text-gold">Philosophy</span></h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-item">
+            <h3>Logic</h3>
+            <p>
+              Engineering is the art of applying scientific principles to practical problems. We bring rigorous logic to every drainage study, utility design, and site plan.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Excellence</h3>
+            <p>
+              Good enough isn't in our vocabulary. We strive for perfection in our technical deliverables and our client communication.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Family</h3>
+            <p>
+              We are a family-owned firm, and we treat our clients like partners. When you work with RCE, you're not just a project number.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LEADERSHIP -->
-    <section class="leadership">
+    <!-- CULTURE SECTION -->
+    <section class="culture-section">
       <div class="container">
-        <h2>Leadership</h2>
-        <div class="leader-card">
-          <div class="leader-info">
-            <h3>Roland A. Ramirez, P.E.</h3>
-            <p class="title">President & Principal Engineer</p>
-            <p class="bio">
-              With over 18 years of specialized experience in land development 
-              and hydraulic engineering, Roland leads RCE’s technical strategy 
-              and client delivery across the state of Texas.
+        <div class="section-header">
+          <h2>Our <span class="text-cyan">Culture</span></h2>
+          <p>A family-focused environment where excellence thrives</p>
+        </div>
+        <div class="culture-grid">
+          <div class="culture-item">
+            <h3>Family First</h3>
+            <p>
+              We believe in work-life balance and treat every team member like family. Your success and well-being matter to us.
+            </p>
+          </div>
+          <div class="culture-item">
+            <h3>Continuous Learning</h3>
+            <p>
+              We invest in ongoing training and professional development to keep our team at the forefront of engineering innovation.
+            </p>
+          </div>
+          <div class="culture-item">
+            <h3>Client Partnership</h3>
+            <p>
+              We don't just work for clients—we work with them. Your project becomes our mission.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
+    <!-- SERVICE AREA -->
+    <section class="service-area-section">
       <div class="container">
-        <p>Partner with an engineering team driven by principles.</p>
-        <a routerLink="/contact" class="cta-button">Discuss Your Project</a>
+        <h2>Serving <span class="text-gold">Texas</span></h2>
+        <p class="section-subtitle">
+          From San Antonio to Austin, Houston to Cedar Park—we're your Texas-wide engineering partner.
+        </p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-number text-gold">18+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number text-cyan">500+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number text-orange">100%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
       </div>
     </section>
   `,
@@ -128,7 +148,7 @@ import { RouterModule } from '@angular/router';
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #1a202c; /* Fallback */
+      background: #1a202c;
       color: #ffffff;
       text-align: center;
       padding: 0 2rem;
@@ -183,236 +203,235 @@ import { RouterModule } from '@angular/router';
       font-weight: 400;
     }
 
+    .text-gold {
+      color: #d5a021;
+    }
+
+    .text-cyan {
+      color: #06b6d4;
+    }
+
+    .text-orange {
+      color: #f97316;
+    }
+
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    .overview {
-      padding: 4rem 0;
+    .history-section {
+      padding: 5rem 0;
       background: #ffffff;
     }
 
-    .overview h2 {
-      font-size: 1.5rem;
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .text-content h2 {
+      font-size: 1.75rem;
       font-weight: 600;
       color: #111827;
       margin: 0 0 1.5rem 0;
     }
 
-    .overview p {
+    .text-content p {
       font-size: 1.1rem;
       line-height: 1.8;
       color: #374151;
       margin: 0 0 1.25rem 0;
     }
 
-    .overview p:last-child {
-      margin-bottom: 0;
+    .stat-box {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
 
-    .principles {
+    .big-number {
+      display: block;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #d5a021;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-box .label {
+      display: block;
+      font-size: 1rem;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .video-section {
       padding: 5rem 0;
       background: #f9fafb;
       border-top: 1px solid #e5e7eb;
     }
 
-    .principles h2 {
+    .section-header {
       text-align: center;
       margin-bottom: 3rem;
-      font-size: 1.75rem;
-      font-weight: 700;
     }
 
-    .principles-grid {
+    .section-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+    }
+
+    .showcase-video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .philosophy-section {
+      padding: 5rem 0;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .values-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
     }
 
-    .principle-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    .value-item {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
       padding: 2rem;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
       border-radius: 4px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .principle-item:hover {
+    .value-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
-    .principle-item .icon {
-      width: 48px;
-      height: 48px;
-      background: #2d3748;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
-
-    .principle-item h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #1a202c;
-      margin: 0;
-    }
-
-    .culture {
-      padding: 5rem 0;
-      background: #ffffff;
-    }
-
-    .culture-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .culture-content h2 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-
-    .culture-content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #374151;
-      margin-bottom: 2rem;
-    }
-
-    .training-box {
-      background: #f8fafc;
-      border-left: 4px solid #2d3748;
-      padding: 2rem;
-      border-radius: 0 4px 4px 0;
-    }
-
-    .training-box p {
-      margin-bottom: 0;
-      font-style: italic;
-      color: #475569;
-    }
-
-    .leadership {
-      padding: 4rem 0;
-      background: #ffffff;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    .leadership h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #111827;
-      margin: 0 0 2rem 0;
-    }
-
-    .leader-card {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .leader-info h3 {
+    .value-item h3 {
       font-size: 1.25rem;
       font-weight: 600;
       color: #111827;
-      margin: 0 0 0.25rem 0;
-    }
-
-    .leader-info .title {
-      font-size: 0.9rem;
-      color: #6b7280;
       margin: 0 0 1rem 0;
-      font-weight: 500;
     }
 
-    .leader-info .bio {
+    .value-item p {
       font-size: 1rem;
-      color: #374151;
       line-height: 1.7;
+      color: #4b5563;
       margin: 0;
     }
 
-    .credentials {
-      padding: 4rem 0;
+    .culture-section {
+      padding: 5rem 0;
       background: #f9fafb;
       border-top: 1px solid #e5e7eb;
     }
 
-    .credentials h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #111827;
-      margin: 0 0 2rem 0;
-    }
-
-    .credentials-grid {
+    .culture-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
 
-    .credential-item {
+    .culture-item {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      padding: 2rem;
+      border-radius: 4px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .culture-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .culture-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #111827;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .culture-item p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #4b5563;
+      margin: 0;
+    }
+
+    .service-area-section {
+      padding: 5rem 0;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    .service-area-section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .service-area-section .section-subtitle {
+      margin-bottom: 3rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
     }
 
-    .credential-item .label {
-      font-size: 0.75rem;
-      font-weight: 600;
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
       color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .credential-item .value {
-      font-size: 1rem;
-      color: #111827;
       font-weight: 500;
-    }
-
-    .cta {
-      padding: 4rem 0;
-      background: #2d3748;
-      text-align: center;
-    }
-
-    .cta p {
-      font-size: 1.35rem;
-      color: #ffffff;
-      margin: 0 0 1.5rem 0;
-      font-weight: 500;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 0.875rem 2rem;
-      background: #ffffff;
-      color: #2d3748;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .cta-button:hover {
-      background: #f3f4f6;
-      transform: translateY(-2px);
     }
 
     @media (max-width: 768px) {
@@ -421,22 +440,20 @@ import { RouterModule } from '@angular/router';
         min-height: 280px;
       }
 
-      .overview,
-      .values,
-      .leadership,
-      .credentials,
-      .cta {
-        padding: 2.5rem 0;
-      }
-
+      .grid-2,
       .values-grid,
-      .credentials-grid {
+      .culture-grid,
+      .stats-row {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
 
-      .leader-card {
-        flex-direction: column;
+      .history-section,
+      .video-section,
+      .philosophy-section,
+      .culture-section,
+      .service-area-section {
+        padding: 3rem 0;
       }
 
       .container {
@@ -445,4 +462,4 @@ import { RouterModule } from '@angular/router';
     }
   `]
 })
-export class AboutComponent {}
+export class AboutComponent { }
