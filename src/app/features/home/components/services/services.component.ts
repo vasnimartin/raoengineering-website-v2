@@ -14,7 +14,7 @@ export class ServicesComponent {
   selectedService: Service | null = null;
   isModalOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   services: Service[] = [
     {
@@ -56,10 +56,10 @@ export class ServicesComponent {
       ]
     },
     {
-      id: 'transportation',
-      title: 'Transportation',
+      id: 'public-infrastructure',
+      title: 'Public Infrastructure',
       icon: 'assets/icon_transportation_1768626465079.png',
-      description: 'Designing safe and efficient transportation systems to connect communities.',
+      description: 'Designing safe and efficient transportation systems and public infrastructure to connect communities.',
       timeline: [
         { phase: 'Study', description: 'Traffic impact analysis and route planning.' },
         { phase: 'Design', description: 'Roadway, intersection, and signal design.' },
@@ -123,8 +123,8 @@ export class ServicesComponent {
   closeModal() {
     this.isModalOpen = false;
     setTimeout(() => {
-        this.selectedService = null;
-        document.body.style.overflow = ''; // Restore scrolling
+      this.selectedService = null;
+      document.body.style.overflow = ''; // Restore scrolling
     }, 300); // Wait for animation
   }
 
@@ -132,7 +132,7 @@ export class ServicesComponent {
     this.closeModal();
     // Map service IDs to routes if they differ, otherwise direct mapping
     this.router.navigate(['/services', serviceId]).then(() => {
-       window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     });
   }
 }

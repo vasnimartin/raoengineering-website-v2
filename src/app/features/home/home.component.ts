@@ -5,11 +5,13 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { CtaComponent } from './components/cta/cta.component';
 
+import { WhyUsComponent } from './components/why-us/why-us.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, ServicesComponent, ExperienceComponent, TestimonialComponent, CtaComponent],
+  imports: [HeroComponent, ServicesComponent, ExperienceComponent, TestimonialComponent, CtaComponent, WhyUsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {}
+export class HomeComponent { }

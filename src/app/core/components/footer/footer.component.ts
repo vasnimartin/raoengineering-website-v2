@@ -48,7 +48,7 @@ import { RouterModule } from '@angular/router';
 
         <div class="footer-bottom">
           <p>&copy; {{ currentYear }} Ramirez Consulting Engineers, PLLC. All rights reserved.</p>
-          <p class="certifications">HUB | SBE | DBE | AABE | SDB Certified</p>
+          <p class="certifications">MBE Certified</p>
         </div>
       </div>
     </footer>
