@@ -1,0 +1,129 @@
+/* Services Component Styles */
+
+/* --- Modal Transitions --- */
+.dossier-modal {
+    animation: modal-entrance 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modal-entrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* --- 3D Timeline Visualization --- */
+.perspective-container {
+    perspective: 1000px;
+    /* Create depth */
+}
+
+.timeline-3d {
+    position: relative;
+    width: 250px;
+    /* Adjust based on card width */
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateY(-15deg) rotateX(10deg);
+    /* Initial subtle 3D angle */
+    transition: transform 0.5s ease-out;
+}
+
+.perspective-container:hover .timeline-3d {
+    transform: rotateY(0deg) rotateX(0deg);
+    /* Flatten on hover for readability */
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 2rem;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-out;
+    /* Staggered float effect */
+    animation: float 6s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 1s);
+}
+
+.step-card {
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateZ(20px);
+    /* Push card forward */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.step-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateZ(40px) scale(1.05);
+}
+
+/* Connecting Line Depth */
+.timeline-3d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(213, 160, 33, 0.3), transparent);
+    transform: translateX(-50%) translateZ(-10px);
+    /* Push line behind cards */
+}
+
+
+/* --- Animations --- */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+    0%,
+    100% {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.5);
+    }
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
