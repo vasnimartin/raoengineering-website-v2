@@ -58,7 +58,7 @@ export class ServicesComponent {
       ]
     },
     {
-      id: 'public-infrastructure',
+      id: 'transportation',
       title: 'Public Infrastructure',
       icon: 'assets/icon_transportation_high_five.png',
       iconSubtle: 'assets/icon_transportation_1768626465079.png',
@@ -81,7 +81,7 @@ export class ServicesComponent {
       id: 'environmental',
       title: 'Environmental',
       icon: 'assets/icon_environmental_aquifer.png',
-      iconSubtle: 'assets/icon_environmental_1768626478152.png',
+      iconSubtle: 'assets/icon_environmental_aquifer.png',
       description: 'Protecting natural resources while enabling sustainable development.',
       timeline: [
         { phase: 'Assess', description: 'Environmental site assessments and impact studies.' },

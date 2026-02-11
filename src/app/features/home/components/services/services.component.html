@@ -1,26 +1,61 @@
-<section class="relative py-32 bg-surface overflow-hidden">
-  <!-- Topographic Background -->
-  <div class="absolute inset-0 opacity-40 z-0 pointer-events-none">
-    <img src="assets/rce_topographic_texture_1768626380325.png" alt=""
-      class="w-full h-full object-cover opacity-30 mix-blend-multiply">
-  </div>
+<section class="relative w-full overflow-hidden">
+  <!-- Topographic Background Removed for Immersive Layout -->
 
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+  <!-- Immersive Full-Width Accordion Wrapper -->
+  <div class="relative w-full h-[85vh] min-h-[700px] flex flex-col lg:flex-row z-10 bg-slate-900">
 
-      <!-- Dynamic Service Cards -->
-      <div *ngFor="let service of services" (click)="openModal(service)"
-        class="group bg-white border border-[#e6e6e6] flex flex-col items-center text-center transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg rounded-sm shadow-[0_6px_20px_rgba(0,0,0,0.04)] cursor-pointer overflow-hidden">
-        <div class="w-full aspect-square bg-slate-50 mb-4 p-4 flex items-center justify-center">
-          <img src="{{service.icon}}" alt="{{service.title}}" title="{{service.title}}"
-            class="w-full h-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
-        </div>
-        <div class="p-6 pt-0">
-          <h3 class="text-lg font-semibold text-slate-800 tracking-wide">{{ service.title }}</h3>
+    <!-- Dynamic Service Panels -->
+    <div *ngFor="let service of services" (click)="openModal(service)"
+      class="group relative flex-1 border-r border-white/10 overflow-hidden cursor-pointer transition-[flex] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:flex-[3] grayscale-[0.3] hover:grayscale-0">
+
+      <!-- Background Image (Full Cover) -->
+      <div class="absolute inset-0 z-0">
+        <img [src]="service.icon" [alt]="service.title"
+          class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 will-change-transform">
+        <!-- Vignette/Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500">
         </div>
       </div>
 
+      <!-- Content Content -->
+      <div
+        class="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20 flex flex-col justify-end transform transition-transform duration-500">
+        <!-- Number/ID Decoration -->
+        <span
+          class="text-[#d5a021] font-mono text-sm tracking-[0.2em] uppercase mb-2 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+          0{{ services.indexOf(service) + 1 }} / Explore
+        </span>
+
+        <h3
+          class="text-3xl md:text-5xl font-bold text-white tracking-tight leading-none mb-4 group-hover:mb-6 transition-all duration-300">
+          {{ service.title }}
+        </h3>
+
+        <!-- Quick Summary (Reveals on Hover) -->
+        <div
+          class="max-w-md opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-200 hidden lg:block">
+          <p class="text-slate-300 text-lg font-light leading-relaxed border-l-2 border-[#d5a021] pl-4">
+            {{ service.description }}
+          </p>
+          <div class="mt-6 flex items-center text-[#d5a021] font-bold uppercase tracking-widest text-xs">
+            <span>View Dossier</span>
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Indicator (Since hover doesn't work well on touch) -->
+      <div class="absolute top-4 right-4 lg:hidden z-20 text-white/50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+        </svg>
+      </div>
     </div>
+
   </div>
 
   <!-- Cinematic Dossier Modal -->
