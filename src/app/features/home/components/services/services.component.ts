@@ -11,17 +11,14 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './services.component.css'
 })
 export class ServicesComponent {
-  selectedService: Service | null = null;
-  isModalOpen = false;
-
   constructor(private router: Router) { }
 
   services: Service[] = [
     {
       id: 'water-resources',
       title: 'Water Resources',
-      icon: 'assets/icon_water_hill_country.png',
-      iconSubtle: 'assets/icon_water_resources_1768626440252.png',
+      icon: 'assets/water-hero-v2.png',
+      iconSubtle: 'assets/icon_water_hill_country.png',
       description: 'Comprehensive water management solutions ensuring sustainable and efficient resource utilization.',
       timeline: [
         { phase: 'Analysis', description: 'Hydrologic modeling and feasibility studies.' },
@@ -40,8 +37,8 @@ export class ServicesComponent {
     {
       id: 'land-development',
       title: 'Land Development',
-      icon: 'assets/icon_land_development.png',
-      iconSubtle: 'assets/icon_land_development.png',
+      icon: 'assets/land-development-aerial.png',
+      iconSubtle: 'assets/icon_land_development_1768626452122.png',
       description: 'Transforming raw land into well-planned, functional, and sustainable communities.',
       timeline: [
         { phase: 'Planning', description: 'Site analysis and conceptual layout.' },
@@ -60,8 +57,8 @@ export class ServicesComponent {
     {
       id: 'transportation',
       title: 'Public Infrastructure',
-      icon: 'assets/icon_transportation_high_five.png',
-      iconSubtle: 'assets/icon_transportation_1768626465079.png',
+      icon: 'assets/transportation hero.png',
+      iconSubtle: 'assets/icon_transportation_high_five.png',
       description: 'Designing safe and efficient transportation systems and public infrastructure to connect communities.',
       timeline: [
         { phase: 'Study', description: 'Traffic impact analysis and route planning.' },
@@ -80,7 +77,7 @@ export class ServicesComponent {
     {
       id: 'environmental',
       title: 'Environmental',
-      icon: 'assets/icon_environmental_aquifer.png',
+      icon: 'assets/environment/environmental-hero.png',
       iconSubtle: 'assets/icon_environmental_aquifer.png',
       description: 'Protecting natural resources while enabling sustainable development.',
       timeline: [
@@ -100,8 +97,8 @@ export class ServicesComponent {
     {
       id: 'permitting',
       title: 'Permitting',
-      icon: 'assets/icon_permitting_approval.png',
-      iconSubtle: 'assets/icon_permitting_1768626492354.png',
+      icon: 'assets/permitting-focus.png',
+      iconSubtle: 'assets/icon_permitting_approval.png',
       description: 'Streamlining the regulatory process to accelerate project timelines.',
       timeline: [
         { phase: 'Review', description: 'Code analysis and requirement identification.' },
@@ -119,22 +116,11 @@ export class ServicesComponent {
     }
   ];
 
-  openModal(service: Service) {
-    this.selectedService = service;
-    this.isModalOpen = true;
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  }
-
-  closeModal() {
-    this.isModalOpen = false;
-    setTimeout(() => {
-      this.selectedService = null;
-      document.body.style.overflow = ''; // Restore scrolling
-    }, 300); // Wait for animation
+  handleServiceClick(service: Service) {
+    this.navigateToService(service.id);
   }
 
   navigateToService(serviceId: string) {
-    this.closeModal();
     // Map service IDs to routes if they differ, otherwise direct mapping
     this.router.navigate(['/services', serviceId]).then(() => {
       window.scrollTo(0, 0);

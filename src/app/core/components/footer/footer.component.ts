@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
         <div class="footer-grid">
           <!-- BRAND -->
           <div class="footer-brand">
-            <span class="logo-text">Rao Engineering</span>
+            <span class="logo-text">Rao <span class="text-[#d5a021] font-light">Engineering</span></span>
             <p class="tagline">Civil Engineering Excellence in South Texas</p>
           </div>
 
