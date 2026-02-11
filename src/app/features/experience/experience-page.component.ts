@@ -18,14 +18,24 @@ interface Project {
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <header class="page-header relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-      <!-- Background Image with Parallax-like effect -->
-      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed z-0 transform scale-105" 
-           style="background-image: url('/assets/images/projects/residential_whitestone.png');">
+    <header class="page-header relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-slate-900">
+      <!-- Technical Blueprint Background Pattern -->
+      <div class="absolute inset-0 z-0 opacity-20" 
+           style="background-image: 
+             linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+             background-size: 50px 50px;">
+      </div>
+      <div class="absolute inset-0 z-0 opacity-10" 
+           style="background-image: 
+             linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+             linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+             background-size: 10px 10px;">
       </div>
       
-      <!-- Overlay Gradient -->
-      <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900/90 z-10"></div>
+      <!-- Radial Vignette -->
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-transparent to-slate-900/80 z-10"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-transparent to-slate-900/80 z-10"></div>
       
       <div class="header-content container relative z-20 text-center px-4">
         <h1 class="page-title text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
@@ -227,18 +237,9 @@ export class ExperiencePageComponent {
       case 'bg-cedarview':
         return "url('/assets/images/projects/commercial_vista.png')";
       case 'bg-water':
-        // Premium technical grid pattern + gradient for Water Resources
-        return `
-          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.05) 2px, rgba(212, 175, 55, 0.05) 4px),
-          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212, 175, 55, 0.05) 2px, rgba(212, 175, 55, 0.05) 4px),
-          linear-gradient(135deg, #1a2c50 0%, #0b1c3e 100%)
-        `;
+        return "url('/assets/water-calm.png')"; 
       case 'bg-i35':
-        // Dynamic diagonal stripe pattern + gradient for Transportation
-        return `
-          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 120, 50, 0.1) 10px, rgba(255, 120, 50, 0.1) 20px),
-          linear-gradient(135deg, #2c1a50 0%, #1c0b3e 100%)
-        `;
+        return "url('/assets/transport-calm.png')";
       default:
         return 'none';
     }
