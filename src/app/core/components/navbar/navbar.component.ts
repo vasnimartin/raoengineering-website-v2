@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
         
         <!-- Logo -->
         <a routerLink="/" class="text-2xl font-bold tracking-tight flex items-center gap-2 transition-colors">
-          RCE <span class="font-light" [class.text-slate-600]="isScrolled || isMobileMenuOpen" [class.text-slate-200]="!isScrolled && !isMobileMenuOpen">Engineering</span>
+          Rao <span class="font-light" [class.text-slate-600]="isScrolled || isMobileMenuOpen" [class.text-slate-200]="!isScrolled && !isMobileMenuOpen">Engineering</span>
         </a>
 
         <!-- Desktop Menu -->
