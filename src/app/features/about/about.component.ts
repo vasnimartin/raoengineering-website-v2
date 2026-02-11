@@ -79,7 +79,7 @@ import { RouterModule } from '@angular/router';
           <div class="value-item">
             <h3>Family</h3>
             <p>
-              We are a family-owned firm, and we treat our clients like partners. When you work with RCE, you're not just a project number.
+              We are a family-owned firm, and we treat our clients like partners. When you work with Rao Engineering, you're not just a project number.
             </p>
           </div>
         </div>

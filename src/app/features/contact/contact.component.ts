@@ -52,7 +52,7 @@ import { FormsModule } from '@angular/forms';
             <div class="info-block">
               <h3>Address</h3>
               <p>
-                Ramirez Consulting Engineers, PLLC<br>
+                Rao's Consulting Engineers<br>
                 San Antonio, Texas
               </p>
             </div>
@@ -62,7 +62,7 @@ import { FormsModule } from '@angular/forms';
             </div>
             <div class="info-block">
               <h3>Email</h3>
-              <p>info&#64;ramirezce.com</p>
+              <p>info&#64;raoengineering.com</p>
             </div>
             <div class="info-block">
               <h3>Office Hours</h3>

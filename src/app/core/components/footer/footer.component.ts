@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
         <div class="footer-grid">
           <!-- BRAND -->
           <div class="footer-brand">
-            <span class="logo-text">Ramirez Consulting Engineers</span>
+            <span class="logo-text">Rao Engineering</span>
             <p class="tagline">Civil Engineering Excellence in South Texas</p>
           </div>
 
@@ -42,12 +42,12 @@ import { RouterModule } from '@angular/router';
             <h4>Contact</h4>
             <p>San Antonio, Texas</p>
             <p>(210) 555-0100</p>
-            <p>info&#64;ramirezce.com</p>
+            <p>info&#64;raoengineering.com</p>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; {{ currentYear }} Ramirez Consulting Engineers, PLLC. All rights reserved.</p>
+          <p>&copy; {{ currentYear }} Rao's Consulting Engineers. All rights reserved.</p>
           <p class="certifications">MBE Certified</p>
         </div>
       </div>
