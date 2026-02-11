@@ -1,4 +1,4 @@
-/* THE "MIRROR SKELETON" CSS - LAND DEVELOPMENT NATURE */
+/* THE "MIRROR SKELETON" CSS - TRANSPORTATION NATURE */
 
 .hero {
     position: relative;
@@ -7,8 +7,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #1e3a8a;
-    /* Navy 900 */
+    background: #334155;
+    /* Slate 700 */
     color: #ffffff;
     text-align: center;
     padding: 0 2rem;
@@ -36,18 +36,18 @@
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(26, 32, 44, 0.45) 0%, rgba(15, 23, 42, 0.85) 100%);
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.45) 0%, rgba(15, 23, 42, 0.85) 100%);
     transition: background 0.5s ease;
 }
 
 .hero:hover .hero-overlay {
-    background: linear-gradient(180deg, rgba(26, 32, 44, 0.35) 0%, rgba(15, 23, 42, 0.75) 100%);
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.35) 0%, rgba(15, 23, 42, 0.75) 100%);
 }
 
 .technical-overlay {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(203, 213, 225, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
     pointer-events: none;
 }
@@ -98,17 +98,18 @@
 .stat-item {
     text-align: center;
     padding: 1.5rem;
-    background: #f9fafb;
+    background: #f8fafc;
+    /* Subtle slate tint */
     border-radius: 8px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #e2e8f0;
 }
 
 .stat-number {
-    display: block;
+    display: inline;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1e3a8a;
-    /* Consistent Navy theme */
+    color: #475569;
+    /* Slate 600 */
     line-height: 1;
     margin-bottom: 0.5rem;
 }
@@ -153,7 +154,7 @@
 .challenge-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px -5px rgba(51, 65, 85, 0.1);
-    border-color: #1e3a8a;
+    border-color: #64748b;
 }
 
 .challenge-icon {
@@ -233,7 +234,8 @@
 
 .advantage-item {
     background: #ffffff;
-    border-left: 4px solid #1e3a8a;
+    border-left: 4px solid #64748b;
+    /* Slate Accent */
     padding: 1.5rem;
     border-radius: 4px;
 }
@@ -242,7 +244,7 @@
     display: block;
     font-size: 0.85rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: #475569;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 0.5rem;
@@ -294,7 +296,7 @@
 
 .type-item:hover {
     background: #ffffff;
-    border-color: #1e3a8a;
+    border-color: #64748b;
     transform: translateX(4px);
 }
 
@@ -305,7 +307,8 @@
 .capabilities {
     padding: 5rem 0;
     background: #ffffff;
-    background-image: url('/assets/generated-images/bg_texture_land.png');
+    background-image: url('/assets/generated-images/bg_texture_road.png');
+    /* Road Texture */
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -398,7 +401,7 @@
 .tech-badge:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px -5px rgba(51, 65, 85, 0.1);
-    border-color: #1e3a8a;
+    border-color: #64748b;
 }
 
 .tech-icon {
@@ -409,7 +412,7 @@
 }
 
 .tech-badge:hover .tech-icon {
-    transform: scale(1.15) rotate(5deg);
+    transform: scale(1.15) rotate(2deg);
 }
 
 .tech-badge h4 {
@@ -455,7 +458,7 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: #1e3a8a;
+    background: #475569;
     color: #ffffff;
     border-radius: 50%;
     margin: 0 auto 1.5rem auto;
@@ -499,7 +502,7 @@
 }
 
 .quality-item h3 {
-    color: #1e3a8a;
+    color: #475569;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -554,7 +557,7 @@
 
 .commitment-column li::before {
     content: "→";
-    color: #1e3a8a;
+    color: #64748b;
     position: absolute;
     left: 0;
 }
@@ -587,7 +590,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 1.5rem;
-    border-left: 4px solid #1e3a8a;
+    border-left: 4px solid #475569;
     padding-left: 1rem;
 }
 
@@ -639,12 +642,12 @@
 }
 
 .cta-button.primary {
-    background: #1e3a8a;
+    background: #475569;
     color: #ffffff;
 }
 
 .cta-button.primary:hover {
-    background: #1e40af;
+    background: #334155;
 }
 
 .cta-button.secondary {

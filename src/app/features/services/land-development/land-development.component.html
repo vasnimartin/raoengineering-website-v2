@@ -1,93 +1,337 @@
-<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-surface">
-  <!-- Abstract Background -->
-  <div class="absolute inset-0 z-0">
-    <img src="assets/rce_hero_background_concept_1768626300633.png" alt=""
-      class="w-full h-full object-cover opacity-50 grayscale">
-    <div class="absolute inset-0 bg-white/40"></div>
+<!-- HERO -->
+<section class="hero land-development-theme">
+  <div class="hero-bg">
+    <img src="assets/generated-images/land_future.png" alt="Advanced land development with GPS precision technology"
+      class="bg-image">
+    <div class="hero-overlay"></div>
+    <div class="technical-overlay"></div>
   </div>
-
-  <div class="relative z-10 text-center max-w-4xl px-6">
-    <h1 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4 tracking-tight">
-      Land Development
-    </h1>
-    <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-light">
-      Strategic site design and engineering for commercial and residential success.
+  <div class="hero-content">
+    <h1>Land Development Engineering</h1>
+    <p class="subtitle">
+      Architecting Texas's buildable future through digital terrain mastery,
+      GPS-accurate grading, and proven regulatory precision across all major Texas markets.
     </p>
   </div>
 </section>
 
-<!-- Contextual Image (One Image Rule) -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20 mb-20">
-  <div
-    class="w-full bg-slate-200 h-[500px] rounded-sm shadow-sm flex items-center justify-center overflow-hidden border border-gray-100">
-    <!-- Placeholder for Contextual Image: Site Grading -->
-    <div class="text-center">
-      <p class="text-slate-400 font-medium tracking-widest text-sm uppercase mb-2">Contextual Image</p>
-      <p class="text-slate-500 font-light">Aerial Grading / Site Layout</p>
+<!-- STATS CALLOUT -->
+<section class="stats" #statsSection>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number" [attr.data-target]="18">0</span><span class="stat-number">+</span>
+        <span class="stat-label">Years of Texas Mastery</span>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number" [attr.data-target]="500">0</span><span class="stat-number">+</span>
+        <span class="stat-label">Successful Project Deliveries</span>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number">±2cm</span>
+        <span class="stat-label">GPS Grading Precision</span>
+      </div>
     </div>
-    <!-- <img src="assets/context_land_grading.png" class="w-full h-full object-cover"> -->
   </div>
 </section>
 
-<section class="max-w-4xl mx-auto px-6 mb-24">
-  <div class="grid md:grid-cols-2 gap-16">
-
-    <!-- Capabilities -->
-    <div>
-      <h2 class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-[#1E3A8A] pl-4">Core Capabilities</h2>
-      <ul class="space-y-4">
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Site Feasibility & Due Diligence</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Grading & Drainage Design</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Utility Infrastructure Planning</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Subdivision Platting</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Traffic Impact Analysis</span>
-        </li>
-      </ul>
+<!-- CHALLENGES WE SOLVE -->
+<section class="challenges">
+  <div class="container">
+    <h2>Challenges We Solve</h2>
+    <div class="challenges-grid">
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">⏳</div>
+        <h3>Permitting Friction Killing ROI?</h3>
+        <p>
+          We leverage direct institutional credit with San Antonio, Austin, and Houston
+          officials to bypass standard bottlenecks and accelerate your construction start.
+        </p>
+      </div>
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">🔍</div>
+        <h3>Invisible Site Liabilities?</h3>
+        <p>
+          Advanced feasibility studies and predictive soil analysis identify sub-surface
+          risks before they become multimillion-dollar construction change orders.
+        </p>
+      </div>
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">🎯</div>
+        <h3>Accountability Gaps?</h3>
+        <p>
+          We provide single-source engineering accountability from raw survey to final
+          as-builts, eliminating consultant finger-pointing and ensuring design intent.
+        </p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Development Types -->
-    <div>
-      <h2 class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-slate-300 pl-4">Project Types</h2>
-      <p class="text-slate-600 mb-6">Expert engineering support for diverse development sectors.</p>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">
-          Commercial</div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">
-          Multifamily</div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">
-          Industrial</div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">Single
-          Family</div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">
-          Institutional</div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">Mixed Use
-        </div>
+<!-- CONTEXTUAL IMAGE -->
+<section class="context-image-section">
+  <div class="context-image-container">
+    <div class="service-context-image">
+      <img src="assets/generated-images/land_development.png" alt="Precision grading operations at golden hour"
+        loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- THE RCE ADVANTAGE -->
+<section class="advantage">
+  <div class="container">
+    <h2>The RCE Advantage</h2>
+    <div class="advantage-grid">
+      <div class="advantage-item land-border">
+        <span class="advantage-label">GPS-Guided Accuracy</span>
+        <p>Utilizing ±2cm precision technology to minimize earthwork overages and ensure perfect site drainage.</p>
+      </div>
+      <div class="advantage-item land-border">
+        <span class="advantage-label">Fast-Track Permitting</span>
+        <p>Proven submittal strategies that reduce RFI cycles and secure approvals in even the most restrictive
+          jurisdictions.</p>
+      </div>
+      <div class="advantage-item land-border">
+        <span class="advantage-label">BIM-Integrated Design</span>
+        <p>Full Civil 3D integration allows for real-time conflict detection and seamless coordination with utility
+          providers.</p>
+      </div>
+      <div class="advantage-item land-border">
+        <span class="advantage-label">Direct Principal Oversight</span>
+        <p>Every project is monitored by a Senior Principal, ensuring executive-level decision making at every
+          milestone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT TYPES -->
+<section class="project-types">
+  <div class="container">
+    <h2>Project Types We Serve</h2>
+    <div class="types-grid">
+      <div class="type-item">
+        <span class="type-icon">🏘️</span>
+        <span>Residential Communities</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">🏢</span>
+        <span>Commercial Developments</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">🏭</span>
+        <span>Industrial & Logistics</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">🏗️</span>
+        <span>Mixed-Use Developments</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">💧</span>
+        <span>MUD Infrastructure</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">🖥️</span>
+        <span>Mission-Critical Data Centers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE CAPABILITIES -->
+<section class="capabilities">
+  <div class="container">
+    <h2>Core Capabilities</h2>
+    <div class="capabilities-grid">
+      <div class="capability-column">
+        <h3>Design & Analysis</h3>
+        <ul>
+          <li>Site Feasibility & Due Diligence</li>
+          <li>Conceptual Planning & Layout</li>
+          <li>Earthwork Optimization Analysis</li>
+          <li>Regulatory Compliance Strategy</li>
+        </ul>
+      </div>
+      <div class="capability-column">
+        <h3>Engineering</h3>
+        <ul>
+          <li>Digital Terrain Modeling (DTM)</li>
+          <li>Grading & Drainage Systems</li>
+          <li>Utility Infrastructure Design</li>
+          <li>Paving & Access Management</li>
+        </ul>
+      </div>
+      <div class="capability-column">
+        <h3>Technology & Delivery</h3>
+        <ul>
+          <li>GPS-Guided Construction Staking</li>
+          <li>BIM & Civil 3D Integration</li>
+          <li>Drone-Based Topo Surveys</li>
+          <li>As-Built Verification Reports</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY SHOWCASE -->
+<section class="technology">
+  <div class="container">
+    <h2>Technology-Driven Precision</h2>
+    <p class="tech-intro">Modern tools for flawless execution and data-driven decision making</p>
+    <div class="tech-grid">
+      <div class="tech-badge animate-on-scroll">
+        <span class="tech-icon">📐</span>
+        <h4>Civil 3D</h4>
+        <p>Advanced BIM Modeling</p>
+      </div>
+      <div class="tech-badge animate-on-scroll">
+        <span class="tech-icon">🛰️</span>
+        <h4>GPS ±2cm</h4>
+        <p>Surgical Site Grading</p>
+      </div>
+      <div class="tech-badge animate-on-scroll">
+        <span class="tech-icon">🚁</span>
+        <h4>Drone Topo</h4>
+        <p>Real-Time Aerial Data</p>
+      </div>
+      <div class="tech-badge animate-on-scroll">
+        <span class="tech-icon">🏗️</span>
+        <h4>ModelSync</h4>
+        <p>3D Utility Coordination</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS TIMELINE -->
+<section class="process">
+  <div class="container">
+    <h2>Our Proven Process</h2>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h3>Feasibility</h3>
+        <p>Deep-dive site analysis and regulatory risk profiling</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h3>Design</h3>
+        <p>Precision Civil 3D modeling and grading optimization</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h3>Permitting</h3>
+        <p>Strategic agency liaison and fast-track approval processing</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h3>Support</h3>
+        <p>Construction oversight, GPS verification, and final certification</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY & ACCOUNTABILITY -->
+<section class="quality">
+  <div class="container">
+    <h2>Quality & Accountability</h2>
+    <div class="quality-grid">
+      <div class="quality-item">
+        <h3>Design-to-Field Integrity</h3>
+        <p>We sync our digital models directly to GPS-guided equipment to ensure perfect field translation.</p>
+      </div>
+      <div class="quality-item">
+        <h3>Proactive Risk Mitigation</h3>
+        <p>We don't wait for RFIs; we solve utility and drainage conflicts in the digital model before they hit the
+          dirt.</p>
+      </div>
+      <div class="quality-item">
+        <h3>Defensible Deliverables</h3>
+        <p>Every report and plan set is authored for absolute defensibility in municipal and board hearings.</p>
+      </div>
+      <div class="quality-item">
+        <h3>Senior-Led Decisioning</h3>
+        <p>No layers of middle management. You work directly with the technical lead for agile problem solving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR COMMITMENT -->
+<section class="commitment">
+  <div class="container">
+    <h2>Our Commitment to You</h2>
+    <div class="commitment-grid">
+      <div class="commitment-column">
+        <h3>Operational Velocity</h3>
+        <ul>
+          <li>Compressed review timelines</li>
+          <li>Rapid RFI response targets</li>
+          <li>Strategic project sequencing</li>
+          <li>Milestone-driven delivery</li>
+        </ul>
+      </div>
+      <div class="commitment-column">
+        <h3>Technical Precision</h3>
+        <ul>
+          <li>Error-free earthwork models</li>
+          <li>Compliance-first engineering</li>
+          <li>Modern tech stack advantage</li>
+          <li>Rigorous QA/QC protocols</li>
+        </ul>
+      </div>
+      <div class="commitment-column">
+        <h3>Owner Protection</h3>
+        <ul>
+          <li>ROI-focused site design</li>
+          <li>Early liability identification</li>
+          <li>Transparent budget tracking</li>
+          <li>Long-term asset resilience</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGULATORY & TECHNICAL EXPERTISE -->
+<section class="expertise">
+  <div class="container">
+    <h2>Regulatory & Technical Expertise</h2>
+    <div class="expertise-grid">
+      <div class="expertise-column">
+        <h3>Design Standards</h3>
+        <ul>
+          <li>AutoCAD Civil 3D Architecture</li>
+          <li>Digital Terrain Modeling (DTM)</li>
+          <li>ASCE Site Design Standards</li>
+          <li>ADA / TAS Accessibility Rules</li>
+          <li>TPDES Stormwater Compliance</li>
+        </ul>
+      </div>
+      <div class="expertise-column">
+        <h3>Agency Fluency</h3>
+        <ul>
+          <li>San Antonio (COSA) & Bexar County</li>
+          <li>Austin, Williamson, & Travis Counties</li>
+          <li>Houston & Harris County Flood Control</li>
+          <li>Cedar Park & Central Texas Municipalities</li>
+          <li>TxDOT Access & Utility Management</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="bg-white py-20 border-t border-gray-100 text-center">
-  <div class="max-w-2xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-slate-800 mb-6">Start your development project.</h2>
-    <button
-      class="bg-[#1E3A8A] text-white px-8 py-3 rounded-sm font-medium tracking-wide hover:bg-opacity-90 transition p-ripple shadow-sm">
-      Contact Engineering Team
-    </button>
+<section class="cta">
+  <div class="container">
+    <p>Secure Your Site's Success with Engineering Precision</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="cta-button primary">Request Site Feasibility Audit</a>
+      <a routerLink="/contact" class="cta-button secondary">Schedule Executive Consultation</a>
+    </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-/* THE "MIRROR SKELETON" CSS - LAND DEVELOPMENT NATURE */
+/* THE "MIRROR SKELETON" CSS - ENVIRONMENTAL NATURE */
 
 .hero {
     position: relative;
@@ -7,8 +7,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #1e3a8a;
-    /* Navy 900 */
+    background: #064e3b;
+    /* Deep Forest Green */
     color: #ffffff;
     text-align: center;
     padding: 0 2rem;
@@ -36,18 +36,18 @@
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(26, 32, 44, 0.45) 0%, rgba(15, 23, 42, 0.85) 100%);
+    background: linear-gradient(180deg, rgba(6, 78, 59, 0.45) 0%, rgba(6, 78, 59, 0.85) 100%);
     transition: background 0.5s ease;
 }
 
 .hero:hover .hero-overlay {
-    background: linear-gradient(180deg, rgba(26, 32, 44, 0.35) 0%, rgba(15, 23, 42, 0.75) 100%);
+    background: linear-gradient(180deg, rgba(6, 78, 59, 0.35) 0%, rgba(6, 78, 59, 0.75) 100%);
 }
 
 .technical-overlay {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
     pointer-events: none;
 }
@@ -98,17 +98,18 @@
 .stat-item {
     text-align: center;
     padding: 1.5rem;
-    background: #f9fafb;
+    background: #f0fdf4;
+    /* Subtle forest green tint */
     border-radius: 8px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #dcfce7;
 }
 
 .stat-number {
-    display: block;
+    display: inline;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1e3a8a;
-    /* Consistent Navy theme */
+    color: #059669;
+    /* Emerald Green */
     line-height: 1;
     margin-bottom: 0.5rem;
 }
@@ -116,7 +117,7 @@
 .stat-label {
     display: block;
     font-size: 0.9rem;
-    color: #64748b;
+    color: #4b5563;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -131,7 +132,7 @@
 .challenges h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin: 0 0 3rem 0;
 }
@@ -152,8 +153,8 @@
 
 .challenge-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px -5px rgba(51, 65, 85, 0.1);
-    border-color: #1e3a8a;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.1);
+    border-color: #10b981;
 }
 
 .challenge-icon {
@@ -164,14 +165,14 @@
 .challenge-card h3 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1e293b;
+    color: #111827;
     margin: 0 0 0.75rem 0;
     line-height: 1.4;
 }
 
 .challenge-card p {
     font-size: 0.95rem;
-    color: #475569;
+    color: #4b5563;
     line-height: 1.6;
     margin: 0;
 }
@@ -196,7 +197,7 @@
 }
 
 .service-context-image:hover {
-    box-shadow: 0 20px 50px -10px rgba(51, 65, 85, 0.2);
+    box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.2);
     transform: translateY(-5px);
 }
 
@@ -213,14 +214,14 @@
 
 .advantage {
     padding: 5rem 0;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
 }
 
 .advantage h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin: 0 0 3rem 0;
 }
@@ -233,7 +234,8 @@
 
 .advantage-item {
     background: #ffffff;
-    border-left: 4px solid #1e3a8a;
+    border-left: 4px solid #10b981;
+    /* Emerald Accent */
     padding: 1.5rem;
     border-radius: 4px;
 }
@@ -242,7 +244,7 @@
     display: block;
     font-size: 0.85rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: #059669;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 0.5rem;
@@ -250,7 +252,7 @@
 
 .advantage-item p {
     font-size: 1rem;
-    color: #334155;
+    color: #374151;
     line-height: 1.6;
     margin: 0;
 }
@@ -265,7 +267,7 @@
 .project-types h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin: 0 0 2.5rem 0;
 }
@@ -283,18 +285,18 @@
     align-items: center;
     gap: 0.75rem;
     padding: 1rem 1.5rem;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
     border-radius: 6px;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #334155;
+    color: #374151;
     transition: all 0.2s ease;
 }
 
 .type-item:hover {
     background: #ffffff;
-    border-color: #1e3a8a;
+    border-color: #10b981;
     transform: translateX(4px);
 }
 
@@ -305,7 +307,8 @@
 .capabilities {
     padding: 5rem 0;
     background: #ffffff;
-    background-image: url('/assets/generated-images/bg_texture_land.png');
+    background-image: url('/assets/generated-images/environmental_future.png');
+    /* Env Texture */
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -316,7 +319,7 @@
 .capabilities h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin: 0 0 3rem 0;
 }
@@ -330,12 +333,12 @@
 .capability-column h3 {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #64748b;
+    color: #6b7280;
     margin: 0 0 1rem 0;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid #e5e7eb;
 }
 
 .capability-column ul {
@@ -346,10 +349,10 @@
 
 .capability-column li {
     font-size: 0.95rem;
-    color: #475569;
+    color: #4b5563;
     padding: 0.5rem 0;
     line-height: 1.5;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f3f4f6;
 }
 
 .capability-column li:last-child {
@@ -359,14 +362,14 @@
 /* TECHNOLOGY SHOWCASE */
 .technology {
     padding: 5rem 0;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
 }
 
 .technology h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin: 0 0 0.75rem 0;
 }
@@ -374,7 +377,7 @@
 .tech-intro {
     text-align: center;
     font-size: 1.05rem;
-    color: #64748b;
+    color: #6b7280;
     margin: 0 0 3rem 0;
 }
 
@@ -390,15 +393,15 @@
     text-align: center;
     padding: 2rem 1.5rem;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #e5e7eb;
     border-radius: 8px;
     transition: all 0.2s ease;
 }
 
 .tech-badge:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px -5px rgba(51, 65, 85, 0.1);
-    border-color: #1e3a8a;
+    box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.1);
+    border-color: #10b981;
 }
 
 .tech-icon {
@@ -415,13 +418,13 @@
 .tech-badge h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1e293b;
+    color: #111827;
     margin: 0 0 0.5rem 0;
 }
 
 .tech-badge p {
     font-size: 0.9rem;
-    color: #64748b;
+    color: #6b7280;
     margin: 0;
 }
 
@@ -434,7 +437,7 @@
 .process h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin: 0 0 3rem 0;
 }
@@ -455,7 +458,7 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: #1e3a8a;
+    background: #059669;
     color: #ffffff;
     border-radius: 50%;
     margin: 0 auto 1.5rem auto;
@@ -466,13 +469,13 @@
 .process-step h3 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1e293b;
+    color: #111827;
     margin: 0 0 0.75rem 0;
 }
 
 .process-step p {
     font-size: 0.9rem;
-    color: #64748b;
+    color: #6b7280;
     line-height: 1.5;
     margin: 0;
 }
@@ -480,14 +483,14 @@
 /* QUALITY & ACCOUNTABILITY */
 .quality {
     padding: 5rem 0;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
 }
 
 .quality h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin: 0 0 3rem 0;
 }
@@ -499,7 +502,7 @@
 }
 
 .quality-item h3 {
-    color: #1e3a8a;
+    color: #059669;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -507,7 +510,7 @@
 
 .quality-item p {
     font-size: 1rem;
-    color: #475569;
+    color: #4b5563;
     line-height: 1.6;
 }
 
@@ -521,7 +524,7 @@
 .commitment h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin: 0 0 3rem 0;
 }
@@ -535,7 +538,7 @@
 .commitment-column h3 {
     font-size: 1rem;
     font-weight: 600;
-    color: #1e293b;
+    color: #111827;
     margin-bottom: 1rem;
 }
 
@@ -546,15 +549,15 @@
 
 .commitment-column li {
     font-size: 0.95rem;
-    color: #475569;
+    color: #4b5563;
     padding: 0.5rem 0;
     position: relative;
     padding-left: 1.25rem;
 }
 
 .commitment-column li::before {
-    content: "→";
-    color: #1e3a8a;
+    content: "✓";
+    color: #059669;
     position: absolute;
     left: 0;
 }
@@ -562,14 +565,14 @@
 /* REGULATORY & TECHNICAL EXPERTISE */
 .expertise {
     padding: 5rem 0;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
 }
 
 .expertise h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-align: center;
     margin-bottom: 3rem;
 }
@@ -583,11 +586,11 @@
 .expertise-column h3 {
     font-size: 1rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #111827;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 1.5rem;
-    border-left: 4px solid #1e3a8a;
+    border-left: 4px solid #059669;
     padding-left: 1rem;
 }
 
@@ -603,16 +606,16 @@
     background: #ffffff;
     padding: 0.75rem 1rem;
     border-radius: 4px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #e5e7eb;
     font-size: 0.9rem;
-    color: #334155;
+    color: #374151;
     font-weight: 500;
 }
 
 /* CTA SECTION */
 .cta {
     padding: 6rem 0;
-    background: #1e293b;
+    background: #064e3b;
     color: #ffffff;
     text-align: center;
 }
@@ -639,12 +642,12 @@
 }
 
 .cta-button.primary {
-    background: #1e3a8a;
+    background: #10b981;
     color: #ffffff;
 }
 
 .cta-button.primary:hover {
-    background: #1e40af;
+    background: #059669;
 }
 
 .cta-button.secondary {

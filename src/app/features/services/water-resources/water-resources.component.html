@@ -1,94 +1,342 @@
-<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-surface">
-  <!-- Abstract Background -->
-  <div class="absolute inset-0 z-0">
-    <img src="assets/rce_hero_background_concept_1768626300633.png" alt=""
-      class="w-full h-full object-cover opacity-50 grayscale">
-    <div class="absolute inset-0 bg-white/40"></div>
+<!-- HERO -->
+<section class="hero water-theme">
+  <div class="hero-bg">
+    <img src="assets/generated-images/water_resources.png"
+      alt="Advanced water resource engineering and hydraulic modeling" class="bg-image">
+    <div class="hero-overlay"></div>
+    <div class="technical-overlay"></div>
   </div>
-
-  <div class="relative z-10 text-center max-w-4xl px-6">
-    <h1 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4 tracking-tight">
-      Water Resources Engineering
-    </h1>
-    <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-light">
-      Comprehensive hydrologic and hydraulic solutions for complex drainage challenges.
+  <div class="hero-content">
+    <h1>Water Resources Engineering</h1>
+    <p class="subtitle">
+      Precise hydraulic modeling for an uncertain climate. We navigate the **Atlas 14** rainfall shift
+      and high-stakes regulatory landscapes to secure your project's future.
     </p>
   </div>
 </section>
 
-<!-- Contextual Image (One Image Rule) -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20 mb-20">
-  <div
-    class="w-full bg-slate-200 h-[500px] rounded-sm shadow-sm flex items-center justify-center overflow-hidden border border-gray-100">
-    <!-- Placeholder for Contextual Image: Drainage Channel -->
-    <div class="text-center">
-      <p class="text-slate-400 font-medium tracking-widest text-sm uppercase mb-2">Contextual Image</p>
-      <p class="text-slate-500 font-light">Drainage Channel / Detention Basin</p>
+<!-- STATS CALLOUT -->
+<section class="stats" #statsSection>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item animate-on-scroll">
+        <span class="text-2xl font-bold text-[#0891B2] mr-1">$</span>
+        <span class="stat-number" [attr.data-target]="154">0</span><span class="stat-number">B</span>
+        <span class="stat-label">TX Water Investment Needed</span>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number" [attr.data-target]="500">0</span><span class="stat-number">+</span>
+        <span class="stat-label">Stormwater Projects</span>
+      </div>
+      <div class="stat-item animate-on-scroll">
+        <span class="stat-number" [attr.data-target]="100">0</span><span class="stat-number">%</span>
+        <span class="stat-label">TCEQ Permit Success</span>
+      </div>
     </div>
-    <!-- <img src="assets/context_water_drainage.png" class="w-full h-full object-cover"> -->
   </div>
 </section>
 
-<section class="max-w-4xl mx-auto px-6 mb-24">
-  <div class="grid md:grid-cols-2 gap-16">
-
-    <!-- Capabilities -->
-    <div>
-      <h2 class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-[#1E3A8A] pl-4">Core Capabilities</h2>
-      <ul class="space-y-4">
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Hydrologic & Hydraulic (H&H) Modeling</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">FEMA Floodplain Mapping & CLOMR/LOMR</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Stormwater Management Plans</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Drainage Master Planning</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3 text-[#1E3A8A] font-bold">•</span>
-          <span class="text-slate-700">Erosion Control & Water Quality</span>
-        </li>
-      </ul>
+<!-- CHALLENGES WE SOLVE -->
+<section class="challenges">
+  <div class="container">
+    <h2>Challenges We Solve</h2>
+    <div class="challenges-grid">
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">🌊</div>
+        <h3>TCEQ MS4 Permitting (2026 Cycle)</h3>
+        <p>
+          Stormwater permits renew Aug 2026. Our specialists navigate shifting water quality
+          standards and ensure your development maintains strict compliance.
+        </p>
+      </div>
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">💰</div>
+        <h3>Accessing the $20B Texas Water Fund</h3>
+        <p>
+          Positioning large-scale infrastructure projects to qualify for state funding
+          through strategic hydrologic planning and agency alignment.
+        </p>
+      </div>
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">📉</div>
+        <h3>Atlas 14 Rainfall Impacts</h3>
+        <p>
+          New standards have redefined traditional floodplains. We re-verify
+          pre-2019 designs to ensure your asset remains within modern compliance and insurance limits.
+        </p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Regulatory Expertise -->
-    <div>
-      <h2 class="text-2xl font-bold text-slate-800 mb-8 border-l-4 border-slate-300 pl-4">Regulatory Expertise</h2>
-      <p class="text-slate-600 mb-6">Trusted coordination with local and federal agencies to ensure efficient permitting
-        and compliance.</p>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">FEMA
-        </div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">TxDOT
-        </div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">U.S. Army
-          Corps</div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">City of
-          San Antonio</div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">Bexar
-          County</div>
-        <div class="bg-gray-50 p-4 border border-gray-100 text-center font-semibold text-slate-700 rounded-sm">SAWS
-        </div>
+<!-- CONTEXTUAL IMAGE -->
+<section class="context-image-section">
+  <div class="context-image-container">
+    <div class="service-context-image">
+      <img src="assets/generated-images/water_future.png"
+        alt="Precision 2D hydraulic flow analysis and flood risk mapping" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- THE RCE ADVANTAGE -->
+<section class="advantage">
+  <div class="container">
+    <h2>The RCE Advantage</h2>
+    <div class="advantage-grid">
+      <div class="advantage-item water-border">
+        <span class="advantage-label">Quantifiable Risk Reduction</span>
+        <p>Advanced SRH-2D modeling that translates complex hydraulics into clear liability boundaries for owners and
+          insurers.</p>
+      </div>
+      <div class="advantage-item water-border">
+        <span class="advantage-label">Fast-Track Regulatory Pipeline</span>
+        <p>Decades of institutional credibility with FEMA and TCEQ to compress permit timelines and secure project
+          viability.</p>
+      </div>
+      <div class="advantage-item water-border">
+        <span class="advantage-label">Asset Resilience Architecture</span>
+        <p>Infrastructure designed for the "Long Texas View"—maximizing asset value through drought-to-flood
+          adaptability.</p>
+      </div>
+      <div class="advantage-item water-border">
+        <span class="advantage-label">Executive Decision Data</span>
+        <p>BIM-integrated deliverables that simplify hydrologic complexity into actionable data for board-level
+          stakeholders.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT TYPES WE SERVE -->
+<section class="project-types">
+  <div class="container">
+    <h2>Project Types We Serve</h2>
+    <div class="types-grid">
+      <div class="type-item">
+        <span class="type-icon">🏘️</span>
+        <span>Residential Platting</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">🏢</span>
+        <span>Commercial Site Plans</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">🏙️</span>
+        <span>Municipal Infrastructure</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">🌉</span>
+        <span>Bridge & Culvert Crossings</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">🚜</span>
+        <span>Regional Detention Facilities</span>
+      </div>
+      <div class="type-item">
+        <span class="type-icon">📐</span>
+        <span>Floodplain Reclamation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE CAPABILITIES -->
+<section class="capabilities">
+  <div class="container">
+    <h2>Core Capabilities</h2>
+    <div class="capabilities-grid">
+      <div class="capability-column">
+        <h3>Hydraulic & Hydrologic (H&H)</h3>
+        <ul>
+          <li>Steady/Unsteady Flow HEC-RAS 6.x</li>
+          <li>SRH-2D & SMS Modeling</li>
+          <li>EPA SWMM Network Analysis</li>
+          <li>Dam Breach & Inundation Mapping</li>
+        </ul>
+      </div>
+      <div class="capability-column">
+        <h3>Drainage Engineering</h3>
+        <ul>
+          <li>Storm Sewer System Inventory & Design</li>
+          <li>Regional Detention & Nutrient Removal</li>
+          <li>Low Impact Development (LID) & BMPs</li>
+          <li>Erosion Control & Channel Stabilization</li>
+        </ul>
+      </div>
+      <div class="capability-column">
+        <h3>Regulatory Permitting</h3>
+        <ul>
+          <li>FEMA LOMR/CLOMR Preparation</li>
+          <li>TCEQ SWPPP & WPAP Compliance</li>
+          <li>MS4 Implementation & Audits</li>
+          <li>Conditional Letters of Map Amendment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY SHOWCASE -->
+<section class="technology">
+  <div class="container">
+    <h2>Technology-Driven Precision</h2>
+    <p class="tech-intro">Leading-edge modeling tools for flood risk mitigation and regulatory speed</p>
+    <div class="tech-grid">
+      <div class="tech-badge animate-on-scroll">
+        <span class="tech-icon">🌊</span>
+        <h4>HEC-RAS 2D</h4>
+        <p>River Analysis System</p>
+      </div>
+      <div class="tech-badge animate-on-scroll">
+        <span class="tech-icon">💧</span>
+        <h4>SWMM 5.2</h4>
+        <p>Stormwater Management</p>
+      </div>
+      <div class="tech-badge animate-on-scroll">
+        <span class="tech-icon">🗺️</span>
+        <h4>ArcGIS Pro</h4>
+        <p>Geospatial Synthesis</p>
+      </div>
+      <div class="tech-badge animate-on-scroll">
+        <span class="tech-icon">📐</span>
+        <h4>InfoDrainage</h4>
+        <p>BIM Integrated Stormwater</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS TIMELINE -->
+<section class="process">
+  <div class="container">
+    <h2>Our Proven Process</h2>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h3>Assessment</h3>
+        <p>Basin characterization, FEMA baseline review review, and hydraulic risk identification</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h3>Modeling</h3>
+        <p>1D/2D H&H simulations using HEC-RAS or SWMM to test future resilience</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h3>Permitting</h3>
+        <p>Strategic submittals to FEMA/TCEQ with robust technical backing for rapid approval</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h3>Operations</h3>
+        <p>Erosion monitoring, stormwater maintenance plans, and water quality verification</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY & ACCOUNTABILITY -->
+<section class="quality">
+  <div class="container">
+    <h2>Quality & Accountability</h2>
+    <div class="quality-grid">
+      <div class="quality-item">
+        <h3>Defensible Modeling Integrity</h3>
+        <p>Every hydraulic simulation undergoes a multi-layer Peer Review to ensure absolute defensibility in agency
+          audits and legal reviews.</p>
+      </div>
+      <div class="quality-item">
+        <h3>Regulatory Forecast Strategy</h3>
+        <p>We monitor agency pivots (FEMA/TCEQ) in real-time, adapting your design strategy before new rules impact your
+          project cost.</p>
+      </div>
+      <div class="quality-item">
+        <h3>Verification-Led Engineering</h3>
+        <p>Our designs are stress-tested against synthetic extremes and future-growth scenarios, identifying failure
+          points before construction.</p>
+      </div>
+      <div class="quality-item">
+        <h3>Direct Principal Accountability</h3>
+        <p>Executive clients deal directly with the Principal-in-Charge, ensuring that the firm's full reputation stands
+          behind every seal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR COMMITMENT -->
+<section class="commitment">
+  <div class="container">
+    <h2>Our Commitment to You</h2>
+    <div class="commitment-grid">
+      <div class="commitment-column">
+        <h3>Responsive Communication</h3>
+        <ul>
+          <li>24-hour response to all inquiries</li>
+          <li>Weekly project status updates</li>
+          <li>Direct engineer phone/email access</li>
+          <li>No account manager layers</li>
+        </ul>
+      </div>
+      <div class="commitment-column">
+        <h3>Transparent Process</h3>
+        <ul>
+          <li>Clear timeline expectations</li>
+          <li>Budget tracking and alerts</li>
+          <li>Proactive issue identification</li>
+          <li>Regular progress reporting</li>
+        </ul>
+      </div>
+      <div class="commitment-column">
+        <h3>Partnership Approach</h3>
+        <ul>
+          <li>Your vision drives our design</li>
+          <li>Collaborative problem-solving</li>
+          <li>Long-term relationship focus</li>
+          <li>Post-project support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGULATORY & TECHNICAL EXPERTISE -->
+<section class="expertise">
+  <div class="container">
+    <h2>Regulatory & Technical Expertise</h2>
+    <div class="expertise-grid">
+      <div class="expertise-column">
+        <h3>Standards & Agencies</h3>
+        <ul>
+          <li>FEMA LOMR / CLOMR / MT-2</li>
+          <li>TCEQ (WPAP, MS4, SWPPP)</li>
+          <li>LCRA & SARA Coordination</li>
+          <li>Atlas 14 Compliance Design</li>
+          <li>Edwards Aquifer Authority (EAA)</li>
+        </ul>
+      </div>
+      <div class="expertise-column">
+        <h3>Software Suite</h3>
+        <ul>
+          <li>HEC-RAS 1D/2D (6.x)</li>
+          <li>Bentley OpenFlows / Civil 3D</li>
+          <li>EPA SWMM 5.2</li>
+          <li>XPSWMM / InfoDrainage</li>
+          <li>SMS / SRH-2D</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="bg-white py-20 border-t border-gray-100 text-center">
-  <div class="max-w-2xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-slate-800 mb-6">Ready to discuss your project?</h2>
-    <button
-      class="bg-[#1E3A8A] text-white px-8 py-3 rounded-sm font-medium tracking-wide hover:bg-opacity-90 transition p-ripple shadow-sm">
-      Contact Our Water Resources Team
-    </button>
+<section class="cta">
+  <div class="container">
+    <p>Secure Your Development's Future Against Flood Risk</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="cta-button primary water-button">Request Risk Analysis</a>
+      <a routerLink="/contact" class="cta-button secondary water-secondary">Secure Regulatory Compliance</a>
+    </div>
   </div>
 </section>
