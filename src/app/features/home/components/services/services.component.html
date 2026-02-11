@@ -10,12 +10,14 @@
 
       <!-- Dynamic Service Cards -->
       <div *ngFor="let service of services" (click)="openModal(service)"
-        class="group bg-white border border-[#e6e6e6] p-8 flex flex-col items-center text-center transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg rounded-sm shadow-[0_6px_20px_rgba(0,0,0,0.04)] cursor-pointer">
-        <div class="w-32 h-32 mb-6">
+        class="group bg-white border border-[#e6e6e6] flex flex-col items-center text-center transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg rounded-sm shadow-[0_6px_20px_rgba(0,0,0,0.04)] cursor-pointer overflow-hidden">
+        <div class="w-full aspect-square bg-slate-50 mb-4 p-4 flex items-center justify-center">
           <img src="{{service.icon}}" alt="{{service.title}}" title="{{service.title}}"
             class="w-full h-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
         </div>
-        <h3 class="text-lg font-semibold text-slate-800 tracking-wide">{{ service.title }}</h3>
+        <div class="p-6 pt-0">
+          <h3 class="text-lg font-semibold text-slate-800 tracking-wide">{{ service.title }}</h3>
+        </div>
       </div>
 
     </div>
@@ -76,8 +78,9 @@
         <div class="mb-8">
           <div class="flex items-center space-x-4 mb-4">
             <div class="w-12 h-12 p-2 bg-white/5 rounded-full flex items-center justify-center">
-              <img src="{{selectedService.icon}}" class="w-full h-full object-contain brightness-0 invert"
-                alt="{{selectedService.title}} icon" title="{{selectedService.title}} icon">
+              <img [src]="selectedService.iconSubtle || selectedService.icon"
+                class="w-full h-full object-contain brightness-0 invert opacity-80"
+                alt="{{selectedService.title}} technical icon" title="{{selectedService.title}} technical icon">
             </div>
             <h2 class="text-3xl font-light text-white tracking-wide border-l-4 border-[#d5a021] pl-4">{{
               selectedService.title }}</h2>

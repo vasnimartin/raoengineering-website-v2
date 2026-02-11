@@ -20,7 +20,8 @@ export class ServicesComponent {
     {
       id: 'water-resources',
       title: 'Water Resources',
-      icon: 'assets/icon_water_resources_1768626440252.png',
+      icon: 'assets/icon_water_hill_country.png',
+      iconSubtle: 'assets/icon_water_resources_1768626440252.png',
       description: 'Comprehensive water management solutions ensuring sustainable and efficient resource utilization.',
       timeline: [
         { phase: 'Analysis', description: 'Hydrologic modeling and feasibility studies.' },
@@ -39,7 +40,8 @@ export class ServicesComponent {
     {
       id: 'land-development',
       title: 'Land Development',
-      icon: 'assets/icon_land_development_1768626452122.png',
+      icon: 'assets/icon_land_development.png',
+      iconSubtle: 'assets/icon_land_development.png',
       description: 'Transforming raw land into well-planned, functional, and sustainable communities.',
       timeline: [
         { phase: 'Planning', description: 'Site analysis and conceptual layout.' },
@@ -58,7 +60,8 @@ export class ServicesComponent {
     {
       id: 'public-infrastructure',
       title: 'Public Infrastructure',
-      icon: 'assets/icon_transportation_1768626465079.png',
+      icon: 'assets/icon_transportation_high_five.png',
+      iconSubtle: 'assets/icon_transportation_1768626465079.png',
       description: 'Designing safe and efficient transportation systems and public infrastructure to connect communities.',
       timeline: [
         { phase: 'Study', description: 'Traffic impact analysis and route planning.' },
@@ -77,7 +80,8 @@ export class ServicesComponent {
     {
       id: 'environmental',
       title: 'Environmental',
-      icon: 'assets/icon_environmental_1768626478152.png',
+      icon: 'assets/icon_environmental_aquifer.png',
+      iconSubtle: 'assets/icon_environmental_1768626478152.png',
       description: 'Protecting natural resources while enabling sustainable development.',
       timeline: [
         { phase: 'Assess', description: 'Environmental site assessments and impact studies.' },
@@ -96,7 +100,8 @@ export class ServicesComponent {
     {
       id: 'permitting',
       title: 'Permitting',
-      icon: 'assets/icon_permitting_1768626492354.png',
+      icon: 'assets/icon_permitting_approval.png',
+      iconSubtle: 'assets/icon_permitting_1768626492354.png',
       description: 'Streamlining the regulatory process to accelerate project timelines.',
       timeline: [
         { phase: 'Review', description: 'Code analysis and requirement identification.' },
