@@ -2,16 +2,16 @@
 
 .hero {
     position: relative;
-    height: 65vh;
-    min-height: 400px;
+    height: 85vh; /* Standardized height */
+    min-height: 700px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Left aligned content */
     background: #1e3a8a;
     /* Deep Navy 900 */
     color: #ffffff;
-    text-align: center;
-    padding: 0 2rem;
+    text-align: left; /* Text aligns left */
+    padding: 0 5%; /* Follow site grid */
     overflow: hidden;
 }
 
@@ -21,16 +21,28 @@
     z-index: 0;
 }
 
+/* Single Layer - Right-Aligned Split with Fade */
 .bg-image {
-    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 65%; /* Take up right side */
     height: 100%;
     object-fit: cover;
-    transform: scale(1.05);
+    object-position: center center;
+    z-index: 1;
+    /* Tone Control: Institutional Realism */
+    filter: brightness(0.9) saturate(0.85) contrast(1.1);
+    /* Blend/Fade to Left */
+    -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
+    mask-image: linear-gradient(to left, black 40%, transparent 100%);
+    opacity: 0.95;
+    transform: none;
     transition: transform 8s ease-out;
 }
 
 .hero:hover .bg-image {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 .hero-overlay {
@@ -50,13 +62,15 @@
     background-image: radial-gradient(rgba(234, 179, 8, 0.1) 1px, transparent 1px);
     /* Gold Dots */
     background-size: 30px 30px;
+    opacity: 0.95;
     pointer-events: none;
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: 900px;
+    max-width: 600px; /* Constrain text to left side */
+    margin: 0;
 }
 
 .hero h1 {

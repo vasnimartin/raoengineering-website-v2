@@ -2,16 +2,16 @@
 
 .hero {
     position: relative;
-    height: 65vh;
-    min-height: 400px;
+    height: 85vh; /* Standardized height */
+    min-height: 700px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Left aligned content */
     background: #334155;
     /* Slate 700 */
     color: #ffffff;
-    text-align: center;
-    padding: 0 2rem;
+    text-align: left; /* Text aligns left */
+    padding: 0 5%; /* Follow site grid */
     overflow: hidden;
 }
 
@@ -21,16 +21,28 @@
     z-index: 0;
 }
 
+/* Single Layer - Right-Aligned Split with Fade */
 .bg-image {
-    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 65%; /* Take up right side */
     height: 100%;
     object-fit: cover;
-    transform: scale(1.05);
+    object-position: center right;
+    z-index: 1;
+    /* Tone Control: Institutional Realism */
+    filter: brightness(0.85) saturate(0.85) contrast(1.1);
+    /* Blend/Fade to Left */
+    -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    opacity: 0.95; /* High-capacity infrastructure feel */
+    transform: scale(1.1);
     transition: transform 8s ease-out;
 }
 
 .hero:hover .bg-image {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 .hero-overlay {
@@ -55,7 +67,8 @@
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: 900px;
+    max-width: 600px; /* Constrain text to left side */
+    margin: 0;
 }
 
 .hero h1 {
@@ -189,7 +202,9 @@
 }
 
 .service-context-image {
-    aspect-ratio: 21 / 9;
+    /* aspect-ratio: 21 / 9; */
+    width: 100%;
+    height: auto;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
@@ -203,8 +218,8 @@
 
 .service-context-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    /* object-fit: cover; Removed to prevent cropping */
     transition: transform 0.5s ease;
 }
 
