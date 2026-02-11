@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-interface ProjectItem {
+interface Project {
   title: string;
-  slug: string;
   category: string;
   location: string;
-  description: string;
   image: string;
+  description: string;
+  scope: string;
+  services: string[];
+  acreage?: number;
 }
 
 @Component({
@@ -16,214 +18,229 @@ interface ProjectItem {
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <section class="hero-section">
-      <div class="hero-content">
-        <h1>Selected Project Experience</h1>
-        <p class="subtitle">
-          A comprehensive overview of our team's past contributions to commercial, 
-          residential, and public infrastructure projects across Texas.
+    <header class="page-header relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <!-- Background Image with Parallax-like effect -->
+      <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed z-0 transform scale-105" 
+           style="background-image: url('/assets/images/projects/residential_whitestone.png');">
+      </div>
+      
+      <!-- Overlay Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900/90 z-10"></div>
+      
+      <div class="header-content container relative z-20 text-center px-4">
+        <h1 class="page-title text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
+          Our <span class="text-yellow-500">Projects</span>
+        </h1>
+        <p class="page-subtitle text-xl md:text-2xl text-slate-200 mb-4 font-light max-w-3xl mx-auto drop-shadow-md">
+          Engineering Excellence Across Central Texas
+        </p>
+        <div class="h-1 w-24 bg-yellow-500 mx-auto mb-6 rounded-full"></div>
+        <p class="capability-range text-yellow-400 font-medium tracking-wide uppercase text-sm md:text-base">
+          From small-scale developments to master-planned communities spanning 7,000+ acres
         </p>
       </div>
-    </section>
+    </header>
 
-    <div class="container py-16">
-      <!-- CATEGORY FILTERS (Visual only for now) -->
-      <div class="flex flex-wrap gap-4 mb-12 justify-center">
-        <button class="filter-btn active">All Projects</button>
-        <button class="filter-btn">Commercial</button>
-        <button class="filter-btn">Residential</button>
-        <button class="filter-btn">Public Infrastructure</button>
-      </div>
+    <div class="bg-slate-50 py-16">
+      <div class="container mx-auto px-4">
+        <!-- PROJECT GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          <div *ngFor="let project of projects" class="project-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
+            
+            <!-- Project Image -->
+            <div class="project-img relative h-64 overflow-hidden bg-slate-800">
+              <div 
+                class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                [ngClass]="project.image"
+                [style.background-image]="getBackgroundImage(project.image)">
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-80"></div>
+              
+              <!-- Acreage Badge -->
+              <div *ngIf="project.acreage" class="absolute top-4 right-4 bg-yellow-500/90 backdrop-blur-sm text-slate-900 px-3 py-1.5 rounded-lg flex flex-col items-center shadow-lg">
+                <span class="text-lg font-bold leading-none">{{ project.acreage | number }}</span>
+                <span class="text-[0.65rem] uppercase font-bold tracking-wider">Acres</span>
+              </div>
+            </div>
 
-      <!-- PROJECTS GRID -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div *ngFor="let project of projects" class="project-card">
-          <a [routerLink]="['/experience', project.slug]" class="image-wrapper block">
-            <img [src]="project.image" [alt]="project.title" loading="lazy">
-          </a>
-          <div class="content pt-6">
-            <span class="category-tag">{{ project.category }}</span>
-            <h3 class="text-2xl font-semibold text-slate-800 mb-2">
-              <a [routerLink]="['/experience', project.slug]" class="hover:text-slate-600 transition-colors">
-                {{ project.title }}
-              </a>
-            </h3>
-            <p class="text-slate-500 font-medium mb-4">{{ project.location }}</p>
-            <p class="text-slate-600 leading-relaxed mb-6">
-              {{ project.description }}
-            </p>
-            <a [routerLink]="['/experience', project.slug]" class="inline-flex items-center text-slate-800 font-bold hover:text-slate-600 transition-colors">
-              View Project Detail
-              <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+            <!-- Content -->
+            <div class="p-6 flex-grow flex flex-col">
+              <div class="mb-4">
+                <span 
+                  class="text-xs font-bold uppercase tracking-widest inline-block mb-2 px-2 py-1 rounded bg-slate-100/50"
+                  [ngClass]="{
+                    'text-yellow-600 bg-yellow-50': project.category === 'Land Development',
+                    'text-cyan-600 bg-cyan-50': project.category === 'Water Resources',
+                    'text-orange-600 bg-orange-50': ['Industrial Development', 'Commercial Development', 'Transportation'].includes(project.category)
+                  }">
+                  {{ project.category }}
+                </span>
+                <h3 class="text-xl font-bold text-slate-800 mb-1 group-hover:text-yellow-600 transition-colors">
+                  {{ project.title }}
+                </h3>
+                <div class="flex items-center text-slate-500 text-sm font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  {{ project.location }}
+                </div>
+              </div>
+
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                {{ project.description }}
+              </p>
+
+              <div class="mt-auto pt-4 border-t border-slate-100">
+                <div class="bg-slate-50 rounded p-3 mb-4 text-xs text-slate-500">
+                  <strong class="text-slate-700 block mb-1">Scope:</strong>
+                  {{ project.scope }}
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                  <span *ngFor="let service of project.services" class="text-[0.65rem] font-medium px-2 py-1 bg-slate-100 text-slate-600 rounded-full border border-slate-200">
+                    {{ service }}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- REPRESENTATIVE LIST -->
-      <div class="mt-20 pt-16 border-t border-slate-200 text-center">
-        <h2 class="text-2xl font-bold text-slate-800 mb-8 uppercase tracking-widest text-sm">Full Project Registry</h2>
-        <div class="max-w-4xl mx-auto">
-          <p class="text-slate-600 leading-loose">
-            Burger King – Converse, Kenedy, and Schertz, TX • 
-            Whitestone Oaks Apartments – Cedar Park, TX • 
-            Vista Ridge Professional Suites – Cedar Park, TX • 
-            Canyon Creek Apartments – Porter, TX • 
-            Prue Road Townhouses – San Antonio, TX •
-            Multiple Texas Quick-Service Developments •
-            SAWS Utility Extensions •
-            San Antonio Metro Pad Sites
-          </p>
-        </div>
+        <!-- SITE INSPECTIONS SECTION -->
+        <section class="inspection-services rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 relative">
+          <!-- Background Pattern -->
+          <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 24px 24px;"></div>
+          
+          <div class="relative z-10 p-8 md:p-12 lg:p-16 text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">Professional <span class="text-yellow-500">Site Inspections</span> & Planning Visits</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12 text-lg">Comprehensive engineering oversight for projects of all scales, ensuring quality and compliance from ground-breaking to completion.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-6xl mx-auto text-left">
+              <!-- Service Item 1 -->
+              <div class="bg-slate-800/50 backdrop-blur border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition-colors group">
+                <div class="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">📋</div>
+                <h3 class="text-lg font-bold text-white mb-2">Pre-Construction</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Detailed site evaluations, feasibility studies, and regulatory compliance reviews.</p>
+              </div>
+
+              <!-- Service Item 2 -->
+              <div class="bg-slate-800/50 backdrop-blur border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition-colors group">
+                <div class="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">🔍</div>
+                <h3 class="text-lg font-bold text-white mb-2">Progress Inspections</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Regular monitoring to ensure construction adheres to approved plans and standards.</p>
+              </div>
+
+              <!-- Service Item 3 -->
+              <div class="bg-slate-800/50 backdrop-blur border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition-colors group">
+                <div class="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">✅</div>
+                <h3 class="text-lg font-bold text-white mb-2">Compliance Verification</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Final inspections and certification that work meets local, state, and federal regulations.</p>
+              </div>
+
+              <!-- Service Item 4 -->
+              <div class="bg-slate-800/50 backdrop-blur border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition-colors group">
+                <div class="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 origin-left">📊</div>
+                <h3 class="text-lg font-bold text-white mb-2">Detailed Reporting</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Comprehensive documentation with photos, measurements, and recommendations.</p>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 max-w-5xl mx-auto">
+              <div class="text-left">
+                <h4 class="text-yellow-500 font-bold mb-1">Texas-Wide Service Area</h4>
+                <p class="text-slate-400 text-sm">Serving developments from small commercial sites to large-scale communities.</p>
+              </div>
+              <a routerLink="/contact" class="px-8 py-3 bg-yellow-500 text-slate-900 font-bold rounded hover:bg-yellow-400 transition shadow-lg hover:shadow-yellow-500/20 whitespace-nowrap">
+                Schedule a Site Visit
+              </a>
+            </div>
+          </div>
+        </section>
+
       </div>
     </div>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="container text-center py-20">
-        <h2 class="text-3xl font-bold text-white mb-6">Partner with RCE Engineering</h2>
-        <p class="text-white/80 text-xl mb-10 max-w-2xl mx-auto">
-          Ready to discuss your next development project? 
-          Our team is here to provide the precision and expertise you need.
-        </p>
-        <a routerLink="/contact" class="px-10 py-4 bg-white text-slate-800 font-semibold rounded-sm hover:bg-slate-100 transition shadow-lg">
-          Get in Touch
-        </a>
-      </div>
-    </section>
   `,
   styles: [`
-    .hero-section {
-      height: 45vh;
-      min-height: 350px;
-      background: linear-gradient(180deg, #2d3748 0%, #1f2937 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 0 2rem;
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-      font-size: 1.25rem;
-      color: rgba(255, 255, 255, 0.82);
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-
-    .filter-btn {
-      padding: 0.5rem 1.5rem;
-      border-radius: 9999px;
-      font-weight: 500;
-      color: #64748b;
-      border: 1px solid #e2e8f0;
-      transition: all 0.2s ease;
-    }
-
-    .filter-btn:hover {
-      background: #f8fafc;
-      color: #1e293b;
-    }
-
-    .filter-btn.active {
-      background: #2d3748;
-      color: white;
-      border-color: #2d3748;
-    }
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .image-wrapper {
-      aspect-ratio: 16 / 10;
-      border-radius: 4px;
-      overflow: hidden;
-      background: #f1f5f9;
-      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    }
-
-    .image-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .project-card:hover img {
-      transform: scale(1.03);
-    }
-
-    .category-tag {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
+    :host {
       display: block;
-    }
-
-    .cta-section {
-      background: #2d3748;
     }
   `]
 })
 export class ExperiencePageComponent {
-  projects: ProjectItem[] = [
+  projects: Project[] = [
     {
-      title: 'Whitestone Oaks Apartments',
-      slug: 'whitestone-oaks-apartments',
-      category: 'Residential & Multifamily',
+      title: 'Solana Ranch Master Plan',
+      category: 'Land Development',
+      location: 'Jarrell, TX (Williamson & Bell Counties)',
+      image: 'bg-solana',
+      description: 'Master-planned community development across 7,000 acres',
+      scope: '14,000 homes, 40,000-50,000 residents, mixed-use development with schools, retail, and recreation. $1-2 billion land development investment.',
+      services: ['Land Development', 'Water Resources', 'Infrastructure Planning', 'MUD Approval', 'Environmental'],
+      acreage: 7000
+    },
+    {
+      title: 'Elgin Business Park Expansion',
+      category: 'Industrial Development',
+      location: 'Elgin, TX (Roy Rivers Road)',
+      image: 'bg-elgin',
+      description: 'Aerospace manufacturing facility and business park infrastructure',
+      scope: '50,000+ sq ft precision manufacturing facility expansion. Site development for 80-acre business park supporting aerospace and industrial tenants.',
+      services: ['Site Development', 'Public Infrastructure', 'Utilities Design', 'Industrial Engineering'],
+      acreage: 80
+    },
+    {
+      title: 'CedarView Mixed-Use Development',
+      category: 'Commercial Development',
       location: 'Cedar Park, TX',
-      description: 'Comprehensive civil site services including grading, drainage modeling, and infrastructure design for a flagship residential development.',
-      image: '/assets/water-context.jpg'
+      image: 'bg-cedarview',
+      description: 'Major retail and hospitality complex near H-E-B Center',
+      scope: '1.3M sq ft retail (Nebraska Furniture Mart), 357K sq ft Scheels megastore, Marriott Hotel, and city convention center.',
+      services: ['Public Infrastructure', 'Water/Wastewater', 'Transportation Engineering', 'Site Planning']
     },
     {
-      title: 'Water Resources & Drainage',
-      slug: 'water-resources-drainage',
-      category: 'Public Infrastructure',
-      location: 'South Texas Area',
-      description: 'Comprehensive stormwater management and drainage design for municipal and regional systems. We deliver engineered solutions that meet strict regulatory standards.',
-      image: '/assets/water-calm.png'
+      title: 'Regional Water Infrastructure',
+      category: 'Water Resources',
+      location: 'Central Texas Region',
+      image: 'bg-water',
+      description: 'Regional water system upgrades and long-term planning',
+      scope: 'Surge tank expansion (1M to 4M gallons), 54-inch pipeline installation, TWDB 2026 Regional Water Plan compliance through 2080.',
+      services: ['Water Resources', 'Infrastructure Design', 'Regional Planning', 'Environmental Compliance']
     },
     {
-      title: 'Commercial Site Grading',
-      slug: 'commercial-site-grading',
-      category: 'Commercial',
-      location: 'Multiple Locations, TX',
-      description: 'Precise grading and infrastructure preparation for professional office suites and medical facilities, ensuring optimal site utilization.',
-      image: '/assets/land-calm.png'
-    },
-    {
-      title: 'Transportation Systems',
-      slug: 'transportation-systems',
-      category: 'Public Infrastructure',
-      location: 'Central Texas',
-      description: 'Modern highway interchange and bridge infrastructure design, focused on safety, efficiency, and long-term resilience.',
-      image: '/assets/transport-calm.png'
+      title: 'I-35 Capital Express Central',
+      category: 'Transportation',
+      location: 'Austin, TX',
+      image: 'bg-i35',
+      description: 'Multi-billion dollar highway reconstruction through central Austin',
+      scope: 'Major reconstruction including I-35 bridges over Lady Bird Lake, safety improvements, congestion reduction, pedestrian and cyclist accommodations.',
+      services: ['Transportation Engineering', 'Environmental', 'Public Infrastructure', 'Permitting']
     }
   ];
+
+  getBackgroundImage(imageKey: string): string {
+    switch (imageKey) {
+      case 'bg-solana':
+        return "url('/assets/images/projects/residential_whitestone.png')";
+      case 'bg-elgin':
+        return "url('/assets/images/projects/commercial_bk.png')";
+      case 'bg-cedarview':
+        return "url('/assets/images/projects/commercial_vista.png')";
+      case 'bg-water':
+        // Premium technical grid pattern + gradient for Water Resources
+        return `
+          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212, 175, 55, 0.05) 2px, rgba(212, 175, 55, 0.05) 4px),
+          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212, 175, 55, 0.05) 2px, rgba(212, 175, 55, 0.05) 4px),
+          linear-gradient(135deg, #1a2c50 0%, #0b1c3e 100%)
+        `;
+      case 'bg-i35':
+        // Dynamic diagonal stripe pattern + gradient for Transportation
+        return `
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 120, 50, 0.1) 10px, rgba(255, 120, 50, 0.1) 20px),
+          linear-gradient(135deg, #2c1a50 0%, #1c0b3e 100%)
+        `;
+      default:
+        return 'none';
+    }
+  }
 }
