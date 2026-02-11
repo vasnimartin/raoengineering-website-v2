@@ -35,11 +35,11 @@ import { RouterModule } from '@angular/router';
             </button>
             <!-- Dropdown Menu -->
             <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 text-slate-800">
-              <a routerLink="/services/water-resources" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-900">Water Resources</a>
-              <a routerLink="/services/land-development" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-900">Land Development</a>
-              <a routerLink="/services/transportation" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-900">Transportation</a>
-              <a routerLink="/services/environmental" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-900">Environmental</a>
-              <a routerLink="/services/permitting" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-blue-900">Permitting</a>
+              <a routerLink="/services/water-resources" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Water Resources</a>
+              <a routerLink="/services/land-development" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Land Development</a>
+              <a routerLink="/services/transportation" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Transportation</a>
+              <a routerLink="/services/environmental" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Environmental</a>
+              <a routerLink="/services/permitting" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Permitting</a>
             </div>
           </div>
 

@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ServiceNavigatorComponent } from '../../../shared/components/service-navigator/service-navigator.component';
 
 @Component({
   selector: 'app-water-resources',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ServiceNavigatorComponent],
   templateUrl: './water-resources.component.html',
   styleUrl: './water-resources.component.css'
 })
