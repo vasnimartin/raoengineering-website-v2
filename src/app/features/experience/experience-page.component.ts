@@ -53,7 +53,7 @@ interface Project {
         </h1>
         
         <p class="page-subtitle text-base md:text-xl text-slate-300 mb-10 font-light max-w-2xl mx-auto leading-relaxed border-l-2 border-[#d5a021]/20 pl-6">
-          Architecting Central Texas through rigorous technical analysis, precision site execution, and complex infrastructure delivery.
+          Architecting Texas through rigorous technical analysis, precision site execution, and complex infrastructure delivery.
         </p>
 
         <!-- Executive Metrics Bar -->
@@ -75,7 +75,7 @@ interface Project {
           <div class="hidden md:block w-px h-12 bg-white/10"></div>
           
           <div class="text-center relative z-10 w-full md:w-auto">
-            <div class="text-3xl md:text-4xl font-bold text-white mb-1">Central<span class="text-[#d5a021] text-xl">TX</span></div>
+            <div class="text-3xl md:text-4xl font-bold text-white mb-1">Texas<span class="text-[#d5a021] text-xl">Wide</span></div>
             <div class="text-[10px] uppercase tracking-[0.2em] text-[#d5a021] font-bold">Deep Infrastructure</div>
           </div>
         </div>
@@ -212,7 +212,7 @@ interface Project {
 
             <div class="border-t border-white/5 pt-10 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto">
               <div class="text-left">
-                <h4 class="text-[#d5a021] font-bold mb-1 tracking-wide uppercase text-sm">Texas-Wide Service Area</h4>
+                <h4 class="text-[#d5a021] font-bold mb-1 tracking-wide uppercase text-sm">Texas Service Area</h4>
                 <p class="text-slate-400 text-xs font-light">Serving developments from small commercial sites to large-scale communities.</p>
               </div>
               <a routerLink="/contact" class="px-10 py-4 bg-[#d5a021] text-slate-900 font-bold uppercase tracking-widest text-xs rounded hover:bg-yellow-400 transition shadow-lg hover:shadow-[#d5a021]/20 whitespace-nowrap">
@@ -234,68 +234,75 @@ interface Project {
 export class ExperiencePageComponent {
   projects: Project[] = [
     {
+      title: 'Burger King',
+      category: 'Commercial Development',
+      location: 'Converse, TX',
+      image: 'bg-bk-converse',
+      description: 'Site development and engineering for new commercial retail facility.',
+      challengesSummary: 'Optimized site layout for high-volume traffic flow and efficient utility connections.',
+      scope: 'Ground-up commercial construction, site grading, and utility infrastructure.',
+      services: ['Civil Engineering', 'Site Development', 'Permitting']
+    },
+    {
+      title: 'Burger King',
+      category: 'Commercial Development',
+      location: 'Kenedy, TX',
+      image: 'bg-bk-kenedy',
+      description: 'Site engineering for commercial expansion in the Kenedy region.',
+      challengesSummary: 'Navigated local land use regulations to expedite project delivery.',
+      scope: 'Commercial site planning, drainage analysis, and utility design.',
+      services: ['Civil Engineering', 'Site Development', 'Drainage']
+    },
+    {
       title: 'Whitestone Oaks Apartments',
       category: 'Residential',
       location: 'Cedar Park, TX',
-      image: 'bg-whitestone',
-      description: 'Luxury residential community with complex limestone terrain',
-      challengesSummary: 'Mitigated complex karst geology and aquifer recharge zone regulations through specialized detention systems.',
-      scope: '320 units on 18 acres, underground detention, terraced grading strategy, and full civil permitting.',
+      image: 'bg-whitestone-oaks',
+      description: 'Luxury residential community with complex terrain management.',
+      challengesSummary: 'Mitigated complex karst geology and aquifer recharge zone regulations.',
+      scope: 'Multi-family residential development, specialized detention systems, and terraced grading.',
       services: ['Civil Engineering', 'Site Grading', 'Drainage', 'Permitting'],
-      slug: 'whitestone-oaks-apartments',
-      acreage: 18
+      slug: 'whitestone-oaks-apartments'
     },
     {
-      title: 'Solana Ranch Master Plan',
-      category: 'Land Development',
-      location: 'Jarrell, TX (Williamson & Bell Counties)',
-      image: 'bg-solana',
-      description: 'Master-planned community development across 7,000 acres',
-      challengesSummary: 'Coordinating multi-county infrastructure across 7,000 acres with long-term MUD environmental oversight.',
-      scope: '14,000 homes, 40,000-50,000 residents, mixed-use development with schools, retail, and recreation.',
-      services: ['Land Development', 'Water Resources', 'Infrastructure Planning', 'MUD Approval', 'Environmental'],
-      acreage: 7000
+      title: 'Burger King',
+      category: 'Commercial Development',
+      location: 'FM 78 Schertz, TX',
+      image: 'bg-bk-schertz',
+      description: 'Strategic commercial development along high-traffic corridor.',
+      challengesSummary: 'Complex FM highway access coordination and drainage mitigation.',
+      scope: 'Highway access planning, site civil design, and regulatory approval.',
+      services: ['Civil Engineering', 'Transportation', 'Site Development']
     },
     {
-      title: 'Elgin Business Park Expansion',
-      category: 'Industrial Development',
-      location: 'Elgin, TX (Roy Rivers Road)',
-      image: 'bg-elgin',
-      description: 'Aerospace manufacturing facility and business park infrastructure',
-      challengesSummary: 'Industrial load analysis and utility scaling for rapid aerospace sector deployment.',
-      scope: '50,000+ sq ft precision manufacturing facility expansion. Site development for 80-acre business park.',
-      services: ['Site Development', 'Public Infrastructure', 'Utilities Design', 'Industrial Engineering'],
-      acreage: 80
-    },
-    {
-      title: 'CedarView Mixed-Use Development',
+      title: 'Vista Ridge Professional Suites',
       category: 'Commercial Development',
       location: 'Cedar Park, TX',
-      image: 'bg-cedarview',
-      description: 'Major retail and hospitality complex near H-E-B Center',
-      challengesSummary: 'High-traffic transportation modeling and complex multi-tenant utility coordination.',
-      scope: '1.3M sq ft retail, 357K sq ft Scheels megastore, Marriott Hotel, and city convention center.',
-      services: ['Public Infrastructure', 'Water/Wastewater', 'Transportation Engineering', 'Site Planning']
+      image: 'bg-vista-ridge',
+      description: 'Professional medical and corporate office complex.',
+      challengesSummary: 'Integrated professional office requirements with sensitive environmental standards.',
+      scope: 'Office shell site development, detention ponds, and ADA-compliant access.',
+      services: ['Civil Engineering', 'Site Planning', 'Permitting']
     },
     {
-      title: 'Regional Water Infrastructure',
-      category: 'Water Resources',
-      location: 'Central Texas Region',
-      image: 'bg-water',
-      description: 'Regional water system upgrades and long-term planning',
-      challengesSummary: 'TWDB compliance and surge capacity expansion for multi-decade population growth.',
-      scope: 'Surge tank expansion (1M to 4M gallons), 54-inch pipeline installation, TWDB 2026 Regional Water Plan.',
-      services: ['Water Resources', 'Infrastructure Design', 'Regional Planning', 'Environmental Compliance']
+      title: 'Canyon Creek Apartments',
+      category: 'Residential',
+      location: 'Porter, TX',
+      image: 'bg-canyon-creek',
+      description: 'High-density multi-family housing development.',
+      challengesSummary: 'Large-scale drainage management and detention basin optimization.',
+      scope: 'Residential site engineering, utility main extensions, and site grading.',
+      services: ['Civil Engineering', 'Water Resources', 'Residential']
     },
     {
-      title: 'I-35 Capital Express Central',
-      category: 'Transportation',
-      location: 'Austin, TX',
-      image: 'bg-i35',
-      description: 'Multi-billion dollar highway reconstruction through central Austin',
-      challengesSummary: 'Major environmental mitigation for Lady Bird Lake bridges and urban corridor safety.',
-      scope: 'Major reconstruction including I-35 bridges, safety improvements, and pedestrian accommodations.',
-      services: ['Transportation Engineering', 'Environmental', 'Public Infrastructure', 'Permitting']
+      title: 'Prue Road Townhouses',
+      category: 'Residential',
+      location: 'San Antonio, TX',
+      image: 'bg-prue-road',
+      description: 'Modern urban residential townhouse development.',
+      challengesSummary: 'Maximized site density within urban infill constraints while maintaining green space.',
+      scope: 'Infill residential development, private street design, and utility coordination.',
+      services: ['Civil Engineering', 'Site Development', 'Urban Engineering']
     }
   ];
 
@@ -304,19 +311,22 @@ export class ExperiencePageComponent {
   }
 
   getBackgroundImage(imageKey: string): string {
+    const assetsPath = '/assets/projects/';
     switch (imageKey) {
-      case 'bg-whitestone':
-        return "url('/assets/images/projects/residential_whitestone.png')";
-      case 'bg-solana':
-        return "url('/assets/images/projects/residential_whitestone.png')";
-      case 'bg-elgin':
-        return "url('/assets/images/projects/commercial_bk.png')";
-      case 'bg-cedarview':
-        return "url('/assets/images/projects/commercial_vista.png')";
-      case 'bg-water':
-        return "url('/assets/water-calm.png')";
-      case 'bg-i35':
-        return "url('/assets/transport-calm.png')";
+      case 'bg-bk-converse':
+        return `url('${assetsPath}burger King, Converse, TX.png')`;
+      case 'bg-bk-kenedy':
+        return `url('${assetsPath}Burger King, Kenedy, TX.png')`;
+      case 'bg-whitestone-oaks':
+        return `url('${assetsPath}Whitestone Oaks Apartments, Cedar Park , TX.jpg')`;
+      case 'bg-bk-schertz':
+        return `url('${assetsPath}Burger King, FM 78 Schertz, TX.png')`;
+      case 'bg-vista-ridge':
+        return `url('${assetsPath}Vista Ridge Professional Suites, Cedar Park, TX.jpg')`;
+      case 'bg-canyon-creek':
+        return `url('${assetsPath}Canyon Creek Apartments, Porter, TX.png')`;
+      case 'bg-prue-road':
+        return `url('${assetsPath}Prue Road Townhouses, San Antonio, TX.jpg')`;
       default:
         return 'none';
     }

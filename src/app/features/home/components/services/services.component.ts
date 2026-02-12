@@ -15,26 +15,6 @@ export class ServicesComponent {
 
   services: Service[] = [
     {
-      id: 'water-resources',
-      title: 'Water Resources',
-      icon: 'assets/water-hero-v2.png',
-      iconSubtle: 'assets/icon_water_hill_country.png',
-      description: 'Comprehensive water management solutions ensuring sustainable and efficient resource utilization.',
-      timeline: [
-        { phase: 'Analysis', description: 'Hydrologic modeling and feasibility studies.' },
-        { phase: 'Design', description: 'Stormwater management and drainage systems.' },
-        { phase: 'Permitting', description: 'Regulatory compliance and agency approvals.' },
-        { phase: 'Construction', description: 'Implementation oversight and quality assurance.' }
-      ],
-      solutions: ['Stormwater Management', 'Floodplain Analysis', 'Drainage Design', 'Water Quality'],
-      strategies: ['Sustainable Design', 'Regulatory Compliance', 'Cost-Effective Solutions'],
-      valueProps: [
-        { label: 'Efficiency', value: '+30%' },
-        { label: 'Compliance', value: '100%' },
-        { label: 'ROI', value: 'High' }
-      ]
-    },
-    {
       id: 'land-development',
       title: 'Land Development',
       icon: 'assets/land-development-aerial.png',
@@ -52,6 +32,26 @@ export class ServicesComponent {
         { label: 'Time Saved', value: '20%' },
         { label: 'Plot Use', value: 'Max' },
         { label: 'Value', value: 'High' }
+      ]
+    },
+    {
+      id: 'water-resources',
+      title: 'Water Resources',
+      icon: 'assets/water-hero-v2.png',
+      iconSubtle: 'assets/icon_water_hill_country.png',
+      description: 'Comprehensive water management solutions ensuring sustainable and efficient resource utilization.',
+      timeline: [
+        { phase: 'Analysis', description: 'Hydrologic modeling and feasibility studies.' },
+        { phase: 'Design', description: 'Stormwater management and drainage systems.' },
+        { phase: 'Permitting', description: 'Regulatory compliance and agency approvals.' },
+        { phase: 'Construction', description: 'Implementation oversight and quality assurance.' }
+      ],
+      solutions: ['Stormwater Management', 'Floodplain Analysis', 'Drainage Design', 'Water Quality'],
+      strategies: ['Sustainable Design', 'Regulatory Compliance', 'Cost-Effective Solutions'],
+      valueProps: [
+        { label: 'Efficiency', value: '+30%' },
+        { label: 'Compliance', value: '100%' },
+        { label: 'ROI', value: 'High' }
       ]
     },
     {
