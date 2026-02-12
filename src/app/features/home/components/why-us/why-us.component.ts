@@ -23,9 +23,10 @@ import { CommonModule } from '@angular/common';
 
         <div class="overflow-x-auto pb-8 -mx-4 px-4 no-scrollbar">
           <div class="flex flex-nowrap gap-6 min-w-max md:min-w-0 md:justify-center lg:justify-start">
-            <div *ngFor="let item of reasons" class="w-[85vw] md:w-[350px] bg-white border border-slate-200 p-8 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col shrink-0">
-              <div class="w-14 h-14 mb-6 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-[#d5a021]/10 transition-colors shrink-0">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-slate-700 group-hover:text-[#d5a021] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" [innerHTML]="item.icon">
+            <div *ngFor="let item of reasons" class="w-[85vw] md:w-[350px] bg-white border border-slate-200 p-8 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col shrink-0 group">
+              <div class="w-14 h-14 mb-6 bg-gradient-to-br from-[#d5a021]/10 to-[#d5a021]/5 rounded-full flex items-center justify-center group-hover:from-[#d5a021]/20 group-hover:to-[#d5a021]/10 transition-all duration-300 shrink-0">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#d5a021] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path [attr.d]="item.icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
                 </svg>
               </div>
               
@@ -70,7 +71,7 @@ export class WhyUsComponent {
     {
       title: 'We Move Projects from Concept to Construction — Efficiently.',
       description: 'Land development is not just design — it’s entitlement navigation, risk management, and execution. We understand the regulatory landscape in Texas and structure every project to move through review agencies with clarity and purpose.',
-      icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>'
+      icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'
     },
     {
       title: 'We Design With Approval in Mind',
@@ -82,7 +83,7 @@ export class WhyUsComponent {
         'Permit-ready construction documents',
         'Technical narratives that withstand scrutiny'
       ],
-      icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>'
+      icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
     },
     {
       title: 'Strategic Problem Solvers',
@@ -93,7 +94,7 @@ export class WhyUsComponent {
         'Schedule objectives',
         'Long-term asset value'
       ],
-      icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>'
+      icon: 'M13 10V3L4 14h7v7l9-11h-7z'
     },
     {
       title: 'Deep Knowledge of Texas Jurisdictions',
@@ -103,12 +104,12 @@ export class WhyUsComponent {
         'Cleaner submittals',
         'Fewer surprises'
       ],
-      icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>'
+      icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
     },
     {
       title: 'Business-Minded Engineering',
       description: 'We think like developers because we work alongside them. Engineering decisions impact ROI, construction cost, and market timing. We design accordingly.',
-      icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>'
+      icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
     },
     {
       title: 'Responsive & Accountable',
@@ -119,12 +120,12 @@ export class WhyUsComponent {
         'Proactive coordination',
         'No ambiguity'
       ],
-      icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>'
+      icon: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z'
     },
     {
       title: 'Built for Growth',
       description: 'Whether it’s a single commercial pad or a multi-phase development, we scale with your vision and deliver with discipline.',
-      icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>'
+      icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'
     }
   ];
 }

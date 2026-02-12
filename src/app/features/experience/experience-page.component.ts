@@ -43,7 +43,7 @@ interface Project {
       <div class="header-content container relative z-30 text-center px-4 max-w-5xl">
         <div class="inline-flex items-center gap-3 mb-6 animate-fade-in">
           <span class="h-[1px] w-8 bg-[#d5a021]"></span>
-          <span class="text-[#d5a021] font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs">Institutional Expertise</span>
+          <span class="text-[#d5a021] font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs">Proven Project Delivery</span>
           <span class="h-[1px] w-8 bg-[#d5a021]"></span>
         </div>
         

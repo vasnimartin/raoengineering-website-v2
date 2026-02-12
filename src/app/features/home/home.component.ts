@@ -10,7 +10,7 @@ import { WhyUsComponent } from './components/why-us/why-us.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroComponent, ServicesComponent, ExperienceComponent, TestimonialComponent, CtaComponent, WhyUsComponent],
+  imports: [HeroComponent, ServicesComponent, TestimonialComponent, CtaComponent, WhyUsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

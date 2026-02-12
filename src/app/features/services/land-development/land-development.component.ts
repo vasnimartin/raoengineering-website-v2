@@ -8,7 +8,7 @@ import { ServiceNavigatorComponent } from '../../../shared/components/service-na
   standalone: true,
   imports: [CommonModule, RouterModule, ServiceNavigatorComponent],
   templateUrl: './land-development.component.html',
-  styleUrl: './land-development.component.css'
+  styleUrls: ['./land-development.component.css', './land-development-icons.css']
 })
 export class LandDevelopmentComponent implements AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
