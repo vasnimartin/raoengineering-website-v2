@@ -8,237 +8,178 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, RouterModule, FormsModule],
   template: `
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Contact Us</h1>
-        <p class="subtitle">
-          Get in touch with our team to discuss your project requirements.
+    <!-- HERO: The Physical Reality (Mobilization Perspective) -->
+    <header class="page-header relative h-[65vh] min-h-[550px] flex items-center justify-center overflow-hidden bg-slate-900">
+      <!-- Layer 1: The High-Impact Site Reality -->
+      <div class="absolute inset-0 z-0">
+        <img src="assets/images/brand/contact_hero_mobilization.png" 
+          alt="Texas Infrastructure Mobilization" 
+          class="w-full h-full object-cover brightness-[0.7] contrast-[1.1]">
+      </div>
+
+      <!-- Layer 2: Natural Texas Haze (Atmospheric Overlay) -->
+      <div class="absolute inset-0 z-10 bg-gradient-to-b from-slate-900/40 via-transparent to-white/90"></div>
+      <div class="absolute inset-0 z-10 bg-gradient-to-r from-slate-900/60 via-transparent to-slate-900/60"></div>
+      
+      <!-- Layer 3: Subtle Topographic Texture (Relatable Landscape) -->
+      <div class="absolute inset-0 z-20 opacity-[0.05] pointer-events-none mix-blend-multiply" 
+           style="background-image: url('assets/images/brand/rce_topographic_texture_1768626380325.png'); background-size: cover;"></div>
+
+      <div class="header-content container relative z-30 text-center px-4 max-w-4xl">
+        <div class="inline-flex items-center gap-3 mb-6 animate-fade-in group">
+          <span class="h-[1px] w-8 bg-[#d5a021] group-hover:w-12 transition-all duration-500"></span>
+          <span class="text-white font-bold tracking-[0.5em] uppercase text-[10px] md:text-xs drop-shadow-lg">Strategic Mobilization</span>
+          <span class="h-[1px] w-8 bg-[#d5a021] group-hover:w-12 transition-all duration-500"></span>
+        </div>
+        
+        <h1 class="page-title text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.1] drop-shadow-2xl">
+          Partnership <span class="text-[#d5a021]">Initiated</span>
+        </h1>
+        
+        <p class="page-subtitle text-base md:text-xl text-white mb-10 font-medium max-w-2xl mx-auto leading-relaxed border-l-4 border-[#d5a021] pl-6 drop-shadow-md">
+          From site-mobilization to final delivery. Rao Engineering provides the on-the-ground technical leadership required for Texas-scale development.
         </p>
       </div>
-    </section>
+    </header>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section">
-      <div class="container">
-        <div class="contact-grid">
-          <!-- FORM -->
-          <div class="form-column">
-            <h2>Send Us a Message</h2>
-            <form class="contact-form" (ngSubmit)="onSubmit()">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" [(ngModel)]="formData.name" required>
+    <div class="bg-white py-24 relative">
+      <!-- Natural Background Texture -->
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style="background-image: url('assets/images/brand/rce_topographic_texture_1768626380325.png'); background-size: 800px;"></div>
+
+      <div class="container mx-auto px-4 max-w-7xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          <!-- LEFT: The Project Mobilization Form -->
+          <div class="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100">
+            <h2 class="text-3xl font-bold text-slate-900 mb-2">Project Partnership Inquiry</h2>
+            <p class="text-slate-500 mb- aggregation-8 font-light italic">Secure immediate technical oversight for your next development phase.</p>
+            
+            <form (ngSubmit)="onSubmit()" class="space-y-10 mt-12">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="form-group flex flex-col gap-3">
+                  <label class="text-[10px] uppercase font-black tracking-[0.2em] text-[#d5a021]">Principal Liaison</label>
+                  <input type="text" placeholder="Full Name" name="name" [(ngModel)]="formData.name" required
+                    class="bg-transparent border-b-2 border-slate-200 py-3 focus:border-[#d5a021] outline-none transition-all text-slate-800 placeholder:text-slate-300 text-lg">
+                </div>
+                <div class="form-group flex flex-col gap-3">
+                  <label class="text-[10px] uppercase font-black tracking-[0.2em] text-[#d5a021]">Decision-Maker Email</label>
+                  <input type="email" placeholder="email@company.com" name="email" [(ngModel)]="formData.email" required
+                    class="bg-transparent border-b-2 border-slate-200 py-3 focus:border-[#d5a021] outline-none transition-all text-slate-800 placeholder:text-slate-300 text-lg">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" [(ngModel)]="formData.email" required>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="form-group flex flex-col gap-3">
+                  <label class="text-[10px] uppercase font-black tracking-[0.2em] text-[#d5a021]">Inquiry Focus</label>
+                  <select name="segment" [(ngModel)]="formData.segment"
+                    class="bg-transparent border-b-2 border-slate-200 py-3 focus:border-[#d5a021] outline-none transition-all text-slate-800 text-lg cursor-pointer">
+                    <option value="strategic">Strategic Land Development</option>
+                    <option value="regulatory">Regulatory/Permitting Ethics</option>
+                    <option value="infrastructure">Public Infrastructure Delivery</option>
+                    <option value="onsite">On-Site Technical Review</option>
+                  </select>
+                </div>
+                <div class="form-group flex flex-col gap-3">
+                  <label class="text-[10px] uppercase font-black tracking-[0.2em] text-[#d5a021]">Project Scope (Acreage/Units)</label>
+                  <input type="text" placeholder="e.g. 150 Acres / Gateway Project" name="scale" [(ngModel)]="formData.scale"
+                    class="bg-transparent border-b-2 border-slate-200 py-3 focus:border-[#d5a021] outline-none transition-all text-slate-800 placeholder:text-slate-300 text-lg">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="phone">Phone (Optional)</label>
-                <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone">
+
+              <div class="form-group flex flex-col gap-3">
+                <label class="text-[10px] uppercase font-black tracking-[0.2em] text-[#d5a021]">Initial Technical Requirements</label>
+                <textarea rows="4" placeholder="Briefly outline your mobilization needs or regulatory challenges..." name="message" [(ngModel)]="formData.message" required
+                  class="bg-transparent border-b-2 border-slate-200 py-3 focus:border-[#d5a021] outline-none transition-all text-slate-800 placeholder:text-slate-300 resize-none text-lg"></textarea>
               </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" [(ngModel)]="formData.message" required></textarea>
+
+              <div class="flex flex-col md:flex-row items-center gap-6 pt-6">
+                <button type="submit" 
+                  class="w-full md:w-auto bg-slate-900 text-white font-bold uppercase tracking-widest text-[11px] px-12 py-5 rounded-lg hover:bg-[#d5a021] hover:text-slate-900 transition-all shadow-2xl shadow-slate-900/20 active:scale-95">
+                  Commence Partnership
+                </button>
+                <div class="flex items-center gap-2">
+                  <span class="h-10 w-px bg-slate-200 hidden md:block"></span>
+                  <p class="text-[9px] uppercase tracking-widest text-slate-400 font-bold leading-tight max-w-[180px]">
+                    Direct Liaison with Senior Engineering Principals guaranteed for all strategic inquiries.
+                  </p>
+                </div>
               </div>
-              <button type="submit" class="submit-button">Send Message</button>
             </form>
           </div>
 
-          <!-- INFO -->
-          <div class="info-column">
-            <h2>Office Location</h2>
-            <div class="info-block">
-              <h3>Address</h3>
-              <p>
-                Rao's Consulting Engineers<br>
-                San Antonio, Texas
-              </p>
+          <!-- RIGHT: Field Mobilization Assets -->
+          <div class="lg:col-span-5 space-y-16 pl-0 lg:pl-10">
+            <div>
+              <span class="text-[#d5a021] font-black tracking-[0.3em] uppercase text-[10px] mb-4 block">Field Operations</span>
+              <h3 class="text-4xl font-bold text-slate-900 mb-8 leading-tight">On-The-Ground <br>Technical Presence</h3>
+              
+              <div class="space-y-10">
+                <div class="flex gap-8 group">
+                  <div class="h-14 w-14 shrink-0 bg-slate-50 rounded-2xl flex items-center justify-center text-[#d5a021] border border-slate-100 group-hover:bg-[#d5a021] group-hover:text-white transition-all duration-300 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-2">San Antonio HQ</h4>
+                    <p class="text-slate-500 font-light text-lg leading-relaxed">Centrally located for rapid <br>Texas-wide field mobilization.</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-8 group">
+                  <div class="h-14 w-14 shrink-0 bg-slate-50 rounded-2xl flex items-center justify-center text-[#d5a021] border border-slate-100 group-hover:bg-[#d5a021] group-hover:text-white transition-all duration-300 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-2">Direct Field Link</h4>
+                    <p class="text-slate-500 font-light text-xl">(210) 555-0100</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-8 group">
+                  <div class="h-14 w-14 shrink-0 bg-slate-50 rounded-2xl flex items-center justify-center text-[#d5a021] border border-slate-100 group-hover:bg-[#d5a021] group-hover:text-white transition-all duration-300 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-2">Dossier Access</h4>
+                    <p class="text-slate-500 font-light text-lg">info&#64;raoengineering.com</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="info-block">
-              <h3>Phone</h3>
-              <p>(210) 555-0100</p>
-            </div>
-            <div class="info-block">
-              <h3>Email</h3>
-              <p>info&#64;raoengineering.com</p>
-            </div>
-            <div class="info-block">
-              <h3>Office Hours</h3>
-              <p>
-                Monday – Friday<br>
-                8:00 AM – 5:00 PM
-              </p>
+
+            <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 relative overflow-hidden group">
+              <div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-700">
+                <img src="assets/images/brand/rce_hero_background_concept_1768626300633.png" class="w-40 h-auto">
+              </div>
+              <h4 class="text-slate-900 font-black text-[10px] uppercase tracking-[0.3em] mb-4">Availability Window</h4>
+              <p class="text-2xl font-bold text-slate-900 mb-1 leading-none">Mon – Fri</p>
+              <p class="text-slate-500 font-light text-sm mb-6">08:00 – 17:00 CST</p>
+              <div class="inline-flex items-center gap-2 bg-[#d5a021]/10 text-[#d5a021] px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest">
+                <span class="h-1.5 w-1.5 bg-[#d5a021] rounded-full animate-pulse"></span>
+                Principals Active
+              </div>
             </div>
           </div>
+
         </div>
       </div>
-    </section>
+    </div>
   `,
   styles: [`
-    .hero {
-      height: 45vh;
-      min-height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(180deg, #2d3748 0%, #1f2937 100%);
-      color: #ffffff;
-      text-align: center;
-      padding: 0 2rem;
+    :host { display: block; }
+    .animate-fade-in {
+      animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    .hero-content {
-      max-width: 700px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      margin: 0 0 1rem 0;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-    }
-
-    .hero .subtitle {
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.6;
-      margin: 0;
-      font-weight: 400;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .contact-section {
-      padding: 4rem 0 5rem 0;
-      background: #ffffff;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 4rem;
-    }
-
-    .form-column h2,
-    .info-column h2 {
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: #111827;
-      margin: 0 0 1.5rem 0;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .form-group label {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #374151;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      padding: 0.75rem 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.2s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #2d3748;
-    }
-
-    .form-group textarea {
-      resize: vertical;
-    }
-
-    .submit-button {
-      margin-top: 0.5rem;
-      padding: 0.875rem 2rem;
-      background: #2d3748;
-      color: #ffffff;
-      border: none;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .submit-button:hover {
-      background: #1f2937;
-      transform: translateY(-2px);
-    }
-
-    .info-column {
-      padding-top: 0.25rem;
-    }
-
-    .info-block {
-      margin-bottom: 1.5rem;
-    }
-
-    .info-block:last-child {
-      margin-bottom: 0;
-    }
-
-    .info-block h3 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin: 0 0 0.5rem 0;
-    }
-
-    .info-block p {
-      font-size: 1rem;
-      color: #111827;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        height: 35vh;
-        min-height: 250px;
-      }
-
-      .contact-section {
-        padding: 2.5rem 0 3rem 0;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .info-column {
-        order: -1;
-      }
-
-      .container {
-        padding: 0 1.25rem;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   `]
 })
@@ -247,13 +188,21 @@ export class ContactComponent {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    segment: 'strategic',
+    scale: ''
   };
 
   onSubmit() {
-    console.log('Form submitted:', this.formData);
-    // TODO: Implement actual form submission
-    alert('Thank you for your message. We will be in touch shortly.');
-    this.formData = { name: '', email: '', phone: '', message: '' };
+    console.log('Partnership Request Logged:', this.formData);
+    alert('Technical inquiry successfully logged. A Senior Engineering Principal will review your project fundamentals and contact you shortly.');
+    this.formData = {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+      segment: 'strategic',
+      scale: ''
+    };
   }
 }
