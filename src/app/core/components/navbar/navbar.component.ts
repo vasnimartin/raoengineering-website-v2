@@ -40,7 +40,7 @@ import { RouterModule } from '@angular/router';
                   Water Resources
                 </a>
                 <a routerLink="/services/transportation" class="block px-6 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-[#d5a021]">
-                  Public Infrastructure
+                  Transportation
                 </a>
                 <a routerLink="/services/environmental" class="block px-6 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-[#d5a021]">
                   Environmental
@@ -93,7 +93,7 @@ import { RouterModule } from '@angular/router';
                <p class="text-[#d5a021] text-xs font-black tracking-[0.3em] uppercase opacity-70">Services</p>
                 <a routerLink="/services/land-development" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Land Development</a>
                 <a routerLink="/services/water-resources" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Water Resources</a>
-                <a routerLink="/services/transportation" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Public Infrastructure</a>
+                <a routerLink="/services/transportation" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Transportation</a>
                 <a routerLink="/services/environmental" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Environmental</a>
                 <a routerLink="/services/permitting" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Regulatory Permitting</a>
              </div>

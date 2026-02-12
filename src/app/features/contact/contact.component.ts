@@ -76,7 +76,7 @@ import { FormsModule } from '@angular/forms';
                     class="bg-transparent border-b-2 border-slate-200 py-3 focus:border-[#d5a021] outline-none transition-all text-slate-800 text-lg cursor-pointer">
                     <option value="strategic">Strategic Land Development</option>
                     <option value="regulatory">Regulatory/Permitting Ethics</option>
-                    <option value="infrastructure">Public Infrastructure Delivery</option>
+                    <option value="infrastructure">Transportation Delivery</option>
                     <option value="onsite">On-Site Technical Review</option>
                   </select>
                 </div>

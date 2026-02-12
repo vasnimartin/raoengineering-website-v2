@@ -51,7 +51,7 @@ import { RouterModule } from '@angular/router';
 
               <!-- Public -->
               <div class="group border-l-4 border-slate-200 hover:border-[#d5a021] pl-6 transition-all duration-300">
-                <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-[#d5a021] transition-colors">Public Infrastructure</h3>
+                <h3 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-[#d5a021] transition-colors">Transportation</h3>
                 <p class="text-slate-500 text-sm font-medium tracking-wide">Municipal Drainage • Roadway Expansion • Utility Systems</p>
               </div>
             </div>

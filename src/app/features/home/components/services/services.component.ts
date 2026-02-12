@@ -56,7 +56,7 @@ export class ServicesComponent {
     },
     {
       id: 'transportation',
-      title: 'Public Infrastructure',
+      title: 'Transportation',
       icon: 'assets/transportation hero.png',
       iconSubtle: 'assets/icon_transportation_high_five.png',
       description: 'Designing safe and efficient transportation systems and public infrastructure to connect communities.',
