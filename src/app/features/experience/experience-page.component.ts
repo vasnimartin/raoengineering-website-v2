@@ -278,11 +278,42 @@ export class ExperiencePageComponent {
       title: 'Vista Ridge Professional Suites',
       category: 'Commercial Development',
       location: 'Cedar Park, TX',
-      image: 'bg-vista-ridge',
-      description: 'Professional medical and corporate office complex.',
-      challengesSummary: 'Integrated professional office requirements with sensitive environmental standards.',
+      image: 'bg-vista',
+      description: 'Modern medical and professional office complex',
+      challengesSummary: 'Optimized site layout for maximum leaseable area while managing strict impervious cover limits.',
       scope: 'Office shell site development, detention ponds, and ADA-compliant access.',
-      services: ['Civil Engineering', 'Site Planning', 'Permitting']
+      services: ['Site Development', 'Civil Engineering', 'Permitting', 'Utilities Design'],
+      acreage: 5
+    },
+    {
+      title: 'Canyon Creek Apartments',
+      category: 'Residential',
+      location: 'Porter, TX',
+      image: 'bg-canyon',
+      description: 'Garden-style apartment community in growing sub-market',
+      challengesSummary: 'Developed efficient stormwater management solutions for heavy rainfall region.',
+      scope: '240-unit multifamily development, surface parking, amenities center, and detention pond design.',
+      services: ['Civil Engineering', 'Drainage', 'Site Grading', 'Utilities']
+    },
+    {
+      title: 'Prue Road Townhouses',
+      category: 'Residential',
+      location: 'San Antonio, TX',
+      image: 'bg-prue',
+      description: 'High-density townhome development in urban infill site',
+      challengesSummary: 'Navigated complex zoning requirements and existing utility conflicts in a developed corridor.',
+      scope: '45-unit townhome community, private drive design, and underground detention solutions.',
+      services: ['Zoning Support', 'Civil Design', 'Utility Coordination', 'Platting']
+    },
+    {
+      title: 'Burger King Franchise Portfolio',
+      category: 'Commercial Development',
+      location: 'Multiple Locations, TX',
+      image: 'bg-bk',
+      description: 'Site adaption and civil design for major QSR franchise',
+      challengesSummary: 'Streamlined permitting across multiple jurisdictions (Converse, Kenedy, Schertz) to meet aggressive opening schedules.',
+      scope: 'Full civil site design for ground-up locations including grading, utilities, and drive-thru optimization.',
+      services: ['Site Adaptation', 'Permitting', 'Civil Engineering', 'Traffic Planning']
     },
     {
       title: 'Canyon Creek Apartments',
@@ -327,6 +358,26 @@ export class ExperiencePageComponent {
         return `url('${assetsPath}Canyon Creek Apartments, Porter, TX.png')`;
       case 'bg-prue-road':
         return `url('${assetsPath}Prue Road Townhouses, San Antonio, TX.jpg')`;
+      case 'bg-whitestone':
+        return "url('assets/images/projects/residential_whitestone.png')";
+      case 'bg-solana':
+        return "url('assets/images/projects/residential_whitestone.png')";
+      case 'bg-vista':
+        return "url('assets/images/projects/commercial_vista.png')";
+      case 'bg-canyon':
+        return "url('assets/images/projects/residential_canyon.png')";
+      case 'bg-prue':
+        return "url('assets/images/projects/residential_prue.png')";
+      case 'bg-bk':
+        return "url('assets/images/projects/commercial_bk.png')";
+      case 'bg-elgin':
+        return "url('assets/images/projects/commercial_bk.png')";
+      case 'bg-cedarview':
+        return "url('assets/images/projects/commercial_vista.png')";
+      case 'bg-water':
+        return "url('assets/water-calm.png')";
+      case 'bg-i35':
+        return "url('assets/transport-calm.png')";
       default:
         return 'none';
     }
