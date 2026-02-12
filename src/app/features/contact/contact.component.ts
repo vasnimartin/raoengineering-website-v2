@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
       <div class="absolute inset-0 z-0">
         <img src="assets/images/brand/contact_hero_mobilization.png" 
           alt="Texas Infrastructure Mobilization" 
+          title="Texas Infrastructure Mobilization"
           class="w-full h-full object-cover brightness-[0.7] contrast-[1.1]">
       </div>
 
@@ -23,7 +24,7 @@ import { FormsModule } from '@angular/forms';
       
       <!-- Layer 3: Subtle Topographic Texture (Relatable Landscape) -->
       <div class="absolute inset-0 z-20 opacity-[0.05] pointer-events-none mix-blend-multiply" 
-           style="background-image: url('assets/images/brand/rce_topographic_texture_1768626380325.png'); background-size: cover;"></div>
+           style="background-image: url('/assets/images/brand/rce_topographic_texture_1768626380325.png'); background-size: cover;"></div>
 
       <div class="header-content container relative z-30 text-center px-4 max-w-4xl">
         <div class="inline-flex items-center gap-3 mb-6 animate-fade-in group">
@@ -45,7 +46,7 @@ import { FormsModule } from '@angular/forms';
     <div class="bg-white py-24 relative">
       <!-- Natural Background Texture -->
       <div class="absolute inset-0 opacity-[0.03] pointer-events-none" 
-           style="background-image: url('assets/images/brand/rce_topographic_texture_1768626380325.png'); background-size: 800px;"></div>
+           style="background-image: url('/assets/images/brand/rce_topographic_texture_1768626380325.png'); background-size: 800px;"></div>
 
       <div class="container mx-auto px-4 max-w-7xl relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -76,7 +77,7 @@ import { FormsModule } from '@angular/forms';
                     class="bg-transparent border-b-2 border-slate-200 py-3 focus:border-[#d5a021] outline-none transition-all text-slate-800 text-lg cursor-pointer">
                     <option value="strategic">Strategic Land Development</option>
                     <option value="regulatory">Regulatory/Permitting Ethics</option>
-                    <option value="infrastructure">Public Infrastructure Delivery</option>
+                    <option value="infrastructure">Transportation Delivery</option>
                     <option value="onsite">On-Site Technical Review</option>
                   </select>
                 </div>
@@ -162,7 +163,7 @@ import { FormsModule } from '@angular/forms';
 
             <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 relative overflow-hidden group">
               <div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-700">
-                <img src="assets/images/brand/rce_hero_background_concept_1768626300633.png" class="w-40 h-auto">
+                <img src="assets/rce_hero_background_concept_1768626300633.png" alt="RCE Logo Concept" title="RCE Logo Concept" class="w-40 h-auto">
               </div>
               <h4 class="text-slate-900 font-black text-[10px] uppercase tracking-[0.3em] mb-4">Availability Window</h4>
               <p class="text-2xl font-bold text-slate-900 mb-1 leading-none">Mon – Fri</p>

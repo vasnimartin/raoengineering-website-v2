@@ -1,0 +1,4 @@
+.dot-grid {
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 40px 40px;
+}

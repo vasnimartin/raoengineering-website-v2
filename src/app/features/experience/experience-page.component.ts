@@ -80,6 +80,20 @@ interface Project {
           </div>
         </div>
 
+        <!-- Catalog Download Action -->
+        <div class="mt-10 flex justify-center">
+          <a href="/assets/docs/RCE_Project_Catalog_2024.pdf" target="_blank" class="group flex items-center gap-4 bg-white/5 hover:bg-[#d5a021] border border-[#d5a021]/30 hover:border-[#d5a021] px-8 py-4 rounded transition-all duration-300 backdrop-blur-sm">
+            <div class="flex flex-col text-left">
+              <span class="text-[10px] text-[#d5a021] group-hover:text-slate-900 font-bold uppercase tracking-[0.2em] mb-0.5">Firm Documentation</span>
+              <span class="text-sm text-white group-hover:text-slate-900 font-bold uppercase tracking-widest">Download Project Catalog (PDF)</span>
+            </div>
+            <div class="h-10 w-px bg-white/10 group-hover:bg-slate-900/20"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#d5a021] group-hover:text-slate-900 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </a>
+        </div>
+
       </div>
 
       <!-- Scroll Indicator (Moved outside header-content for correct absolute positioning) -->
@@ -93,9 +107,24 @@ interface Project {
 
     <div class="bg-slate-50 py-16">
       <div class="container mx-auto px-4">
+        
+        <!-- PROJECT FILTER BAR -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+          <button *ngFor="let filter of filters" 
+                  (click)="setFilter(filter)"
+                  [class.bg-[#d5a021]="activeFilter === filter"
+                  [class.text-slate-900]="activeFilter === filter"
+                  [class.bg-white]="activeFilter !== filter"
+                  [class.text-slate-600]="activeFilter !== filter"
+                  [class.border-[#d5a021]]="activeFilter === filter"
+                  class="px-6 py-2 rounded-full border border-slate-200 text-xs font-bold uppercase tracking-widest transition-all hover:border-[#d5a021] shadow-sm">
+            {{ filter }}
+          </button>
+        </div>
+
         <!-- PROJECT GRID -->
         <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 scroll-mt-24">
-          <a *ngFor="let project of projects" 
+          <a *ngFor="let project of filteredProjects" 
              [routerLink]="project.slug ? ['/experience', project.slug] : null"
              [class.cursor-pointer]="project.slug"
              [class.cursor-default]="!project.slug"
@@ -255,7 +284,7 @@ export class ExperiencePageComponent {
     },
     {
       title: 'Whitestone Oaks Apartments',
-      category: 'Residential',
+      category: 'Multifamily',
       location: 'Cedar Park, TX',
       image: 'bg-whitestone-oaks',
       description: 'Luxury residential community with complex terrain management.',
@@ -278,15 +307,46 @@ export class ExperiencePageComponent {
       title: 'Vista Ridge Professional Suites',
       category: 'Commercial Development',
       location: 'Cedar Park, TX',
-      image: 'bg-vista-ridge',
-      description: 'Professional medical and corporate office complex.',
-      challengesSummary: 'Integrated professional office requirements with sensitive environmental standards.',
+      image: 'bg-vista',
+      description: 'Modern medical and professional office complex',
+      challengesSummary: 'Optimized site layout for maximum leaseable area while managing strict impervious cover limits.',
       scope: 'Office shell site development, detention ponds, and ADA-compliant access.',
-      services: ['Civil Engineering', 'Site Planning', 'Permitting']
+      services: ['Site Development', 'Civil Engineering', 'Permitting', 'Utilities Design'],
+      acreage: 5
     },
     {
       title: 'Canyon Creek Apartments',
+      category: 'Multifamily',
+      location: 'Porter, TX',
+      image: 'bg-canyon',
+      description: 'Garden-style apartment community in growing sub-market',
+      challengesSummary: 'Developed efficient stormwater management solutions for heavy rainfall region.',
+      scope: '240-unit multifamily development, surface parking, amenities center, and detention pond design.',
+      services: ['Civil Engineering', 'Drainage', 'Site Grading', 'Utilities']
+    },
+    {
+      title: 'Prue Road Townhouses',
       category: 'Residential',
+      location: 'San Antonio, TX',
+      image: 'bg-prue',
+      description: 'High-density townhome development in urban infill site',
+      challengesSummary: 'Navigated complex zoning requirements and existing utility conflicts in a developed corridor.',
+      scope: '45-unit townhome community, private drive design, and underground detention solutions.',
+      services: ['Zoning Support', 'Civil Design', 'Utility Coordination', 'Platting']
+    },
+    {
+      title: 'Burger King Franchise Portfolio',
+      category: 'Commercial Development',
+      location: 'Multiple Locations, TX',
+      image: 'bg-bk',
+      description: 'Site adaption and civil design for major QSR franchise',
+      challengesSummary: 'Streamlined permitting across multiple jurisdictions (Converse, Kenedy, Schertz) to meet aggressive opening schedules.',
+      scope: 'Full civil site design for ground-up locations including grading, utilities, and drive-thru optimization.',
+      services: ['Site Adaptation', 'Permitting', 'Civil Engineering', 'Traffic Planning']
+    },
+    {
+      title: 'Canyon Creek Apartments',
+      category: 'Multifamily',
       location: 'Porter, TX',
       image: 'bg-canyon-creek',
       description: 'High-density multi-family housing development.',
@@ -305,6 +365,20 @@ export class ExperiencePageComponent {
       services: ['Civil Engineering', 'Site Development', 'Urban Engineering']
     }
   ];
+
+  filters: string[] = ['All', 'Land Development', 'Residential', 'Multifamily', 'Commercial Development', 'Water Resources', 'Transportation'];
+  activeFilter: string = 'All';
+
+  get filteredProjects(): Project[] {
+    if (this.activeFilter === 'All') {
+      return this.projects;
+    }
+    return this.projects.filter(p => p.category === this.activeFilter);
+  }
+
+  setFilter(category: string) {
+    this.activeFilter = category;
+  }
 
   scrollToProjects() {
     document.getElementById('projects-grid')?.scrollIntoView({ behavior: 'smooth' });
@@ -327,6 +401,26 @@ export class ExperiencePageComponent {
         return `url('${assetsPath}Canyon Creek Apartments, Porter, TX.png')`;
       case 'bg-prue-road':
         return `url('${assetsPath}Prue Road Townhouses, San Antonio, TX.jpg')`;
+      case 'bg-whitestone':
+        return "url('assets/images/projects/residential_whitestone.png')";
+      case 'bg-solana':
+        return "url('assets/images/projects/residential_whitestone.png')";
+      case 'bg-vista':
+        return "url('assets/images/projects/commercial_vista.png')";
+      case 'bg-canyon':
+        return "url('assets/images/projects/residential_canyon.png')";
+      case 'bg-prue':
+        return "url('assets/images/projects/residential_prue.png')";
+      case 'bg-bk':
+        return "url('assets/images/projects/commercial_bk.png')";
+      case 'bg-elgin':
+        return "url('assets/images/projects/commercial_bk.png')";
+      case 'bg-cedarview':
+        return "url('assets/images/projects/commercial_vista.png')";
+      case 'bg-water':
+        return "url('assets/water-calm.png')";
+      case 'bg-i35':
+        return "url('assets/transport-calm.png')";
       default:
         return 'none';
     }
