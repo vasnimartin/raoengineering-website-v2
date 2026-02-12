@@ -51,39 +51,57 @@ import { RouterModule } from '@angular/router';
 
           <!-- CONTACT -->
           <div class="col-span-1">
-            <h4 class="text-[#d5a021] text-sm font-bold tracking-wide mb-6">Headquarters</h4>
-            <div class="space-y-4 text-sm text-slate-400">
-              <p class="flex items-start gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <h4 class="text-[#d5a021] text-sm font-bold tracking-wide mb-6">Headquarters & Offices</h4>
+            <div class="space-y-6 text-sm text-slate-400">
+              
+              <!-- Cedar Park -->
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span>San Antonio, Texas<br><span class="text-white font-medium">Service Areas: Cities Across Texas</span></span>
-              </p>
-              <p class="flex items-center gap-3">
+                <div class="space-y-1">
+                  <strong class="text-white block">Cedar Park Office</strong>
+                  <span class="block text-slate-400">1908 Yaupon Trail, Unit 206</span>
+                  <span class="block text-slate-400">Cedar Park, TX 78613</span>
+                </div>
+              </div>
+
+              <!-- San Antonio -->
+              <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div class="space-y-1">
+                  <strong class="text-white block">San Antonio Office</strong>
+                  <span class="block text-slate-400">318 E. Nakoma St, Suite 111</span>
+                  <span class="block text-slate-400">San Antonio, TX 78216</span>
+                </div>
+              </div>
+
+              <!-- Phones -->
+              <div class="flex items-center gap-3 pt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href="tel:2105497557" class="hover:text-white transition-colors font-medium">210-549-7557</a>
-              </p>
-              <p class="flex items-center gap-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <a href="mailto:info@rao-sengineering.com" class="hover:text-white transition-colors">info&#64;rao-sengineering.com</a>
-              </p>
-              <div class="pt-4 mt-4 border-t border-white/5">
-                <p class="flex items-start gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>
-                    <span class="text-white block font-medium mb-1">Hours of Operation</span>
-                    Mon - Sun: 8:00 AM – 5:00 PM<br>
-                    <span class="text-[#d5a021] text-[10px] font-bold uppercase tracking-wider">Saturday & Sunday: Also Open</span>
-                  </span>
-                </p>
+                <div class="flex flex-col">
+                  <a href="tel:2105497557" class="hover:text-white transition-colors font-medium">210-549-7557</a>
+                  <a href="tel:5128564595" class="hover:text-white transition-colors font-medium">512-856-4595</a>
+                </div>
               </div>
+              
+              <!-- Email/Web -->
+              <div class="flex items-start gap-3">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                 </svg>
+                 <div class="flex flex-col text-xs">
+                   <a href="mailto:rao@raosengineering.com" class="hover:text-white transition-colors break-all">rao&#64;raosengineering.com</a>
+                   <a href="https://www.raosengineering.com" target="_blank" class="hover:text-white transition-colors mt-1">www.raosengineering.com</a>
+                 </div>
+              </div>
+
             </div>
           </div>
 
@@ -94,13 +112,12 @@ import { RouterModule } from '@angular/router';
             &copy; {{ currentYear }} Rao's Consulting Engineers. All rights reserved.
           </p>
              <div class="flex items-center gap-6">
-               <span class="text-[10px] font-black tracking-[0.2em] uppercase text-[#d5a021] border border-[#d5a021]/30 px-3 py-1 rounded">MBE Certified</span>
                <div class="flex items-center gap-4">
-                 <div class="bg-white p-1.5 rounded-md shadow-sm hover:shadow-md transition-shadow group/cert">
-                   <img src="assets/certification/nmsdc.jpeg" alt="NMSDC Certified" title="NMSDC Certified" class="h-14 w-auto grayscale-0 group-hover/cert:scale-105 transition-transform">
+                 <div class="bg-white p-2 rounded-md shadow-sm hover:shadow-md transition-all group/cert">
+                   <img src="assets/certification/nmsdc.jpeg" alt="NMSDC Certified" title="NMSDC Certified" class="h-20 w-auto grayscale-0 group-hover/cert:scale-105 transition-transform">
                  </div>
-                 <div class="bg-white p-1.5 rounded-md shadow-sm hover:shadow-md transition-shadow group/cert">
-                   <img src="assets/certification/SBE-Logo-300x300.png" alt="SBE Certified" title="SBE Certified" class="h-14 w-auto grayscale-0 group-hover/cert:scale-105 transition-transform">
+                 <div class="bg-white p-2 rounded-md shadow-sm hover:shadow-md transition-all group/cert">
+                   <img src="assets/certification/MBE-Logo.webp" alt="MBE Certified" title="MBE Certified" class="h-20 w-auto grayscale-0 group-hover/cert:scale-105 transition-transform">
                  </div>
                </div>
                <div class="flex gap-4">
