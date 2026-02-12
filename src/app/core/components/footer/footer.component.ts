@@ -7,169 +7,98 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <footer class="site-footer">
-      <div class="footer-container">
-        <div class="footer-grid">
-          <!-- BRAND -->
-          <div class="footer-brand">
-            <span class="logo-text">Rao <span class="text-[#d5a021] font-light">Engineering</span></span>
-            <p class="tagline">Civil Engineering Excellence in South Texas</p>
+    <footer class="relative bg-slate-950 text-white pt-20 pb-10 overflow-hidden border-t border-white/5">
+      
+      <!-- Texture Overlay -->
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
+           style="background-image: url('assets/images/brand/rce_topographic_texture_1768626380325.png'); background-size: cover;"></div>
+
+      <div class="container mx-auto px-6 md:px-12 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 border-b border-white/10 pb-16">
+          
+          <!-- BRAND & MISSION -->
+          <div class="col-span-1 lg:col-span-1">
+             <a routerLink="/" class="group inline-flex flex-col mb-6">
+              <div class="flex items-center gap-3">
+                <span class="text-3xl font-black tracking-tighter text-white">RAO</span>
+                <span class="h-6 w-[2px] bg-[#d5a021]"></span>
+                <span class="text-[#d5a021] text-lg font-light tracking-[0.2em] uppercase">Engineering</span>
+              </div>
+            </a>
+            <p class="text-slate-500 text-sm leading-relaxed max-w-xs">
+              Providing the technical authority and strategic foresight required for Texas infrastructure development.
+            </p>
           </div>
 
           <!-- SERVICES -->
-          <div class="footer-links">
-            <h4>Services</h4>
-            <ul>
-              <li><a routerLink="/services/water-resources">Water Resources</a></li>
-              <li><a routerLink="/services/land-development">Land Development</a></li>
-              <li><a routerLink="/services/transportation">Transportation</a></li>
-              <li><a routerLink="/services/environmental">Environmental</a></li>
-              <li><a routerLink="/services/permitting">Permitting</a></li>
+          <div class="col-span-1">
+            <h4 class="text-[#d5a021] text-sm font-bold tracking-wide mb-6">Capabilities</h4>
+            <ul class="space-y-4">
+              <li><a routerLink="/services/water-resources" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-[#d5a021] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Water Resources</a></li>
+              <li><a routerLink="/services/land-development" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-[#d5a021] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Land Development</a></li>
+              <li><a routerLink="/services/transportation" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-[#d5a021] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Transportation</a></li>
+              <li><a routerLink="/services/environmental" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-[#d5a021] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Environmental</a></li>
+              <li><a routerLink="/services/permitting" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-[#d5a021] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Permitting</a></li>
             </ul>
           </div>
 
           <!-- COMPANY -->
-          <div class="footer-links">
-            <h4>Company</h4>
-            <ul>
-              <li><a routerLink="/about">About Us</a></li>
-              <li><a routerLink="/contact">Contact</a></li>
+          <div class="col-span-1">
+            <h4 class="text-[#d5a021] text-sm font-bold tracking-wide mb-6">Firm Profile</h4>
+            <ul class="space-y-4">
+              <li><a routerLink="/about" class="text-sm text-slate-400 hover:text-white transition-colors">Our History</a></li>
+              <li><a routerLink="/experience" class="text-sm text-slate-400 hover:text-white transition-colors">Portfolio</a></li>
+              <li><a routerLink="/contact" class="text-sm text-slate-400 hover:text-white transition-colors">Careers</a></li>
+              <li><a routerLink="/contact" class="text-sm text-slate-400 hover:text-white transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
           <!-- CONTACT -->
-          <div class="footer-contact">
-            <h4>Contact</h4>
-            <p>San Antonio, Texas</p>
-            <p>(210) 555-0100</p>
-            <p>info&#64;raoengineering.com</p>
+          <div class="col-span-1">
+            <h4 class="text-[#d5a021] text-sm font-bold tracking-wide mb-6">Headquarters</h4>
+            <div class="space-y-4 text-sm text-slate-400">
+              <p class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>San Antonio, Texas<br>Serving Statewide</span>
+              </p>
+              <p class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <a href="tel:2105550100" class="hover:text-white transition-colors">(210) 555-0100</a>
+              </p>
+              <p class="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#d5a021] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:info@raoengineering.com" class="hover:text-white transition-colors">info&#64;raoengineering.com</a>
+              </p>
+            </div>
           </div>
+
         </div>
 
-        <div class="footer-bottom">
-          <p>&copy; {{ currentYear }} Rao's Consulting Engineers. All rights reserved.</p>
-          <p class="certifications">MBE Certified</p>
+        <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-slate-600 font-medium">
+            &copy; {{ currentYear }} Rao's Consulting Engineers. All rights reserved.
+          </p>
+          <div class="flex items-center gap-6">
+             <span class="text-[10px] font-black tracking-[0.2em] uppercase text-[#d5a021] border border-[#d5a021]/30 px-3 py-1 rounded">MBE Certified</span>
+             <div class="flex gap-4 opacity-50">
+               <!-- Social Icons Placeholder -->
+               <div class="w-4 h-4 bg-slate-600 rounded-full"></div>
+               <div class="w-4 h-4 bg-slate-600 rounded-full"></div>
+               <div class="w-4 h-4 bg-slate-600 rounded-full"></div>
+             </div>
+          </div>
         </div>
       </div>
     </footer>
   `,
-  styles: [`
-    .site-footer {
-      background: #1f2937;
-      color: #ffffff;
-      padding: 3.5rem 0 0 0;
-    }
-
-    .footer-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 2rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .footer-brand .logo-text {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #ffffff;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-brand .tagline {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.6);
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    .footer-links h4,
-    .footer-contact h4 {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(255, 255, 255, 0.5);
-      margin: 0 0 1rem 0;
-    }
-
-    .footer-links ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .footer-links li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.85);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: #ffffff;
-    }
-
-    .footer-contact p {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.85);
-      margin: 0 0 0.35rem 0;
-      line-height: 1.5;
-    }
-
-    .footer-bottom {
-      padding: 1.5rem 0;
-      text-align: center;
-    }
-
-    .footer-bottom p {
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.5);
-      margin: 0;
-    }
-
-    .footer-bottom .certifications {
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-
-    @media (max-width: 768px) {
-      .site-footer {
-        padding: 2.5rem 0 0 0;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-      }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-        margin-bottom: 0.5rem;
-      }
-
-      .footer-container {
-        padding: 0 1.25rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  `]
+  styles: []
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();

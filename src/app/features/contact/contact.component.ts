@@ -53,7 +53,7 @@ import { FormsModule } from '@angular/forms';
           <!-- LEFT: The Project Mobilization Form -->
           <div class="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100">
             <h2 class="text-3xl font-bold text-slate-900 mb-2">Project Partnership Inquiry</h2>
-            <p class="text-slate-500 mb- aggregation-8 font-light italic">Secure immediate technical oversight for your next development phase.</p>
+            <p class="text-slate-500 mb-8 font-light italic">Secure immediate technical oversight for your next development phase.</p>
             
             <form (ngSubmit)="onSubmit()" class="space-y-10 mt-12">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -148,7 +148,13 @@ import { FormsModule } from '@angular/forms';
                   </div>
                   <div>
                     <h4 class="font-black text-slate-900 text-xs uppercase tracking-widest mb-2">Dossier Access</h4>
-                    <p class="text-slate-500 font-light text-lg">info&#64;raoengineering.com</p>
+                    <p class="text-slate-500 font-light text-lg mb-2">info&#64;raoengineering.com</p>
+                    <a href="https://www.linkedin.com/in/raos-engineers/" target="_blank" rel="noopener noreferrer" class="text-[#0a66c2] hover:text-[#004182] transition-colors inline-flex items-center gap-2 text-sm font-medium">
+                      <span>Connect on LinkedIn</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -171,6 +177,77 @@ import { FormsModule } from '@angular/forms';
         </div>
       </div>
     </div>
+
+    <!-- STRATEGIC COMMAND: Institutional Leadership -->
+    <section class="bg-slate-50 py-24 border-t border-slate-100 relative overflow-hidden">
+      <!-- Background Texture -->
+      <div class="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style="background-image: url('assets/images/brand/rce_topographic_texture_1768626380325.png'); background-size: 600px;"></div>
+
+      <div class="container mx-auto px-4 max-w-7xl relative z-10">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-3 mb-4">
+            <span class="h-px w-6 bg-[#d5a021]"></span>
+            <span class="text-[#d5a021] font-black tracking-[0.3em] uppercase text-[10px]">Institutional Oversight</span>
+            <span class="h-px w-6 bg-[#d5a021]"></span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Strategic Command</h2>
+          <p class="text-slate-500 max-w-2xl mx-auto font-light text-lg">Direct access to senior engineering principals for every phase of development.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
+          <!-- CEO -->
+          <div class="team-card group">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg group-hover:shadow-2xl transition-all duration-500 bg-slate-200">
+              <img src="assets/images/team/ceo.png" alt="Engineering Principal" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100">
+              <div class="absolute inset-x-0 bottom-0 h-1.5 bg-[#d5a021] transition-transform duration-500 translate-y-full group-hover:translate-y-0"></div>
+            </div>
+            <h3 class="text-slate-900 font-bold text-lg mb-1 leading-tight">Sr. Engineering Principal</h3>
+            <p class="text-[#d5a021] font-black text-[10px] uppercase tracking-[0.2em]">Chief Executive Officer</p>
+          </div>
+
+          <!-- DESIGNER 1 -->
+          <div class="team-card group">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg group-hover:shadow-2xl transition-all duration-500 bg-slate-200">
+              <img src="assets/images/team/designer_1.png" alt="Lead Design Engineer" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100">
+              <div class="absolute inset-x-0 bottom-0 h-1.5 bg-[#d5a021] transition-transform duration-500 translate-y-full group-hover:translate-y-0"></div>
+            </div>
+            <h3 class="text-slate-900 font-bold text-lg mb-1 leading-tight">Infrastructure Lead</h3>
+            <p class="text-slate-400 font-black text-[10px] uppercase tracking-[0.2em]">Sr. Design Engineer</p>
+          </div>
+
+          <!-- DESIGNER 2 -->
+          <div class="team-card group">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg group-hover:shadow-2xl transition-all duration-500 bg-slate-200">
+              <img src="assets/images/team/designer_2.png" alt="Master Site Designer" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100">
+              <div class="absolute inset-x-0 bottom-0 h-1.5 bg-[#d5a021] transition-transform duration-500 translate-y-full group-hover:translate-y-0"></div>
+            </div>
+            <h3 class="text-slate-900 font-bold text-lg mb-1 leading-tight">Master Planning</h3>
+            <p class="text-slate-400 font-black text-[10px] uppercase tracking-[0.2em]">Sr. Site Designer</p>
+          </div>
+
+          <!-- DESIGNER 3 -->
+          <div class="team-card group">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg group-hover:shadow-2xl transition-all duration-500 bg-slate-200">
+              <img src="assets/images/team/designer_3.png" alt="Regulatory Compliance Specialist" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100">
+              <div class="absolute inset-x-0 bottom-0 h-1.5 bg-[#d5a021] transition-transform duration-500 translate-y-full group-hover:translate-y-0"></div>
+            </div>
+            <h3 class="text-slate-900 font-bold text-lg mb-1 leading-tight">Regulatory Ethics</h3>
+            <p class="text-slate-400 font-black text-[10px] uppercase tracking-[0.2em]">Compliance Principal</p>
+          </div>
+
+          <!-- DESIGNER 4 -->
+          <div class="team-card group">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-lg group-hover:shadow-2xl transition-all duration-500 bg-slate-200">
+              <img src="assets/images/team/designer_4.png" alt="Field Mobilization Lead" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100">
+              <div class="absolute inset-x-0 bottom-0 h-1.5 bg-[#d5a021] transition-transform duration-500 translate-y-full group-hover:translate-y-0"></div>
+            </div>
+            <h3 class="text-slate-900 font-bold text-lg mb-1 leading-tight">Field Operations</h3>
+            <p class="text-slate-400 font-black text-[10px] uppercase tracking-[0.2em]">On-Site Coordinator</p>
+          </div>
+        </div>
+      </div>
+    </section>
   `,
   styles: [`
     :host { display: block; }

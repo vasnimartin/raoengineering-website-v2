@@ -7,78 +7,126 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <nav [class.bg-white]="isScrolled || isMobileMenuOpen" 
-         [class.shadow-lg]="isScrolled || isMobileMenuOpen" 
-         [class.py-4]="!isScrolled && !isMobileMenuOpen" 
-         [class.py-2]="isScrolled || isMobileMenuOpen"
-         [class.text-slate-900]="isScrolled || isMobileMenuOpen"
-         [class.text-white]="!isScrolled && !isMobileMenuOpen"
-         class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <nav [ngClass]="{'bg-slate-900/95 backdrop-blur-md py-4': isScrolled, 'py-6': !isScrolled}"
+         class="fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b border-white/5">
+      
+      <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
         
-        <!-- Logo -->
-        <a routerLink="/" class="text-2xl font-bold tracking-tight flex items-center gap-2 transition-colors">
-          Rao <span class="font-light" [class.text-slate-600]="isScrolled || isMobileMenuOpen" [class.text-slate-200]="!isScrolled && !isMobileMenuOpen">Engineering</span>
+        <!-- Strategic Brand Identity -->
+        <a routerLink="/" class="group flex flex-col">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl font-black tracking-tighter text-white">RAO</span>
+            <span class="h-6 w-[2px] bg-[#d5a021] opacity-60"></span>
+            <span class="text-[#d5a021] text-lg font-light tracking-[0.2em] uppercase group-hover:text-white transition-colors duration-300">Engineering</span>
+          </div>
         </a>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a routerLink="/" class="text-sm font-medium hover:opacity-70 transition-opacity">Home</a>
+        <!-- Console Command Center (Desktop) -->
+        <div class="hidden lg:flex items-center gap-12">
+          <a routerLink="/" class="nav-link" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
           
-          <!-- Services Dropdown (Simple Group for now) -->
-          <div class="relative group">
-            <button class="text-sm font-medium hover:opacity-70 transition-opacity flex items-center gap-1 focus:outline-none">
-              Services
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <!-- Services Mega Menu Trigger -->
+          <div class="relative group h-full py-2">
+            <button class="nav-link flex items-center gap-2 group-hover:text-[#d5a021]">
+              Capabilities
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 opacity-60 group-hover:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <!-- Dropdown Menu -->
-            <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 text-slate-800">
-              <a routerLink="/services/water-resources" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Water Resources</a>
-              <a routerLink="/services/land-development" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Land Development</a>
-              <a routerLink="/services/transportation" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Transportation</a>
-              <a routerLink="/services/environmental" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Environmental</a>
-              <a routerLink="/services/permitting" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#d5a021]">Permitting</a>
+            
+            <!-- Standard Dropdown Menu -->
+            <div class="absolute top-full left-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 overflow-hidden">
+              <div class="py-2">
+                <a routerLink="/services/water-resources" class="block px-6 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-[#d5a021]">
+                  Water Resources
+                </a>
+                <a routerLink="/services/land-development" class="block px-6 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-[#d5a021]">
+                  Land Development
+                </a>
+                <a routerLink="/services/transportation" class="block px-6 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-[#d5a021]">
+                  Transportation
+                </a>
+                <a routerLink="/services/environmental" class="block px-6 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-[#d5a021]">
+                  Environmental
+                </a>
+                <a routerLink="/services/permitting" class="block px-6 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-[#d5a021]">
+                  Strategic Permitting
+                </a>
+                <div class="h-px bg-white/10 my-2 mx-4"></div>
+                <a routerLink="/services" class="block px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#d5a021] hover:text-white transition-colors">
+                  View All Capabilities →
+                </a>
+              </div>
             </div>
           </div>
 
-          <a routerLink="/experience" class="text-sm font-medium hover:opacity-70 transition-opacity">Experience</a>
-          <a routerLink="/about" class="text-sm font-medium hover:opacity-70 transition-opacity">About</a>
-          <a routerLink="/contact" class="text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
+          <a routerLink="/experience" class="nav-link" routerLinkActive="active-link">Portfolio</a>
+          <a routerLink="/about" class="nav-link" routerLinkActive="active-link">Firm Profile</a>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden focus:outline-none transition-colors" (click)="toggleMobileMenu()">
-           <svg *ngIf="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-           </svg>
-           <svg *ngIf="isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-           </svg>
+        <!-- Action Module -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="tel:2105550100" class="text-white/60 hover:text-white font-mono text-xs tracking-widest transition-colors hidden xl:block">
+            (210) 555-0100
+          </a>
+          <a routerLink="/contact" class="relative group overflow-hidden bg-[#d5a021] text-slate-900 px-8 py-3 font-bold text-xs uppercase tracking-[0.15em] hover:bg-white transition-all duration-300 skew-x-[-10deg]">
+             <span class="block skew-x-[10deg]">Initiate Partnership</span>
+          </a>
+        </div>
+
+        <!-- Mobile Trigger -->
+        <button class="lg:hidden text-white p-2" (click)="toggleMobileMenu()">
+          <div class="space-y-1.5">
+            <span class="block w-8 h-[2px] bg-white transition-transform duration-300" [class.rotate-45]="isMobileMenuOpen" [class.translate-y-2]="isMobileMenuOpen"></span>
+            <span class="block w-8 h-[2px] bg-[#d5a021] transition-opacity duration-300" [class.opacity-0]="isMobileMenuOpen"></span>
+            <span class="block w-8 h-[2px] bg-white transition-transform duration-300" [class.-rotate-45]="isMobileMenuOpen" [class.-translate-y-2]="isMobileMenuOpen"></span>
+          </div>
         </button>
       </div>
 
-      <!-- Mobile Menu -->
-      <div *ngIf="isMobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 px-4 flex flex-col space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto text-slate-900">
-        <a routerLink="/" (click)="toggleMobileMenu()" class="text-lg font-medium py-2">Home</a>
-        
-        <div class="flex flex-col space-y-2 py-2">
-            <span class="text-lg font-medium text-slate-900 opacity-80">Services</span>
-            <a routerLink="/services/water-resources" (click)="toggleMobileMenu()" class="pl-4 text-slate-600 hover:text-blue-700 py-1">Water Resources</a>
-            <a routerLink="/services/land-development" (click)="toggleMobileMenu()" class="pl-4 text-slate-600 hover:text-blue-700 py-1">Land Development</a>
-            <a routerLink="/services/transportation" (click)="toggleMobileMenu()" class="pl-4 text-slate-600 hover:text-blue-700 py-1">Transportation</a>
-            <a routerLink="/services/environmental" (click)="toggleMobileMenu()" class="pl-4 text-slate-600 hover:text-blue-700 py-1">Environmental</a>
-            <a routerLink="/services/permitting" (click)="toggleMobileMenu()" class="pl-4 text-slate-600 hover:text-blue-700 py-1">Permitting</a>
-        </div>
+      <!-- Mobile Command Center -->
+      <div class="fixed inset-0 bg-slate-900 z-40 transition-transform duration-500 lg:hidden flex flex-col pt-32 px-8"
+           [class.translate-x-full]="!isMobileMenuOpen"
+           [class.translate-x-0]="isMobileMenuOpen">
+           
+           <div class="flex flex-col gap-8">
+             <a routerLink="/" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">Home</a>
+             
+             <!-- Mobile Services Accordion -->
+             <div class="space-y-4">
+               <p class="text-[#d5a021] text-xs font-black tracking-[0.3em] uppercase opacity-70">Capabilities</p>
+               <a routerLink="/services/water-resources" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Water Resources</a>
+               <a routerLink="/services/land-development" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Land Development</a>
+               <a routerLink="/services/transportation" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Transportation</a>
+               <a routerLink="/services/environmental" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Environmental</a>
+               <a routerLink="/services/permitting" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Regulatory</a>
+             </div>
 
-        <a routerLink="/experience" (click)="toggleMobileMenu()" class="text-lg font-medium py-2">Experience</a>
-        <a routerLink="/about" (click)="toggleMobileMenu()" class="text-lg font-medium py-2">About</a>
-        <a routerLink="/contact" (click)="toggleMobileMenu()" class="text-lg font-medium py-2">Contact</a>
+             <a routerLink="/experience" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">Portfolio</a>
+             <a routerLink="/about" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">Firm Profile</a>
+             
+             <a routerLink="/contact" (click)="toggleMobileMenu()" class="mt-8 w-full bg-[#d5a021] text-slate-900 py-4 text-center font-bold uppercase tracking-widest">
+               Initiate Partnership
+             </a>
+           </div>
       </div>
     </nav>
   `,
-  styles: []
+  styles: [`
+    .nav-link {
+      @apply text-sm font-medium tracking-normal text-slate-300 hover:text-white transition-colors relative py-2;
+    }
+    .nav-link::after {
+      content: '';
+      @apply absolute bottom-0 left-0 w-0 h-[2px] bg-[#d5a021] transition-all duration-300;
+    }
+    .nav-link:hover::after, .active-link::after {
+      @apply w-full;
+    }
+    .active-link {
+      @apply text-white;
+    }
+  `]
 })
 export class NavbarComponent {
   isScrolled = false;
@@ -91,5 +139,11 @@ export class NavbarComponent {
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    // Lock body scroll when menu is open
+    if (this.isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 }
