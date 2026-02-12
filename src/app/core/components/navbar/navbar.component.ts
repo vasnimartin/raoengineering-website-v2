@@ -46,7 +46,7 @@ import { RouterModule } from '@angular/router';
                   Environmental
                 </a>
                 <a routerLink="/services/permitting" class="block px-6 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors border-l-2 border-transparent hover:border-[#d5a021]">
-                  Strategic Permitting
+                  Permitting & Regulatory
                 </a>
                 <div class="h-px bg-white/10 my-2 mx-4"></div>
                 <a routerLink="/services" class="block px-6 py-3 text-xs font-bold uppercase tracking-wider text-[#d5a021] hover:text-white transition-colors">
@@ -56,8 +56,8 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <a routerLink="/experience" class="nav-link" routerLinkActive="active-link">Portfolio</a>
-          <a routerLink="/about" class="nav-link" routerLinkActive="active-link">Firm Profile</a>
+          <a routerLink="/experience" class="nav-link" routerLinkActive="active-link">Experience</a>
+          <a routerLink="/about" class="nav-link" routerLinkActive="active-link">About RCE</a>
         </div>
 
         <!-- Action Module -->
@@ -95,11 +95,11 @@ import { RouterModule } from '@angular/router';
                 <a routerLink="/services/water-resources" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Water Resources</a>
                 <a routerLink="/services/transportation" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Transportation</a>
                 <a routerLink="/services/environmental" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Environmental</a>
-                <a routerLink="/services/permitting" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Regulatory Permitting</a>
+                <a routerLink="/services/permitting" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Permitting & Regulatory</a>
              </div>
 
-             <a routerLink="/experience" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">Portfolio</a>
-             <a routerLink="/about" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">Firm Profile</a>
+             <a routerLink="/experience" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">Experience</a>
+             <a routerLink="/about" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">About RCE</a>
              
              <a routerLink="/contact" (click)="toggleMobileMenu()" class="mt-8 w-full bg-[#d5a021] text-slate-900 py-4 text-center font-bold uppercase tracking-widest">
                Contact Us
