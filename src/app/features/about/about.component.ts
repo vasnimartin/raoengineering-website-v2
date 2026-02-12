@@ -48,11 +48,24 @@ import { RouterModule } from '@angular/router';
           <h2>See Our Work <span class="text-gold">In Action</span></h2>
           <p class="section-subtitle">Engineering excellence across Central Texas</p>
         </div>
-        <div class="video-container">
-          <video controls class="showcase-video">
+        <div class="video-container relative group cursor-pointer" (click)="playVideo(videoPlayer)">
+          <video #videoPlayer (play)="isPlaying = true" (pause)="isPlaying = false" controls class="showcase-video" poster="assets/images/about_video_poster.jpg">
             <source src="assets/videos/video.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          
+          <!-- Custom Play Overlay -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/40 group-hover:bg-slate-900/30 transition-all z-10 backdrop-blur-[2px]"
+               *ngIf="!isPlaying">
+             <div class="w-20 h-20 bg-[#d5a021] rounded-full flex items-center justify-center shadow-2xl mb-4 transform group-hover:scale-110 transition-transform duration-300 border-4 border-white/10">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-slate-900 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+               </svg>
+             </div>
+             <div class="bg-black/50 px-6 py-2 rounded-full border border-white/20 backdrop-blur-md">
+                <span class="text-white font-bold uppercase tracking-widest text-xs">Click to Watch Our Story</span>
+             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -462,4 +475,12 @@ import { RouterModule } from '@angular/router';
     }
   `]
 })
-export class AboutComponent { }
+export class AboutComponent {
+  isPlaying = false;
+
+  playVideo(video: HTMLVideoElement) {
+    if (this.isPlaying) return;
+    video.play();
+    this.isPlaying = true;
+  }
+}
