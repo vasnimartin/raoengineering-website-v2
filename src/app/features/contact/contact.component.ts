@@ -28,7 +28,7 @@ import { FormsModule } from '@angular/forms';
       <div class="header-content container relative z-30 text-center px-4 max-w-4xl">
         <div class="inline-flex items-center gap-3 mb-6 animate-fade-in group">
           <span class="h-[1px] w-8 bg-[#d5a021] group-hover:w-12 transition-all duration-500"></span>
-          <span class="text-white font-bold tracking-[0.5em] uppercase text-[10px] md:text-xs drop-shadow-lg">Strategic Mobilization</span>
+          <span class="text-white font-bold tracking-[0.5em] uppercase text-[10px] md:text-xs drop-shadow-lg">Ready to Start</span>
           <span class="h-[1px] w-8 bg-[#d5a021] group-hover:w-12 transition-all duration-500"></span>
         </div>
         
