@@ -30,7 +30,7 @@ import { RouterModule } from '@angular/router';
               Founded on the belief that civil engineering should be about more than just plans and permits—it should be about building relationships.
             </p>
             <p>
-              For over 18 years, Rao's Consulting Engineers has been a cornerstone of development in San Antonio, Cedar Park, and beyond. We navigate the complexities of municipal regulations so our clients can focus on their vision.
+              For over 18 years, Rao's Consulting Engineers has been a cornerstone of development in San Antonio, Austin, Houston, Dallas, and beyond. We navigate the complexities of municipal regulations so our clients can focus on their vision.
             </p>
           </div>
           <div class="stat-box">
@@ -134,7 +134,7 @@ import { RouterModule } from '@angular/router';
       <div class="container">
         <h2>Serving <span class="text-gold">Texas</span></h2>
         <p class="section-subtitle">
-          From San Antonio to Austin, Houston to Cedar Park—we're your Texas-wide engineering partner.
+          From San Antonio, Austin, Houston, Dallas, and beyond—we're your Texas engineering partner.
         </p>
         <div class="stats-row">
           <div class="stat-item">
