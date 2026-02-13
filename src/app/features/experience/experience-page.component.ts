@@ -13,6 +13,17 @@ interface Project {
   services: string[];
   acreage?: number;
   featured?: boolean;
+  hasActualImage?: boolean; // New flag to distinguish site photography from fallbacks
+}
+
+interface CategoryMetadata {
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  metric: string;
+  metricLabel: string;
+  stats: string[];
 }
 
 @Component({
@@ -120,105 +131,134 @@ interface Project {
             class="px-6 py-2 rounded-full border border-slate-200 text-xs font-bold uppercase tracking-widest transition-all hover:border-[#d5a021] shadow-sm">
             {{ filter }}
           </button>
-        </div>
+        <div id="projects-grid" class="scroll-mt-32">
+          <!-- VIEW: "ALL" - DOSSIER REEL LAYOUT (Executive Redesign V3) -->
+          <div *ngIf="activeFilter === 'All'" class="-mx-4 md:-mx-8">
+            <div *ngFor="let categoryId of ['Commercial', 'Retail & Restaurants', 'Multifamily', 'Single Family']; let idx = index" 
+                 [ngClass]="idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/80'"
+                 class="py-32 border-b border-slate-100 relative overflow-hidden">
+            
+            <!-- Background Decoration (Perspective Lines) -->
+            <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent opacity-50"></div>
+            
+            <div class="container mx-auto px-4 md:px-8">
+              
+              <!-- Section Header (Premium Chapter ID) -->
+              <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full border border-[#d5a021]/30 flex items-center justify-center text-[#d5a021] font-mono text-sm font-bold bg-[#d5a021]/5 shadow-sm">
+                      0{{ idx + 1 }}
+                    </div>
+                    <span class="text-[#d5a021] font-mono text-[10px] tracking-[0.4em] font-bold uppercase">Engineering Sector</span>
+                    <div class="h-px w-24 bg-gradient-to-r from-[#d5a021]/30 to-transparent"></div>
+                  </div>
+                  <h3 class="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter">
+                    {{ categoryMetadata[categoryId].title }}
+                  </h3>
+                </div>
+                <div class="hidden md:block text-right pb-2">
+                  <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mb-1">Statewide Portfolio</div>
+                  <div class="text-sm text-[#d5a021] font-medium tracking-tight border-b-2 border-[#d5a021]/10 pb-1 italic">Texas Engineering Authority</div>
+                </div>
+              </div>
 
-        <!-- VIEW: "ALL" - CATEGORIZED SHOWCASE (Standardized Professional Grid) -->
-        <div id="projects-grid" *ngIf="activeFilter === 'All'" class="scroll-mt-32 space-y-24">
-          
-          <!-- Section 1: Commercial -->
-          <div class="category-section">
-             <div class="flex items-center gap-4 mb-10 border-b border-slate-200 pb-4">
-                <h3 class="text-3xl font-bold text-slate-900 tracking-tight">Commercial Projects</h3>
-                <div class="flex-grow"></div>
-                <button (click)="setFilter('Commercial')" class="text-sm font-bold uppercase tracking-widest text-[#d5a021] hover:text-slate-900 transition-colors">
-                   View All
-                </button>
-             </div>
-             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <ng-container *ngFor="let project of getProjectsByCategory('Commercial')">
-                   <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
-                </ng-container>
-             </div>
-          </div>
-
-          <!-- Section 2: Retail & Restaurants -->
-           <div class="category-section">
-             <div class="flex items-center gap-4 mb-10 border-b border-slate-200 pb-4">
-                <h3 class="text-3xl font-bold text-slate-900 tracking-tight">Retail & Restaurants</h3>
-                <div class="flex-grow"></div>
-                <button (click)="setFilter('Retail & Restaurants')" class="text-sm font-bold uppercase tracking-widest text-[#d5a021] hover:text-slate-900 transition-colors">
-                   View All
-                </button>
-             </div>
-             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 <ng-container *ngFor="let project of getProjectsByCategory('Retail & Restaurants').slice(0, 6)">
-                    <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
-                 </ng-container>
-             </div>
-          </div>
-
-          <!-- Section 3: Multifamily -->
-          <div class="category-section">
-             <div class="flex items-center gap-4 mb-10 border-b border-slate-200 pb-4">
-                <h3 class="text-3xl font-bold text-slate-900 tracking-tight">Multifamily Developments</h3>
-                <div class="flex-grow"></div>
-                <button (click)="setFilter('Multifamily')" class="text-sm font-bold uppercase tracking-widest text-[#d5a021] hover:text-slate-900 transition-colors">
-                   View All
-                </button>
-             </div>
-             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <ng-container *ngFor="let project of getProjectsByCategory('Multifamily').slice(0, 6)">
-                   <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
-                </ng-container>
-             </div>
-          </div>
-
-          <!-- Section 4: Single Family -->
-          <div class="category-section">
-             <div class="flex items-center gap-4 mb-10 border-b border-slate-200 pb-4">
-                <h3 class="text-3xl font-bold text-slate-900 tracking-tight">Single Family Residential</h3>
-                <div class="flex-grow"></div>
-                <button (click)="setFilter('Single Family')" class="text-sm font-bold uppercase tracking-widest text-[#d5a021] hover:text-slate-900 transition-colors">
-                   View All
-                </button>
-             </div>
-             <!-- Replaced Featured Banner with Standard Grid for Consistency -->
-             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 <!-- Manually creating a card for the featured Single Family project as it might not be in the 'projects' array in the same way, or to feature the specific image -->
-                 <div class="group relative overflow-hidden rounded-xl shadow-md transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl bg-white border border-slate-100 flex flex-col h-full cursor-pointer" (click)="setFilter('Single Family')">
-                    <div class="relative aspect-video overflow-hidden bg-slate-100">
-                      <img [src]="singleFamilyImages[0]" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 saturate-[1.1] contrast-[1.05]">
-                      <div class="absolute top-5 left-5 z-20">
-                        <span class="bg-slate-950/80 backdrop-blur-md text-[#d5a021] text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-sm border border-white/5 shadow-xl">
-                          Single Family
-                        </span>
+              <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
+                
+                <!-- Left Column: The Dossier Narrative -->
+                <div class="lg:w-1/4">
+                  <div class="lg:sticky lg:top-32 bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest mb-6 bg-slate-950 text-white shadow-lg shadow-slate-950/20">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#d5a021] animate-pulse"></span>
+                      {{ categoryMetadata[categoryId].tagline }}
+                    </div>
+                    
+                    <p class="text-slate-600 text-base leading-relaxed font-light mb-10 italic">
+                      "{{ categoryMetadata[categoryId].description }}"
+                    </p>
+  
+                    <!-- Sector Highlights -->
+                    <div class="space-y-6 mb-10">
+                      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col gap-2">
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#d5a021]">{{ categoryMetadata[categoryId].metricLabel }}</div>
+                        <div class="text-3xl font-bold text-slate-950 tracking-tight">{{ categoryMetadata[categoryId].metric }}<span class="text-[#d5a021]">+</span></div>
+                      </div>
+                      
+                      <div class="space-y-3">
+                        <div *ngFor="let stat of categoryMetadata[categoryId].stats" class="flex items-center gap-3 text-xs text-slate-700 font-semibold uppercase tracking-tight">
+                          <svg class="w-3.5 h-3.5 text-[#d5a021]" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                          </svg>
+                          {{ stat }}
+                        </div>
                       </div>
                     </div>
-                    <div class="p-8 flex flex-col">
-                      <div class="flex items-center gap-2 mb-3">
-                         <span class="text-[11px] uppercase tracking-[0.2em] text-[#d5a021] font-bold">Lago Vista, TX</span>
+  
+                    <button (click)="setFilter(categoryId)" class="w-full bg-white border-2 border-slate-900 text-slate-900 px-6 py-4 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-slate-900 hover:text-white transition-all group flex items-center justify-center gap-3">
+                      Master Archive
+                      <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 10l4 4m0 0l-4 4m4-4H3"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+  
+                <!-- Right Column: The Project Reel (Horizontal Interaction) -->
+                <div class="lg:w-3/4 overflow-hidden">
+                  
+                  <!-- Visual Highlights Reel -->
+                  <div *ngIf="getVisualProjects(categoryId).length > 0">
+                    <div class="flex items-center justify-between mb-8">
+                      <h4 class="text-[11px] font-bold uppercase tracking-[0.3em] text-slate-400">Featured Dossiers</h4>
+                      <div class="flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase">
+                        Swipe for More <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                       </div>
-                      <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#d5a021] transition-colors leading-tight tracking-tight">
-                        Santa Vista Way
-                      </h3>
-                      <p class="text-slate-600 text-sm font-normal leading-relaxed mb-4 line-clamp-3 italic opacity-85">
-                         A 30-acre tract has been developed as 15 lots luxury homes subdivision in City Lago Vista.
-                      </p>
                     </div>
-                 </div>
-                 
-                 <!-- Add other Single Family projects if they exist in the main array, or just this featured one for now -->
-                 <ng-container *ngFor="let project of getProjectsByCategory('Single Family')">
-                    <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
-                 </ng-container>
-             </div>
+                    
+                    <!-- Horizontal Scroll Reel -->
+                    <div class="flex overflow-x-auto gap-8 pb-12 snap-x snap-mandatory custom-scrollbar scroll-smooth">
+                      <div *ngFor="let project of getVisualProjects(categoryId)" class="flex-none w-[320px] md:w-[450px] snap-start transition-transform duration-500 hover:scale-[0.98]">
+                        <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!-- Technical Registry (Clean List) -->
+                  <div class="mt-8 pt-12 border-t border-slate-200/60">
+                    <div class="flex items-center gap-6 mb-10">
+                      <h4 class="text-[11px] font-bold uppercase tracking-[0.3em] text-slate-400">Project Registry</h4>
+                      <div class="h-px bg-slate-200 flex-grow"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div *ngFor="let project of getRegistryProjects(categoryId)" 
+                           class="bg-white p-6 rounded-2xl border border-slate-100 hover:border-[#d5a021]/30 transition-all group flex flex-col gap-4 shadow-sm">
+                        <div class="flex justify-between items-start">
+                          <div class="text-[9px] font-bold uppercase tracking-[0.1em] text-[#d5a021]">{{ project.location }}</div>
+                          <div class="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover:bg-[#d5a021] transition-colors"></div>
+                        </div>
+                        <div>
+                          <h4 class="text-base font-bold text-slate-900 group-hover:text-[#d5a021] transition-colors leading-tight">{{ project.title }}</h4>
+                          <p class="text-slate-500 text-xs mt-2 line-clamp-2 italic leading-relaxed">{{ project.description }}</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-50">
+                          <div class="text-[8px] font-bold uppercase tracking-widest text-slate-400 mb-2">Technical Scope</div>
+                          <div class="text-xs text-slate-700 leading-snug font-medium line-clamp-2">{{ project.scope }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+  
+              </div>
+            </div>
+          </div>
           </div>
 
-        </div>
-
-        <!-- VIEW: FILTERED (Specific Category) -->
-        <!-- Only show this standard grid if NOT 'All' -->
-        <div *ngIf="activeFilter !== 'All'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 scroll-mt-32 animate-fade-in">
+          <!-- VIEW: FILTERED (Specific Category) -->
+          <!-- Only show this standard grid if NOT 'All' -->
+          <div *ngIf="activeFilter !== 'All' && activeFilter !== 'Single Family' && activeFilter !== 'Retail & Restaurants'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 animate-fade-in">
            <ng-container *ngFor="let project of filteredProjects">
               <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
            </ng-container>
@@ -283,7 +323,7 @@ interface Project {
         </ng-template>
 
         <!-- SPECIAL RETAIL LAYOUT (List + Gallery) -->
-        <div *ngIf="activeFilter === 'Retail & Restaurants'" class="mb-32 animate-fade-in">
+          <div *ngIf="activeFilter === 'Retail & Restaurants'" class="mb-32 animate-fade-in">
           <!-- 1. Text List Section -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 mb-24 px-4 md:px-12 bg-white rounded-2xl p-12 border border-slate-100 shadow-sm">
             <div *ngFor="let project of filteredProjects" class="border-l-2 border-[#d5a021]/30 pl-6 hover:border-[#d5a021] transition-colors group">
@@ -311,7 +351,7 @@ interface Project {
         </div>
 
         <!-- SPECIAL SINGLE FAMILY LAYOUT (List + 1 Featured Image) -->
-        <div *ngIf="activeFilter === 'Single Family'" class="mb-32 animate-fade-in flex flex-col lg:flex-row gap-12">
+          <div *ngIf="activeFilter === 'Single Family'" class="mb-32 animate-fade-in flex flex-col lg:flex-row gap-12">
           <!-- 1. Text List Section (Left) -->
           <div class="w-full lg:w-1/2 flex flex-col gap-10 px-4 md:px-8 bg-white rounded-2xl p-10 border border-slate-100 shadow-sm">
              <div *ngFor="let project of filteredProjects" class="border-l-2 border-[#d5a021]/30 pl-6 hover:border-[#d5a021] transition-colors group">
@@ -337,7 +377,6 @@ interface Project {
             </div>
           </div>
         </div>
-
 
         <!-- SITE INSPECTIONS SECTION -->
         <section class="inspection-services rounded-lg overflow-hidden bg-slate-900 border border-slate-800 relative shadow-2xl">
@@ -641,6 +680,61 @@ export class ExperiencePageComponent {
   singleFamilyImages: string[] = [
     'assets/projects/SINGLE_FAMILY/SINGLE_FAMILY.jpg'
   ];
+
+  categoryMetadata: Record<string, CategoryMetadata> = {
+    'Commercial': {
+      id: 'Commercial',
+      title: 'Commercial Infrastructure',
+      tagline: 'Strategic Master Planning',
+      description: 'Engineering the backbone of Texas commerce through complex infrastructure design and large-scale site development.',
+      metric: '7,000+',
+      metricLabel: 'Acres Managed',
+      stats: ['Master Planning', 'Utility Feasibility', 'Agency Coordination']
+    },
+    'Retail & Restaurants': {
+      id: 'Retail & Restaurants',
+      title: 'Retail & Restaurants',
+      tagline: 'High-Velocity Project Delivery',
+      description: 'Precision site engineering for national brands and regional developers, optimized for permitting speed and constructability.',
+      metric: '50+',
+      metricLabel: 'Sites Developed',
+      stats: ['Traffic Engineering', 'Platting', 'Expedited Permitting']
+    },
+    'Multifamily': {
+      id: 'Multifamily',
+      title: 'Multifamily Developments',
+      tagline: 'Urban Living Excellence',
+      description: 'Sophisticated civil solutions for high-density residential projects, balancing technical compliance with developer ROI.',
+      metric: '14,000+',
+      metricLabel: 'Units Planned',
+      stats: ['SUD/MUD Coordination', 'Hydrology Modeling', 'Site Optimization']
+    },
+    'Single Family': {
+      id: 'Single Family',
+      title: 'Single Family Residential',
+      tagline: 'Community-Scale Engineering',
+      description: 'Transforming raw land into premium residential communities through rigorous technical analysis and precision execution.',
+      metric: '500+',
+      metricLabel: 'Luxury Lots',
+      stats: ['Subdivision Layout', 'Roadway Design', 'TCEQ Compliance']
+    }
+  };
+
+  // Helper to check if a project has a real project image or a blueprint fallback
+  isActualImage(imagePath: string): boolean {
+    return imagePath.includes('assets/projects/') &&
+      !imagePath.includes('blueprint') &&
+      !imagePath.includes('comercial_unnamed.jpg') &&
+      !imagePath.includes('comerciall_unnamed.jpg');
+  }
+
+  getVisualProjects(category: string): Project[] {
+    return this.getProjectsByCategory(category).filter(p => this.isActualImage(p.image));
+  }
+
+  getRegistryProjects(category: string): Project[] {
+    return this.getProjectsByCategory(category).filter(p => !this.isActualImage(p.image));
+  }
 
   get filteredProjects(): Project[] {
     if (this.activeFilter === 'All') {

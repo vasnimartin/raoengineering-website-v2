@@ -1,131 +1,369 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { trigger, transition, style, animate, state } from '@angular/animations';
+
+interface PillarStep {
+  label: string;
+  subtext?: string;
+}
+
+interface Pillar {
+  id: string;
+  title: string;
+  shortTitle: string;
+  icon: string;
+  description: string;
+  steps: PillarStep[];
+  emoji: string;
+  focusTitle: string;
+  colorClass: string;
+  tagClass: string;
+  dotClass: string;
+  glowClass: string;
+  processType: string;
+  statusDotClass: string;
+  bgImage: string;
+  layout: 'Standard' | 'Reverse' | 'Center';
+}
 
 @Component({
-    selector: 'app-why-us',
-    standalone: true,
-    imports: [CommonModule],
-    template: `
-    <section class="py-24 bg-surface relative overflow-hidden">
-      <!-- Background Elements -->
-      <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-[#d5a021] rounded-full filter blur-[120px] opacity-5"></div>
-      <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-blue-900 rounded-full filter blur-[120px] opacity-5"></div>
-
+  selector: 'app-why-us',
+  standalone: true,
+  imports: [CommonModule],
+  animations: [
+    trigger('contentFade', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(10px)' }),
+        animate('400ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateY(0)' }))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in', style({ opacity: 0, transform: 'translateY(-10px)' }))
+      ])
+    ])
+  ],
+  template: `
+    <section class="py-24 bg-slate-50 relative overflow-hidden">
+      <!-- Executive Background Elements -->
+      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(213,160,33,0.03)_0%,transparent_50%)]"></div>
+      
       <div class="container mx-auto px-6 relative z-10">
+        <!-- Section Header -->
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-light text-slate-800 mb-4">
-            Why <span class="font-bold text-[#d5a021]">Rao’s Consulting Engineers?</span>
+          <div class="inline-block px-4 py-1 border border-[#d5a021]/30 rounded-full text-[#d5a021] text-[10px] font-bold tracking-[0.4em] uppercase mb-6 bg-white shadow-sm">
+            Institutional Journey
+          </div>
+          <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 uppercase italic">
+            Why <span class="text-[#d5a021]">Rao’s Consulting Engineers?</span>
           </h2>
-          <p class="text-lg text-slate-600 font-light max-w-2xl mx-auto">
-            A philosophy built on Logic, Excellence, and Family.
+          <p class="text-xl text-slate-600 font-light max-w-3xl mx-auto leading-relaxed">
+            We move projects from <span class="text-slate-900 font-bold">concept to construction</span> — efficiently.
           </p>
         </div>
 
-        <div class="overflow-x-auto pb-8 -mx-4 px-4 no-scrollbar">
-          <div class="flex flex-nowrap gap-6 min-w-max md:min-w-0 md:justify-center lg:justify-start">
-            <div *ngFor="let item of reasons" class="w-[85vw] md:w-[350px] bg-white border border-slate-200 p-8 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col shrink-0 group">
-              <div class="w-14 h-14 mb-6 bg-gradient-to-br from-[#d5a021]/10 to-[#d5a021]/5 rounded-full flex items-center justify-center group-hover:from-[#d5a021]/20 group-hover:to-[#d5a021]/10 transition-all duration-300 shrink-0">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#d5a021] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                   <path [attr.d]="item.icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <!-- DASHBOARD CONTAINER -->
+        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden max-w-7xl mx-auto relative">
+          
+          <!-- SEGMENTED SELECTOR (Top Bar) -->
+          <div class="flex flex-wrap md:flex-nowrap border-b border-slate-100 bg-slate-50/50">
+            <button 
+              *ngFor="let pillar of pillars"
+              (click)="selectPillar(pillar)"
+              [class.active]="selectedPillar.id === pillar.id"
+              class="pillar-tab flex-1 flex flex-col items-center justify-center py-6 px-4 transition-all duration-300 relative group border-b-4 border-transparent hover:bg-white"
+            >
+              <div 
+                class="w-10 h-10 mb-2 rounded-xl flex items-center justify-center transition-all duration-500 transform group-hover:-translate-y-1"
+                [ngClass]="selectedPillar.id === pillar.id ? 'bg-[#d5a021] text-white shadow-xl rotate-3' : 'bg-slate-200 text-slate-400 group-hover:bg-slate-300'"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path [attr.d]="pillar.icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                 </svg>
               </div>
+              <span 
+                class="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-300"
+                [ngClass]="selectedPillar.id === pillar.id ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-600'"
+              >
+                {{ pillar.shortTitle }}
+              </span>
+              <!-- Active Indicator Line -->
+              <div 
+                *ngIf="selectedPillar.id === pillar.id"
+                class="absolute bottom-[-4px] left-0 w-full h-1 bg-[#d5a021] z-20"
+              ></div>
+            </button>
+          </div>
+
+          <!-- CONTENT PANE (Fully Redesigned for Variety) -->
+          <div class="relative min-h-[650px] overflow-hidden"
+               [ngClass]="selectedPillar.colorClass">
+            
+            <!-- Dynamic Background Glow -->
+            <div 
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[140px] opacity-20 transition-colors duration-1000 pointer-events-none"
+              [ngClass]="selectedPillar.glowClass"
+            ></div>
+
+            <!-- Background Asset Watermark -->
+            <div class="absolute inset-0 opacity-[0.05] pointer-events-none transition-all duration-1000"
+                 [style.background-image]="'url(' + selectedPillar.bgImage + ')'"
+                 [style.background-size]="'cover'"
+                 [style.background-position]="'center'">
+            </div>
+            
+            <div *ngIf="selectedPillar" @contentFade
+                 class="p-8 md:p-14 lg:p-16 flex flex-col items-center justify-center relative z-10 h-full"
+                 [ngClass]="{'md:flex-row gap-12 lg:gap-20': selectedPillar.layout !== 'Center'}">
               
-              <h3 class="text-xl font-bold text-slate-800 mb-4 min-h-[3rem] flex items-center">{{ item.title }}</h3>
-              
-              <div class="text-slate-600 leading-relaxed text-sm flex-grow">
-                <p class="mb-4">{{ item.description }}</p>
+              <!-- VARIANT 1: LEFT NARRATIVE (Standard / Reverse) -->
+              <div class="w-full md:w-[48%] lg:w-[45%]"
+                   [ngClass]="{'md:order-2': selectedPillar.layout === 'Reverse'}">
+                <div 
+                  class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest mb-8 border shadow-sm backdrop-blur-sm"
+                  [ngClass]="selectedPillar.tagClass"
+                >
+                  <span class="w-2 h-2 rounded-full shadow-[0_0_8px_currentColor]" [ngClass]="selectedPillar.dotClass"></span>
+                  Pillar 0{{ getPillarIndex(selectedPillar.id) }}
+                </div>
                 
-                <ul *ngIf="item.list" class="space-y-2 mt-4 border-t border-slate-100 pt-4">
-                  <li *ngFor="let li of item.list" class="flex items-start">
-                    <span class="text-[#d5a021] mr-2">▹</span>
-                    <span>{{ li }}</span>
-                  </li>
-                </ul>
+                <h3 class="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-[1.15] tracking-tight">
+                  {{ selectedPillar.title }}
+                </h3>
+                
+                <p class="text-slate-600 text-xl md:text-2xl font-light mb-12 leading-relaxed border-l-4 border-[#d5a021]/20 pl-8">
+                  {{ selectedPillar.description }}
+                </p>
+                
+                <div class="p-8 bg-white/70 backdrop-blur-md rounded-3xl border border-white/50 flex items-center gap-8 group/focus hover:border-[#d5a021]/40 transition-all hover:shadow-2xl hover:-translate-y-1">
+                  <div class="w-20 h-20 rounded-2xl bg-[#f8fafc] shadow-inner flex items-center justify-center text-4xl transition-transform group-hover/focus:scale-110 group-hover/focus:rotate-6">
+                     {{ selectedPillar.emoji }}
+                  </div>
+                  <div>
+                     <div class="text-[#d5a021] text-xs font-bold uppercase tracking-[0.2em] mb-2">Executive Focus</div>
+                     <div class="text-slate-900 text-xl font-bold tracking-tight">{{ selectedPillar.focusTitle }}</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VARIANT 2: PROCESS PANEL -->
+              <div class="w-full md:w-[52%] lg:w-[55%] mt-12 md:mt-0"
+                   [ngClass]="{'md:order-1': selectedPillar.layout === 'Reverse'}">
+                
+                <!-- Specialized Visual for Entitlement Strategy -->
+                <div *ngIf="selectedPillar.id === 'vision'" class="bg-indigo-950 rounded-3xl p-10 shadow-3xl border border-white/10 relative overflow-hidden">
+                   <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
+                   <div class="relative z-10">
+                      <div class="flex items-center justify-between mb-10 border-b border-white/10 pb-6">
+                         <span class="text-white text-xs font-mono uppercase tracking-[0.3em]">Entitlement Rhythm</span>
+                         <span class="text-blue-400 font-mono text-[10px]">VERIFIED 2024</span>
+                      </div>
+                      <div class="space-y-8">
+                         <div *ngFor="let step of selectedPillar.steps; let i = index" class="relative">
+                            <div class="flex items-center justify-between mb-2">
+                               <span class="text-white text-sm font-medium tracking-wide">{{ step.label }}</span>
+                               <span class="text-[#d5a021] text-[10px] font-mono">COMPLETE</span>
+                            </div>
+                            <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                               <div class="h-full bg-blue-500 transition-all duration-1000 delay-300" [style.width]="(80 + (i*5)) + '%'"></div>
+                            </div>
+                            <p class="text-slate-400 text-xs mt-3 font-light leading-relaxed">{{ step.subtext }}</p>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+
+                <!-- Specialized Visual for Technical Precision -->
+                <div *ngIf="selectedPillar.id === 'precision'" class="p-4 bg-slate-100 rounded-3xl border border-slate-200">
+                   <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl">
+                      <div class="flex items-center gap-3 mb-8">
+                         <div class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></div>
+                         <span class="text-slate-900 text-[10px] font-bold uppercase tracking-[0.3em]">Standard Audit Cycle</span>
+                      </div>
+                      <div class="space-y-6">
+                         <div *ngFor="let step of selectedPillar.steps" class="flex gap-6 items-start group/step">
+                            <div class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 group-hover/step:bg-amber-50 group-hover/step:border-amber-200 transition-colors">
+                               <svg class="w-5 h-5 text-slate-400 group-hover/step:text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                               </svg>
+                            </div>
+                            <div>
+                               <div class="text-slate-900 font-bold text-base mb-1">{{ step.label }}</div>
+                               <div class="text-slate-500 text-sm font-light leading-snug">{{ step.subtext }}</div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+
+                <!-- Specialized Visual for Texas Authority -->
+                <div *ngIf="selectedPillar.id === 'territory'" class="bg-slate-900 rounded-3xl p-1 shadow-3xl border border-slate-800 relative overflow-hidden group/texas">
+                   <div class="bg-slate-950 rounded-2xl p-10 lg:p-12 relative overflow-hidden min-h-[460px] flex flex-col justify-end">
+                      <!-- High Fidelity Texas Map Asset (CENTERED & FITTED) -->
+                      <div class="absolute inset-4 opacity-90 bg-[url('assets/images/brand/texas_map_outline.png')] bg-contain bg-center bg-no-repeat group-hover/texas:scale-105 transition-transform duration-[20s] ease-out pointer-events-none"></div>
+                      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+                      
+                      <div class="relative z-10">
+                         <div class="flex items-center gap-3 mb-10">
+                            <div class="w-3 h-3 bg-red-600 rounded-full shadow-[0_0_15px_rgba(220,38,38,0.8)] animate-pulse"></div>
+                            <span class="text-white text-xs font-mono uppercase tracking-[0.4em] drop-shadow-md">Texas Operations</span>
+                         </div>
+                         <div class="grid grid-cols-2 gap-4 mb-10">
+                            <div *ngFor="let metro of ['SATX', 'ATX', 'HTX', 'DFW']" class="p-3 bg-slate-900/40 border border-[#d5a021]/30 rounded-lg hover:bg-[#d5a021]/20 hover:border-[#d5a021]/50 backdrop-blur-md transition-all group/metro shadow-lg">
+                               <div class="text-[#d5a021] text-[10px] font-bold mb-1 tracking-widest group-hover/metro:translate-x-1 transition-transform uppercase">{{ metro }}</div>
+                               <div class="text-white/40 text-[8px] font-mono uppercase">Operational</div>
+                            </div>
+                         </div>
+                         <div class="space-y-3">
+                            <div *ngFor="let step of selectedPillar.steps" class="flex items-center gap-4 text-white font-bold text-sm drop-shadow-sm">
+                               <div class="w-2 h-2 rounded-full bg-[#d5a021] shadow-[0_0_10px_#d5a021]"></div>
+                               {{ step.label }}
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+
+                <!-- Specialized Visual for ROI & Accountability -->
+                <div *ngIf="selectedPillar.id === 'accountability'" class="relative aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden shadow-3xl ring-1 ring-white/10 group/img">
+                   <img [src]="selectedPillar.bgImage" alt="Accountability" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover/img:scale-100">
+                   <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                   <div class="absolute bottom-10 left-10 right-10">
+                      <div class="text-[#d5a021] text-[10px] font-bold uppercase tracking-[0.4em] mb-4">Firm Philosophy</div>
+                      <div class="text-white text-3xl font-bold leading-tight mb-6">Built on Logic, Excellence, <br> & Family.</div>
+                      <div class="flex gap-1.5">
+                         <div class="w-8 h-1 bg-[#d5a021] rounded-full"></div>
+                         <div class="w-2 h-1 bg-white/20 rounded-full"></div>
+                         <div class="w-2 h-1 bg-white/20 rounded-full"></div>
+                      </div>
+                   </div>
+                </div>
+
               </div>
             </div>
+
           </div>
         </div>
-        
-        <!-- Scroll Indicators (Optional visual cue) -->
-        <div class="flex justify-center gap-2 mt-4 lg:hidden">
-           <div *ngFor="let r of reasons; let i = index" class="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+
+        <!-- Bottom CTA -->
+        <div class="mt-20 text-center">
+           <button class="bg-[#d5a021] text-white px-12 py-5 rounded-full font-bold uppercase tracking-[0.3em] text-sm hover:bg-amber-600 transition-all shadow-2xl hover:shadow-[#d5a021]/30 hover:-translate-y-1 active:scale-95">
+              Initiate Strategic Review
+           </button>
+           <p class="text-slate-400 mt-8 text-xs font-mono uppercase tracking-[0.2em]">© 2026 Rao’s Consulting Engineers • SATX Headquarters</p>
         </div>
       </div>
     </section>
   `,
   styles: [`
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
+    .pillar-tab.active {
+      background: #ffffff;
     }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .flex-nowrap {
-      -webkit-overflow-scrolling: touch;
+    .pillar-tab:not(.active):hover {
+      background: #ffffff;
     }
   `]
 })
 export class WhyUsComponent {
-  reasons = [
+  isTransitioning = false;
+
+  getPillarIndex(id: string): number {
+    return this.pillars.findIndex(p => p.id === id) + 1;
+  }
+
+  pillars: Pillar[] = [
     {
-      title: 'We Move Projects from Concept to Construction — Efficiently.',
-      description: 'Land development is not just design — it’s entitlement navigation, risk management, and execution. We understand the regulatory landscape in Texas and structure every project to move through review agencies with clarity and purpose.',
-      icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'
+      id: 'vision',
+      shortTitle: 'Entitlement Strategy',
+      title: 'From Concept to Construction — Efficiently.',
+      icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+      description: 'Land development is not just design — it’s entitlement navigation, risk management, and execution. We understand the regulatory landscape in Texas and structure every project to move through agencies with clarity and purpose.',
+      emoji: '📈',
+      focusTitle: 'Concept-to-Construction Efficiency',
+      colorClass: 'bg-white',
+      tagClass: 'bg-indigo-50 border-indigo-100 text-indigo-600',
+      dotClass: 'bg-indigo-500',
+      glowClass: 'bg-indigo-400',
+      processType: 'STRATEGY MAP',
+      statusDotClass: 'bg-indigo-500',
+      bgImage: 'assets/images/brand/experience_hero_blueprint.png',
+      layout: 'Standard',
+      steps: [
+        { label: 'Entitlement Navigation', subtext: 'Moving from raw land to actionable permits' },
+        { label: 'Regulatory Clarity', subtext: 'Structuring submittals for agency alignment' },
+        { label: 'Execution Planning', subtext: 'Phasing for market timing and ROI' }
+      ]
     },
     {
-      title: 'We Design With Approval in Mind',
+      id: 'precision',
+      shortTitle: 'Technical Precision',
+      title: 'Designed with Approval in Mind',
+      icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
       description: 'Our plans are engineered for constructability and agency approval. We anticipate reviewer concerns before submission and minimize costly cycles of comments and delays.',
-      list: [
-        'Drainage & stormwater compliance',
-        'Site grading optimization',
-        'Utility coordination',
-        'Permit-ready construction documents',
-        'Technical narratives that withstand scrutiny'
-      ],
-      icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+      emoji: '📐',
+      focusTitle: 'Approval-Minded Engineering',
+      colorClass: 'bg-slate-50/50',
+      tagClass: 'bg-amber-50 border-amber-100 text-[#d5a021]',
+      dotClass: 'bg-[#d5a021]',
+      glowClass: 'bg-amber-400',
+      processType: 'TECHNICAL AUDIT',
+      statusDotClass: 'bg-amber-500',
+      bgImage: 'assets/images/brand/contact_hero_blueprint.png',
+      layout: 'Reverse',
+      steps: [
+        { label: 'Drainage & Stormwater', subtext: 'Rigorous hydrologic modeling and compliance' },
+        { label: 'Site Grading Optimization', subtext: 'Balancing earthwork for cost-efficiency' },
+        { label: 'Utility Coordination', subtext: 'Ensuring seamless SAWS/infrastructure sync' }
+      ]
     },
     {
-      title: 'Strategic Problem Solvers',
-      description: 'Every site has constraints — topography, environmental regulations, access limitations, or utility conflicts. We don’t just identify issues; we structure solutions that balance:',
-      list: [
-        'Regulatory compliance',
-        'Budget realities',
-        'Schedule objectives',
-        'Long-term asset value'
-      ],
-      icon: 'M13 10V3L4 14h7v7l9-11h-7z'
-    },
-    {
+      id: 'territory',
+      shortTitle: 'Texas Authority',
       title: 'Deep Knowledge of Texas Jurisdictions',
-      description: 'From municipal review processes to agency coordination, we understand how Texas cities operate. That experience translates into:',
-      list: [
-        'Faster approvals',
-        'Cleaner submittals',
-        'Fewer surprises'
-      ],
-      icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+      icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+      description: 'From municipal review processes to agency coordination, we understand how Texas cities operate. That experience translates into faster approvals, cleaner submittals, and fewer surprises.',
+      emoji: '📍',
+      focusTitle: 'Jurisdictional Logic & Speed',
+      colorClass: 'bg-white',
+      tagClass: 'bg-red-50 border-red-100 text-red-600',
+      dotClass: 'bg-red-500',
+      glowClass: 'bg-red-400',
+      processType: 'AGENCY SYNC',
+      statusDotClass: 'bg-red-500',
+      bgImage: 'assets/images/brand/rce_topographic_texture_1768626380325.png',
+      layout: 'Standard',
+      steps: [
+        { label: 'Agency Coordination', subtext: 'Navigating TxDOT, TCEQ, and City Staff' },
+        { label: 'Regional Local Code Audit', subtext: 'Ensuring absolute jurisdictional compliance' },
+        { label: 'Expedited Approval Cycles', subtext: 'Mastering the municipal review rhythm' }
+      ]
     },
     {
+      id: 'accountability',
+      shortTitle: 'ROI & Accountability',
       title: 'Business-Minded Engineering',
-      description: 'We think like developers because we work alongside them. Engineering decisions impact ROI, construction cost, and market timing. We design accordingly.',
-      icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-    },
-    {
-      title: 'Responsive & Accountable',
-      description: 'Your project receives executive-level oversight from start to finish.',
-      list: [
-        'Clear communication',
-        'Defined deliverables',
-        'Proactive coordination',
-        'No ambiguity'
-      ],
-      icon: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z'
-    },
-    {
-      title: 'Built for Growth',
-      description: 'Whether it’s a single commercial pad or a multi-phase development, we scale with your vision and deliver with discipline.',
-      icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'
+      icon: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z',
+      description: 'We think like developers because we work alongside them. Engineering decisions impact ROI, construction cost, and market timing. We design accordingly, with executive-level oversight from start to finish.',
+      emoji: '🤝',
+      focusTitle: 'Business-Minded ROI Oversight',
+      colorClass: 'bg-slate-900/5',
+      tagClass: 'bg-slate-900 border-slate-700 text-slate-400',
+      dotClass: 'bg-[#d5a021]',
+      glowClass: 'bg-slate-400',
+      processType: 'EXECUTIVE OVERLOOK',
+      statusDotClass: 'bg-green-500',
+      bgImage: 'assets/abstract-hero.png',
+      layout: 'Reverse',
+      steps: [
+        { label: 'Developer-Minded ROI', subtext: 'Engineering decisions mapped to budget realities' },
+        { label: 'Progressive Oversight', subtext: 'Director-level review on all key deliverables' },
+        { label: 'Proactive Communication', subtext: 'Defined deliverables with no ambiguity' }
+      ]
     }
   ];
+
+  selectedPillar: Pillar = this.pillars[0];
+
+  selectPillar(pillar: Pillar) {
+    if (this.selectedPillar.id === pillar.id) return;
+    this.selectedPillar = pillar;
+  }
 }
