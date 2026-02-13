@@ -21,10 +21,7 @@ interface Project {
 interface CategoryMetadata {
   id: string;
   title: string;
-  tagline: string;
   description: string;
-  metric: string;
-  metricLabel: string;
   stats: string[];
 }
 
@@ -216,7 +213,7 @@ interface CategoryMetadata {
                   <div class="lg:sticky lg:top-32 bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest mb-6 bg-slate-950 text-white shadow-lg shadow-slate-950/20">
                       <span class="w-1.5 h-1.5 rounded-full bg-[#d5a021] animate-pulse"></span>
-                      {{ categoryMetadata[categoryId].tagline }}
+                      Portfolio Excellence
                     </div>
                     
                     <p class="text-slate-600 text-base leading-relaxed font-light mb-10 italic">
@@ -225,10 +222,7 @@ interface CategoryMetadata {
   
                     <!-- Sector Highlights -->
                     <div class="space-y-6 mb-10">
-                      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col gap-2">
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#d5a021]">{{ categoryMetadata[categoryId].metricLabel }}</div>
-                        <div class="text-3xl font-bold text-slate-950 tracking-tight">{{ categoryMetadata[categoryId].metric }}<span class="text-[#d5a021]">+</span></div>
-                      </div>
+
                       
                       <div class="space-y-3">
                         <div *ngFor="let stat of categoryMetadata[categoryId].stats" class="flex items-center gap-3 text-xs text-slate-700 font-semibold uppercase tracking-tight">
@@ -650,7 +644,7 @@ export class ExperiencePageComponent {
     },
     {
       title: 'Vista Ridge Professional Suites - Cedar Park, TX',
-      category: 'Multi / Family',
+      category: 'Offices/Business parks',
       location: 'Cedar Park, TX',
       image: 'assets/projects/MULTI-FAMILY/vista_ridge_professional_suites.jpg',
       description: 'Sophisticated professional suite development designed with modern aesthetics and functional community integration.',
@@ -719,46 +713,31 @@ export class ExperiencePageComponent {
     'Commercial': {
       id: 'Commercial',
       title: 'Commercial Infrastructure',
-      tagline: 'Strategic Master Planning',
       description: 'Engineering the backbone of Texas commerce through complex infrastructure design and large-scale site development.',
-      metric: '7,000+',
-      metricLabel: 'Acres Managed',
       stats: ['Master Planning', 'Utility Feasibility', 'Agency Coordination']
     },
     'Retail & Restaurants': {
       id: 'Retail & Restaurants',
       title: 'Retail & Restaurants',
-      tagline: 'High-Velocity Project Delivery',
       description: 'Precision site engineering for national brands and regional developers, optimized for permitting speed and constructability.',
-      metric: '50+',
-      metricLabel: 'Sites Developed',
       stats: ['Traffic Engineering', 'Platting', 'Expedited Permitting']
     },
     'Multi / Family': {
       id: 'Multi / Family',
       title: 'Multi / Family Developments',
-      tagline: 'Urban Living Excellence',
       description: 'Sophisticated civil solutions for high-density residential projects, balancing technical compliance with developer ROI.',
-      metric: '14,000+',
-      metricLabel: 'Units Planned',
       stats: ['SUD/MUD Coordination', 'Hydrology Modeling', 'Site Optimization']
     },
     'Single Family': {
       id: 'Single Family',
       title: 'Single Family Residential',
-      tagline: 'Community-Scale Engineering',
       description: 'Transforming raw land into premium residential communities through rigorous technical analysis and precision execution.',
-      metric: '500+',
-      metricLabel: 'Luxury Lots',
       stats: ['Subdivision Layout', 'Roadway Design', 'TCEQ Compliance']
     },
     'Offices/Business parks': {
       id: 'Offices/Business parks',
       title: 'Offices & Business Parks',
-      tagline: 'Strategic Corporate Environments',
       description: 'Designing high-performance corporate campuses and business environments that foster innovation and operational excellence.',
-      metric: '5+',
-      metricLabel: 'Parks Engineered',
       stats: ['Site Development', 'Building Permitting', 'Industrial Planning']
     }
   };

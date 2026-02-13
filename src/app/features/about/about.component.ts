@@ -64,7 +64,7 @@ import { RouterModule } from '@angular/router';
              </div>
              <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Core Infrastructure</h3>
              <p class="text-slate-600 text-base leading-relaxed font-light">
-                Comprehensive expertise in the planning and design of public and private infrastructure, specializing in **institutional, multi / family, and commercial** subdivision projects.
+                Comprehensive expertise in the planning and design of public and private infrastructure, specializing in institutional, multi / family, and commercial subdivision projects.
              </p>
           </div>
 
@@ -76,7 +76,7 @@ import { RouterModule } from '@angular/router';
              </div>
              <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Regional Command</h3>
              <p class="text-slate-600 text-base leading-relaxed font-light">
-                Established presence across the **Greater San Antonio area, Houston, Austin, and Dallas**. Designing private roadways that power high-consequence Texas developments.
+                Established presence across the Greater San Antonio area, Houston, Austin, and Dallas. Designing private roadways that power high-consequence Texas developments.
              </p>
           </div>
 
@@ -88,7 +88,7 @@ import { RouterModule } from '@angular/router';
              </div>
              <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Hydrologic Logic</h3>
              <p class="text-slate-600 text-base leading-relaxed font-light">
-                Specialized mastery in managing **City and FEMA CLOMR/LOMR** processes. Delivering innovative solutions for complex drainage systems and grading.
+                Specialized mastery in managing City and FEMA CLOMR/LOMR processes. Delivering innovative solutions for complex drainage systems and grading.
              </p>
           </div>
 
@@ -100,7 +100,7 @@ import { RouterModule } from '@angular/router';
              </div>
              <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Strategic Permitting</h3>
              <p class="text-slate-600 text-base leading-relaxed font-light">
-                Adept navigation of permitting requirements for **TxDOT, TCEQ, and SAWS** across numerous Texas municipalities including Frisco, Round Rock, and Cedar Park.
+                Adept navigation of permitting requirements for TxDOT, TCEQ, and SAWS across numerous Texas municipalities including San Antonio, Dallas, Austin, Houston, Frisco, Round Rock, and Cedar Park.
              </p>
           </div>
 
@@ -208,10 +208,7 @@ import { RouterModule } from '@angular/router';
             <span class="stat-number text-gold">18+</span>
             <span class="stat-label">Years Experience</span>
           </div>
-          <div class="stat-item">
-            <span class="stat-number text-cyan">500+</span>
-            <span class="stat-label">Projects Completed</span>
-          </div>
+
           <div class="stat-item">
             <span class="stat-number text-orange">100%</span>
             <span class="stat-label">Client Satisfaction</span>
