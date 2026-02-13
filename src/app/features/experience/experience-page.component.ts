@@ -313,7 +313,7 @@ interface CategoryMetadata {
             <div class="relative aspect-video overflow-hidden bg-slate-100">
               <img [src]="project.image" 
                 [alt]="project.title"
-                [style.transform]="project.rotate ? 'rotate(' + project.rotate + 'deg) scale(1.2)' : ''"
+                [style.transform]="project.rotate ? 'rotate(' + project.rotate + 'deg) scale(1.8)' : ''"
                 class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 saturate-[1.1] contrast-[1.05]">
               
               <!-- Sector Badge (Refined) -->

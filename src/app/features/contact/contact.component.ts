@@ -52,9 +52,9 @@ import { FormsModule } from '@angular/forms';
                
                <div class="flex flex-col gap-3 pt-4 border-t border-white/10 w-fit">
                  <div class="flex gap-4 items-center">
-                   <a href="tel:2105497557" class="text-xl text-slate-200 hover:text-[#d5a021] transition-colors font-mono">210-549-7557</a>
+                   <span class="text-xl text-slate-200 font-mono">210-549-7557</span>
                    <span class="text-slate-600">/</span>
-                   <a href="tel:5128564595" class="text-xl text-slate-200 hover:text-[#d5a021] transition-colors font-mono">512-856-4595</a>
+                   <span class="text-xl text-slate-200 font-mono">512-856-4595</span>
                  </div>
                  <a href="mailto:rao@raosengineering.com" class="block text-xl text-slate-200 hover:text-[#d5a021] transition-colors border-b border-transparent hover:border-[#d5a021] w-fit">rao&#64;raosengineering.com</a>
                </div>
@@ -89,7 +89,7 @@ import { FormsModule } from '@angular/forms';
             </div>
             <div class="h-1 w-12 bg-[#d5a021] mb-8"></div>
 
-            <form (ngSubmit)="onSubmit()" class="space-y-8">
+            <form (ngSubmit)="onSubmit()" class="space-y-8" *ngIf="!isSuccess">
                
                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                  <!-- Name -->
@@ -134,14 +134,38 @@ import { FormsModule } from '@angular/forms';
                  <label for="message" class="absolute left-0 -top-3.5 text-xs text-slate-500 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-[#d5a021] font-bold uppercase tracking-wider">Project Brief</label>
                </div>
 
+               <!-- Error Message -->
+               <div *ngIf="isError" class="bg-red-50 text-red-600 p-4 rounded text-sm font-medium border border-red-100 animate-fade-in">
+                 Failed to send message. Please try again or direct email us at rao&#64;raosengineering.com
+               </div>
+
                <!-- Submit -->
-               <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 px-8 uppercase tracking-widest hover:bg-[#d5a021] hover:text-slate-900 transition-colors flex items-center justify-between group">
-                 <span>Send Message</span>
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <button type="submit" [disabled]="isSubmitting" class="w-full bg-slate-900 text-white font-bold py-4 px-8 uppercase tracking-widest hover:bg-[#d5a021] hover:text-slate-900 transition-colors flex items-center justify-between group disabled:opacity-50 disabled:cursor-not-allowed">
+                 <span>{{ isSubmitting ? 'Sending...' : 'Send Message' }}</span>
+                 <svg *ngIf="!isSubmitting" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                 </svg>
+                 <!-- Loading Spinner -->
+                 <svg *ngIf="isSubmitting" class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                  </svg>
                </button>
             </form>
+
+            <!-- Success State -->
+            <div *ngIf="isSuccess" class="text-center py-12 animate-fade-in">
+              <div class="w-16 h-16 bg-[#d5a021] text-slate-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 mb-2">Message Received</h3>
+              <p class="text-slate-600 mb-8">We have received your inquiry. One of our engineers will reach out to you shortly.</p>
+              <button (click)="isSuccess = false" class="text-[#d5a021] font-bold uppercase tracking-widest text-xs hover:text-slate-900 transition-colors">
+                Send another message →
+              </button>
+            </div>
             
          </div>
       </div>
@@ -168,8 +192,39 @@ export class ContactComponent {
     message: ''
   };
 
-  onSubmit() {
-    console.log('Form Submitted:', this.formData);
-    alert('Thank you. We will be in touch shortly.');
+  isSubmitting = false;
+  isSuccess = false;
+  isError = false;
+
+  async onSubmit() {
+    this.isSubmitting = true;
+    this.isSuccess = false;
+    this.isError = false;
+
+    try {
+      const response = await fetch('https://formspree.io/f/xoqyzrvv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...this.formData,
+          _subject: `New Project Inquiry: ${this.formData.subject} from ${this.formData.name}`
+        })
+      });
+
+      if (response.ok) {
+        this.isSuccess = true;
+        this.formData = { name: '', phone: '', email: '', subject: '', message: '' };
+      } else {
+        this.isError = true;
+      }
+    } catch (error) {
+      this.isError = true;
+      console.error('Form submission error:', error);
+    } finally {
+      this.isSubmitting = false;
+    }
   }
 }

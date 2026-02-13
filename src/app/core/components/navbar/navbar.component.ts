@@ -62,9 +62,9 @@ import { RouterModule } from '@angular/router';
 
         <!-- Action Module -->
         <div class="hidden lg:flex items-center gap-8">
-          <a href="tel:2105497557" class="text-white/60 hover:text-white font-mono text-xs tracking-widest transition-colors hidden xl:block">
+          <span class="text-white/60 font-mono text-xs tracking-widest hidden xl:block">
             210-549-7557
-          </a>
+          </span>
           <a routerLink="/contact" class="relative group overflow-hidden bg-[#d5a021] text-slate-900 px-8 py-3 font-bold text-xs uppercase tracking-[0.15em] hover:bg-white transition-all duration-300 skew-x-[-10deg]">
              <span class="block skew-x-[10deg]">Contact Us</span>
           </a>
