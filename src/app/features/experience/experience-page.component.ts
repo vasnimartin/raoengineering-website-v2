@@ -131,12 +131,53 @@ interface CategoryMetadata {
             class="px-6 py-2 rounded-full border border-slate-200 text-xs font-bold uppercase tracking-widest transition-all hover:border-[#d5a021] shadow-sm">
             {{ filter }}
           </button>
+        <!-- TECHNICAL SECTOR HUD (Heads-Up Display) -->
+        <div *ngIf="activeFilter === 'All'" 
+             class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden xl:flex flex-col gap-12 pointer-events-none transition-all duration-700"
+             [ngClass]="showHud ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'">
+          
+          <!-- The Authority Axis (Vertical Guide) -->
+          <div class="absolute left-6 top-0 bottom-0 w-px bg-slate-200 opacity-30"></div>
+          
+          <div *ngFor="let categoryId of ['Commercial', 'Retail & Restaurants', 'Multifamily', 'Single Family']; let idx = index" 
+               class="relative flex items-center gap-6 group transition-all duration-500"
+               [ngClass]="activeSector === categoryId ? 'opacity-100 scale-110' : 'opacity-20 translate-x-1'">
+            
+            <!-- Index Circle -->
+            <div class="w-12 h-12 rounded-full border border-slate-900 flex items-center justify-center bg-white shadow-2xl relative overflow-hidden transition-colors"
+                 [ngClass]="activeSector === categoryId ? 'border-[#d5a021] bg-slate-950 shadow-[#d5a021]/20' : 'border-slate-200'">
+              
+              <!-- Local Progress Hatching Fill -->
+              <div *ngIf="activeSector === categoryId" 
+                   class="absolute bottom-0 left-0 right-0 bg-[#d5a021] opacity-20 transition-all duration-300"
+                   [style.height.%]="sectorProgress"></div>
+                   
+              <span class="text-[11px] font-mono font-black"
+                    [ngClass]="activeSector === categoryId ? 'text-[#d5a021]' : 'text-slate-500'">
+                0{{ idx + 1 }}
+              </span>
+            </div>
+
+            <!-- Leader Line & Callout -->
+            <div class="flex items-center gap-4 pointer-events-auto transition-all duration-500"
+                 [ngClass]="activeSector === categoryId ? 'translate-x-0' : '-translate-x-4 opacity-0'">
+              <div class="h-px w-12 bg-[#d5a021]"></div>
+              <div class="bg-slate-950 text-white px-4 py-2 rounded-lg shadow-2xl border border-white/10">
+                <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d5a021] whitespace-nowrap">
+                  {{ activeSector === categoryId ? (categoryId === 'Retail & Restaurants' ? 'Retail / Rest' : categoryId) : '' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div id="projects-grid" class="scroll-mt-32">
           <!-- VIEW: "ALL" - DOSSIER REEL LAYOUT (Executive Redesign V3) -->
           <div *ngIf="activeFilter === 'All'" class="-mx-4 md:-mx-8">
             <div *ngFor="let categoryId of ['Commercial', 'Retail & Restaurants', 'Multifamily', 'Single Family']; let idx = index" 
+                 [id]="'sector-' + categoryId"
                  [ngClass]="idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/80'"
-                 class="py-32 border-b border-slate-100 relative overflow-hidden">
+                 class="py-40 border-b border-slate-100 relative overflow-hidden min-h-[90vh] flex flex-col justify-center">
             
             <!-- Background Decoration (Perspective Lines) -->
             <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent opacity-50"></div>
@@ -669,6 +710,9 @@ export class ExperiencePageComponent {
 
   filters: string[] = ['All', 'Commercial', 'Retail & Restaurants', 'Single Family', 'Multifamily'];
   activeFilter: string = 'All';
+  activeSector: string | null = null;
+  sectorProgress: number = 0;
+  showHud: boolean = false;
 
   retailImages: string[] = [
     'assets/projects/RETAIL_AND RESTAURANTS/RETAIL_AND RESTAURANTS.jpg',
@@ -770,5 +814,60 @@ export class ExperiencePageComponent {
     if (gridElement) {
       gridElement.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  // HUD Logic
+  ngOnInit() {
+    this.setupIntersectionObserver();
+    this.setupScrollListener();
+  }
+
+  private setupIntersectionObserver() {
+    const options = {
+      root: null,
+      rootMargin: '-10% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.activeSector = entry.target.id.replace('sector-', '');
+        }
+      });
+    }, options);
+
+    // Initial observer setup happens after a small delay to ensure DOM is ready
+    setTimeout(() => {
+      const sectors = document.querySelectorAll('[id^="sector-"]');
+      sectors.forEach(s => observer.observe(s));
+    }, 500);
+  }
+
+  private setupScrollListener() {
+    window.addEventListener('scroll', () => {
+      // Toggle HUD visibility: Show only if scrolled past hero (400px) 
+      // AND not at the very bottom (footer area)
+      const scrollPos = window.scrollY;
+      const totalHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+
+      this.showHud = scrollPos > 500 && (scrollPos + windowHeight < totalHeight - 600);
+
+      if (!this.activeSector) return;
+
+      const element = document.getElementById(`sector-${this.activeSector}`);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const height = element.offsetHeight;
+        const scrolled = Math.max(0, Math.min(100, (Math.abs(rect.top) / (height - window.innerHeight)) * 100));
+        this.sectorProgress = scrolled;
+      }
+    });
+  }
+
+  getSectorIndex(categoryId: string): number {
+    const sectors = ['Commercial', 'Retail & Restaurants', 'Multifamily', 'Single Family'];
+    return sectors.indexOf(categoryId) + 1;
   }
 }
