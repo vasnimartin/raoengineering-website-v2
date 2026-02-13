@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
     <nav [ngClass]="{'bg-slate-900/95 backdrop-blur-md py-4': isScrolled, 'py-6': !isScrolled}"
          class="fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b border-white/5">
       
-      <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between relative z-[60]">
         
         <!-- Strategic Brand Identity -->
         <a routerLink="/" class="group flex items-center">

@@ -99,7 +99,7 @@ interface Pillar {
             
             <!-- Dynamic Background Glow -->
             <div 
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[140px] opacity-20 transition-colors duration-1000 pointer-events-none"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] rounded-full blur-[100px] md:blur-[140px] opacity-20 transition-colors duration-1000 pointer-events-none"
               [ngClass]="selectedPillar.glowClass"
             ></div>
 
