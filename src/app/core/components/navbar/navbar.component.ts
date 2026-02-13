@@ -56,7 +56,7 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <a routerLink="/experience" class="nav-link" routerLinkActive="active-link">Experience</a>
+          <a routerLink="/experience" class="nav-link" routerLinkActive="active-link">Projects</a>
           <a routerLink="/about" class="nav-link" routerLinkActive="active-link">About RCE</a>
         </div>
 
@@ -98,7 +98,7 @@ import { RouterModule } from '@angular/router';
                 <a routerLink="/services/permitting" (click)="toggleMobileMenu()" class="block text-xl text-white/80 hover:text-white">Permitting & Regulatory</a>
              </div>
 
-             <a routerLink="/experience" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">Experience</a>
+             <a routerLink="/experience" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">Projects</a>
              <a routerLink="/about" (click)="toggleMobileMenu()" class="text-4xl font-bold text-white hover:text-[#d5a021]">About RCE</a>
              
              <a routerLink="/contact" (click)="toggleMobileMenu()" class="mt-8 w-full bg-[#d5a021] text-slate-900 py-4 text-center font-bold uppercase tracking-widest">

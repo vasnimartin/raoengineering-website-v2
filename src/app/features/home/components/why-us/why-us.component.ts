@@ -194,31 +194,11 @@ interface Pillar {
                    </div>
                 </div>
 
-                <!-- Specialized Visual for Texas Authority -->
+                <!-- Specialized Visual for Texas Authority (Minimal Map Only) -->
                 <div *ngIf="selectedPillar.id === 'territory'" class="bg-slate-900 rounded-3xl p-1 shadow-3xl border border-slate-800 relative overflow-hidden group/texas">
-                   <div class="bg-slate-950 rounded-2xl p-10 lg:p-12 relative overflow-hidden min-h-[460px] flex flex-col justify-end">
+                   <div class="bg-slate-950 rounded-2xl p-10 lg:p-12 relative overflow-hidden min-h-[460px] flex flex-col items-center justify-center">
                       <!-- High Fidelity Texas Map Asset (CENTERED & FITTED) -->
-                      <div class="absolute inset-4 opacity-90 bg-[url('assets/images/brand/texas_map_outline.png')] bg-contain bg-center bg-no-repeat group-hover/texas:scale-105 transition-transform duration-[20s] ease-out pointer-events-none"></div>
-                      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
-                      
-                      <div class="relative z-10">
-                         <div class="flex items-center gap-3 mb-10">
-                            <div class="w-3 h-3 bg-red-600 rounded-full shadow-[0_0_15px_rgba(220,38,38,0.8)] animate-pulse"></div>
-                            <span class="text-white text-xs font-mono uppercase tracking-[0.4em] drop-shadow-md">Texas Operations</span>
-                         </div>
-                         <div class="grid grid-cols-2 gap-4 mb-10">
-                            <div *ngFor="let metro of ['SATX', 'ATX', 'HTX', 'DFW']" class="p-3 bg-slate-900/40 border border-[#d5a021]/30 rounded-lg hover:bg-[#d5a021]/20 hover:border-[#d5a021]/50 backdrop-blur-md transition-all group/metro shadow-lg">
-                               <div class="text-[#d5a021] text-[10px] font-bold mb-1 tracking-widest group-hover/metro:translate-x-1 transition-transform uppercase">{{ metro }}</div>
-                               <div class="text-white/40 text-[8px] font-mono uppercase">Operational</div>
-                            </div>
-                         </div>
-                         <div class="space-y-3">
-                            <div *ngFor="let step of selectedPillar.steps" class="flex items-center gap-4 text-white font-bold text-sm drop-shadow-sm">
-                               <div class="w-2 h-2 rounded-full bg-[#d5a021] shadow-[0_0_10px_#d5a021]"></div>
-                               {{ step.label }}
-                            </div>
-                         </div>
-                      </div>
+                      <div class="absolute inset-8 opacity-90 bg-[url('assets/images/brand/texas_map_outline.png')] bg-contain bg-center bg-no-repeat group-hover/texas:scale-110 transition-transform duration-[10s] ease-out pointer-events-none"></div>
                    </div>
                 </div>
 
