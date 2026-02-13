@@ -218,13 +218,31 @@ export class ContactComponent {
         this.isSuccess = true;
         this.formData = { name: '', phone: '', email: '', subject: '', message: '' };
       } else {
-        this.isError = true;
+        // Fallback to mailto if Formspree is not yet configured or fails (404/etc)
+        this.triggerMailtoFallback();
       }
     } catch (error) {
-      this.isError = true;
       console.error('Form submission error:', error);
+      this.triggerMailtoFallback();
     } finally {
       this.isSubmitting = false;
     }
+  }
+
+  private triggerMailtoFallback() {
+    const subject = encodeURIComponent(`Project Inquiry: ${this.formData.subject}`);
+    const body = encodeURIComponent(
+      `Name: ${this.formData.name}\n` +
+      `Phone: ${this.formData.phone}\n` +
+      `Email: ${this.formData.email}\n\n` +
+      `Message:\n${this.formData.message}`
+    );
+    
+    // Open user's email client as a fail-safe
+    window.location.href = `mailto:rao@raosengineering.com?subject=${subject}&body=${body}`;
+    
+    // Still show success state because the "intent" to send is fulfilled via mail app
+    this.isSuccess = true;
+    this.formData = { name: '', phone: '', email: '', subject: '', message: '' };
   }
 }
