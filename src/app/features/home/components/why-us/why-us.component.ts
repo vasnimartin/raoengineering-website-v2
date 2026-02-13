@@ -64,7 +64,7 @@ interface Pillar {
         <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden max-w-7xl mx-auto relative">
           
           <!-- SEGMENTED SELECTOR (Top Bar) -->
-          <div class="flex flex-wrap md:flex-nowrap border-b border-slate-100 bg-slate-50/50">
+          <div class="grid grid-cols-2 lg:flex lg:flex-nowrap border-b border-slate-100 bg-slate-50/50">
             <button 
               *ngFor="let pillar of pillars"
               (click)="selectPillar(pillar)"

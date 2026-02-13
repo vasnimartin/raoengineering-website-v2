@@ -81,7 +81,7 @@ import { RouterModule } from '@angular/router';
       </div>
 
       <!-- Mobile Command Center -->
-      <div class="fixed inset-0 bg-slate-900 z-40 transition-transform duration-500 lg:hidden flex flex-col pt-32 px-8"
+      <div class="fixed inset-0 bg-slate-950/98 backdrop-blur-xl z-40 transition-transform duration-500 lg:hidden flex flex-col pt-32 px-8"
            [class.translate-x-full]="!isMobileMenuOpen"
            [class.translate-x-0]="isMobileMenuOpen">
            
