@@ -20,23 +20,90 @@ import { RouterModule } from '@angular/router';
       </div>
     </section>
 
-    <!-- HISTORY SECTION -->
-    <section class="history-section">
-      <div class="container">
-        <div class="grid-2">
-          <div class="text-content">
-            <h2>Our <span class="text-cyan">Story</span></h2>
-            <p>
-              Founded on the belief that civil engineering should be about more than just plans and permits—it should be about building relationships.
-            </p>
-            <p>
-              For over 18 years, Rao's Consulting Engineers has been a cornerstone of development in San Antonio, Austin, Houston, Dallas, and beyond. We navigate the complexities of municipal regulations so our clients can focus on their vision.
-            </p>
+    <!-- CAPABILITY DASHBOARD (Balanced Horizontal & Zero-Scroll) -->
+    <section class="capability-section py-20 bg-white relative overflow-hidden">
+      <!-- Technical Motifs -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(0,188,212,0.03)_0%,transparent_50%)]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.01)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none"></div>
+
+      <div class="container mx-auto px-8 max-w-[1920px] relative z-10">
+        
+        <!-- Dashboard Header: Re-balanced & Wide -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-16 border-b border-slate-100 pb-12 gap-8">
+          <div class="max-w-4xl">
+             <div class="inline-block px-4 py-1 border border-cyan-500/20 rounded-full text-cyan-500 text-[10px] font-bold tracking-[0.5em] uppercase mb-6 bg-cyan-50/30">
+                Institutional Profile
+             </div>
+             <h2 class="text-4xl md:text-7xl font-bold text-slate-900 tracking-tighter leading-none">
+                About <span class="text-cyan-500">Rao's Consulting</span> <br> 
+                <span class="text-slate-400">Engineers (RCE)</span>
+             </h2>
           </div>
-          <div class="stat-box">
-            <span class="big-number">18+</span>
-            <span class="label">Years of Excellence</span>
+          
+          <!-- Balanced Legacy Stat -->
+          <div class="mt-8 lg:mt-0 flex items-center gap-10 bg-slate-50 px-12 py-8 rounded-3xl border border-slate-100 shadow-sm">
+             <div class="flex flex-col">
+                <span class="text-6xl font-bold text-[#d5a021] leading-none">21+</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em] mt-3">Years Legacy</span>
+             </div>
+             <div class="h-16 w-px bg-slate-200"></div>
+             <div class="text-base text-slate-500 font-light leading-relaxed max-w-[220px]">
+                Elite engineering planning & design since 2003.
+             </div>
           </div>
+        </div>
+
+        <!-- STRETCHED 4-COLUMN HORIZON -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          
+          <!-- Pillar 01 -->
+          <div class="relative group p-10 rounded-3xl bg-slate-50/50 border border-slate-100/80 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-700">
+             <div class="flex items-center gap-4 mb-6">
+                <span class="text-cyan-500 font-mono text-lg font-bold">01</span>
+                <div class="h-px w-8 bg-cyan-500/20"></div>
+             </div>
+             <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Core Infrastructure</h3>
+             <p class="text-slate-600 text-base leading-relaxed font-light">
+                Comprehensive expertise in the planning and design of public and private infrastructure, specializing in **institutional, multifamily, and commercial** subdivision projects.
+             </p>
+          </div>
+
+          <!-- Pillar 02 -->
+          <div class="relative group p-10 rounded-3xl bg-slate-50/50 border border-slate-100/80 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-700">
+             <div class="flex items-center gap-4 mb-6">
+                <span class="text-cyan-500 font-mono text-lg font-bold">02</span>
+                <div class="h-px w-8 bg-cyan-500/20"></div>
+             </div>
+             <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Regional Command</h3>
+             <p class="text-slate-600 text-base leading-relaxed font-light">
+                Established presence across the **Greater San Antonio area, Houston, Austin, and Dallas**. Designing private roadways that power high-consequence Texas developments.
+             </p>
+          </div>
+
+          <!-- Pillar 03 -->
+          <div class="relative group p-10 rounded-3xl bg-slate-50/50 border border-slate-100/80 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-700">
+             <div class="flex items-center gap-4 mb-6">
+                <span class="text-cyan-500 font-mono text-lg font-bold">03</span>
+                <div class="h-px w-8 bg-cyan-500/20"></div>
+             </div>
+             <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Hydrologic Logic</h3>
+             <p class="text-slate-600 text-base leading-relaxed font-light">
+                Specialized mastery in managing **City and FEMA CLOMR/LOMR** processes. Delivering innovative solutions for complex drainage systems and grading.
+             </p>
+          </div>
+
+          <!-- Pillar 04 -->
+          <div class="relative group p-10 rounded-3xl bg-slate-50/50 border border-slate-100/80 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-700">
+             <div class="flex items-center gap-4 mb-6">
+                <span class="text-cyan-500 font-mono text-lg font-bold">04</span>
+                <div class="h-px w-8 bg-cyan-500/20"></div>
+             </div>
+             <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Strategic Permitting</h3>
+             <p class="text-slate-600 text-base leading-relaxed font-light">
+                Adept navigation of permitting requirements for **TxDOT, TCEQ, and SAWS** across numerous Texas municipalities including Frisco, Round Rock, and Cedar Park.
+             </p>
+          </div>
+
         </div>
       </div>
     </section>

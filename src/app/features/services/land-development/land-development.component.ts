@@ -2,11 +2,12 @@ import { Component, OnDestroy, AfterViewInit, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ServiceNavigatorComponent } from '../../../shared/components/service-navigator/service-navigator.component';
+import { ServiceHudComponent } from '../../../shared/components/service-hud/service-hud.component';
 
 @Component({
   selector: 'app-land-development',
   standalone: true,
-  imports: [CommonModule, RouterModule, ServiceNavigatorComponent],
+  imports: [CommonModule, RouterModule, ServiceNavigatorComponent, ServiceHudComponent],
   templateUrl: './land-development.component.html',
   styleUrls: ['./land-development.component.css', './land-development-icons.css']
 })

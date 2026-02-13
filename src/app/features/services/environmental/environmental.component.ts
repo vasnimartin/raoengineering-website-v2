@@ -2,11 +2,12 @@ import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef } from '@angula
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ServiceNavigatorComponent } from '../../../shared/components/service-navigator/service-navigator.component';
+import { ServiceHudComponent } from '../../../shared/components/service-hud/service-hud.component';
 
 @Component({
   selector: 'app-environmental',
   standalone: true,
-  imports: [CommonModule, RouterModule, ServiceNavigatorComponent],
+  imports: [CommonModule, RouterModule, ServiceNavigatorComponent, ServiceHudComponent],
   templateUrl: './environmental.component.html',
   styleUrl: './environmental.component.css'
 })
