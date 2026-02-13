@@ -48,7 +48,7 @@ import { RouterModule } from '@angular/router';
              </div>
              <div class="h-16 w-px bg-slate-200"></div>
              <div class="text-base text-slate-500 font-light leading-relaxed max-w-[220px]">
-                Elite engineering planning & design since 2003.
+                Elite engineering planning & design since 2005.
              </div>
           </div>
         </div>
@@ -86,7 +86,7 @@ import { RouterModule } from '@angular/router';
                 <span class="text-cyan-500 font-mono text-lg font-bold">03</span>
                 <div class="h-px w-8 bg-cyan-500/20"></div>
              </div>
-             <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Hydrologic Logic</h3>
+             <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Hydrologic Expertise</h3>
              <p class="text-slate-600 text-base leading-relaxed font-light">
                 Specialized mastery in managing City and FEMA CLOMR/LOMR processes. Delivering innovative solutions for complex drainage systems and grading.
              </p>
@@ -205,7 +205,7 @@ import { RouterModule } from '@angular/router';
         </p>
         <div class="stats-row">
           <div class="stat-item">
-            <span class="stat-number text-gold">18+</span>
+            <span class="stat-number text-gold">20+</span>
             <span class="stat-label">Years Experience</span>
           </div>
 
