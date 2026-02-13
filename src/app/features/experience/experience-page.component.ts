@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 interface Project {
   title: string;
@@ -14,6 +15,7 @@ interface Project {
   acreage?: number;
   featured?: boolean;
   hasActualImage?: boolean; // New flag to distinguish site photography from fallbacks
+  rotate?: number;
 }
 
 interface CategoryMetadata {
@@ -29,7 +31,7 @@ interface CategoryMetadata {
 @Component({
   selector: 'app-experience-page',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   template: `
     <header class="page-header relative h-[75vh] min-h-[700px] flex flex-col items-center justify-center overflow-hidden bg-slate-950 pt-32 pb-12">
       <!-- Layer 1: High-Impact Technical Blueprint -->
@@ -72,37 +74,9 @@ interface CategoryMetadata {
           <div class="absolute inset-0 bg-gradient-to-r from-[#d5a021]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           
           <div class="text-center relative z-10 w-full md:w-auto">
-            <div class="text-3xl md:text-4xl font-bold text-white mb-1">7,000<span class="text-[#d5a021] text-xl">+</span></div>
-            <div class="text-[10px] uppercase tracking-[0.2em] text-[#d5a021] font-bold">Acres Managed</div>
-          </div>
-          
-          <div class="hidden md:block w-px h-12 bg-white/10"></div>
-          
-          <div class="text-center relative z-10 w-full md:w-auto">
-            <div class="text-3xl md:text-4xl font-bold text-white mb-1">14,000<span class="text-[#d5a021] text-xl">+</span></div>
-            <div class="text-[10px] uppercase tracking-[0.2em] text-[#d5a021] font-bold">Units Planned</div>
-          </div>
-          
-          <div class="hidden md:block w-px h-12 bg-white/10"></div>
-          
-          <div class="text-center relative z-10 w-full md:w-auto">
             <div class="text-3xl md:text-4xl font-bold text-white mb-1">Texas<span class="text-[#d5a021] text-xl">Wide</span></div>
             <div class="text-[10px] uppercase tracking-[0.2em] text-[#d5a021] font-bold">Deep Infrastructure</div>
           </div>
-        </div>
-
-        <!-- Catalog Download Action -->
-        <div class="mt-10 mb-16 flex justify-center">
-          <a href="/assets/docs/RCE_Project_Catalog_2024.pdf" target="_blank" class="group flex items-center gap-4 bg-white/5 hover:bg-[#d5a021] border border-[#d5a021]/30 hover:border-[#d5a021] px-8 py-4 rounded transition-all duration-300 backdrop-blur-sm">
-            <div class="flex flex-col text-left">
-              <span class="text-[10px] text-[#d5a021] group-hover:text-slate-900 font-bold uppercase tracking-[0.2em] mb-0.5">Firm Documentation</span>
-              <span class="text-sm text-white group-hover:text-slate-900 font-bold uppercase tracking-widest">Download Project Catalog (PDF)</span>
-            </div>
-            <div class="h-10 w-px bg-white/10 group-hover:bg-slate-900/20"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#d5a021] group-hover:text-slate-900 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </a>
         </div>
 
       </div>
@@ -120,7 +94,7 @@ interface CategoryMetadata {
       <div class="container mx-auto px-4">
         
         <!-- PROJECT FILTER BAR -->
-        <div class="flex flex-wrap justify-center gap-4 mb-16">
+        <div class="flex flex-wrap justify-center gap-4 mb-10">
           <button *ngFor="let filter of filters" 
             (click)="setFilter(filter)"
             [class.bg-[#d5a021]]="activeFilter === filter"
@@ -131,6 +105,37 @@ interface CategoryMetadata {
             class="px-6 py-2 rounded-full border border-slate-200 text-xs font-bold uppercase tracking-widest transition-all hover:border-[#d5a021] shadow-sm">
             {{ filter }}
           </button>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="max-w-xl mx-auto mb-20 relative px-4">
+          <div class="relative group">
+            <input 
+              type="text" 
+              [(ngModel)]="searchQuery" 
+              placeholder="Search projects by name, location, or scope..." 
+              class="w-full bg-white border border-slate-200 rounded-full pl-14 pr-12 py-5 text-sm focus:border-[#d5a021] outline-none transition-all shadow-sm group-hover:shadow-md italic font-light tracking-wide">
+            
+            <!-- Search Icon -->
+            <svg class="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 group-hover:text-[#d5a021] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+
+            <!-- Clear Button -->
+            <button *ngIf="searchQuery" 
+              (click)="searchQuery = ''" 
+              class="absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-900 transition-colors p-1">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Search Progress Ring (Ultra Subtle) -->
+          <div *ngIf="searchQuery" class="absolute -bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+            <span class="text-[9px] uppercase tracking-[0.2em] font-bold text-slate-400">Filtering {{ filteredProjects.length }} Result{{ filteredProjects.length !== 1 ? 's' : '' }}</span>
+          </div>
+        </div>
         <!-- TECHNICAL SECTOR HUD (Heads-Up Display) -->
         <div *ngIf="activeFilter === 'All'" 
              class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden xl:flex flex-col gap-12 pointer-events-none transition-all duration-700"
@@ -139,7 +144,7 @@ interface CategoryMetadata {
           <!-- The Authority Axis (Vertical Guide) -->
           <div class="absolute left-6 top-0 bottom-0 w-px bg-slate-200 opacity-30"></div>
           
-          <div *ngFor="let categoryId of ['Commercial', 'Retail & Restaurants', 'Multifamily', 'Single Family']; let idx = index" 
+          <div *ngFor="let categoryId of ['Commercial', 'Offices/Business parks', 'Retail & Restaurants', 'Multi / Family', 'Single Family']; let idx = index" 
                class="relative flex items-center gap-6 group transition-all duration-500"
                [ngClass]="activeSector === categoryId ? 'opacity-100 scale-110' : 'opacity-20 translate-x-1'">
             
@@ -174,7 +179,7 @@ interface CategoryMetadata {
         <div id="projects-grid" class="scroll-mt-32">
           <!-- VIEW: "ALL" - DOSSIER REEL LAYOUT (Executive Redesign V3) -->
           <div *ngIf="activeFilter === 'All'" class="-mx-4 md:-mx-8">
-            <div *ngFor="let categoryId of ['Commercial', 'Retail & Restaurants', 'Multifamily', 'Single Family']; let idx = index" 
+            <div *ngFor="let categoryId of ['Commercial', 'Offices/Business parks', 'Retail & Restaurants', 'Multi / Family', 'Single Family']; let idx = index" 
                  [id]="'sector-' + categoryId"
                  [ngClass]="idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/80'"
                  class="py-40 border-b border-slate-100 relative overflow-hidden min-h-[90vh] flex flex-col justify-center">
@@ -299,7 +304,7 @@ interface CategoryMetadata {
 
           <!-- VIEW: FILTERED (Specific Category) -->
           <!-- Only show this standard grid if NOT 'All' -->
-          <div *ngIf="activeFilter !== 'All' && activeFilter !== 'Single Family' && activeFilter !== 'Retail & Restaurants'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 animate-fade-in">
+          <div *ngIf="activeFilter !== 'All' && activeFilter !== 'Retail & Restaurants'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 animate-fade-in">
            <ng-container *ngFor="let project of filteredProjects">
               <ng-container *ngTemplateOutlet="projectCard; context: { $implicit: project }"></ng-container>
            </ng-container>
@@ -314,6 +319,7 @@ interface CategoryMetadata {
             <div class="relative aspect-video overflow-hidden bg-slate-100">
               <img [src]="project.image" 
                 [alt]="project.title"
+                [style.transform]="project.rotate ? 'rotate(' + project.rotate + 'deg) scale(1.2)' : ''"
                 class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 saturate-[1.1] contrast-[1.05]">
               
               <!-- Sector Badge (Refined) -->
@@ -391,33 +397,6 @@ interface CategoryMetadata {
           </div>
         </div>
 
-        <!-- SPECIAL SINGLE FAMILY LAYOUT (List + 1 Featured Image) -->
-          <div *ngIf="activeFilter === 'Single Family'" class="mb-32 animate-fade-in flex flex-col lg:flex-row gap-12">
-          <!-- 1. Text List Section (Left) -->
-          <div class="w-full lg:w-1/2 flex flex-col gap-10 px-4 md:px-8 bg-white rounded-2xl p-10 border border-slate-100 shadow-sm">
-             <div *ngFor="let project of filteredProjects" class="border-l-2 border-[#d5a021]/30 pl-6 hover:border-[#d5a021] transition-colors group">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-[10px] uppercase tracking-[0.2em] text-[#d5a021] font-bold">{{ project.location }}</span>
-              </div>
-              <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#d5a021] transition-colors">{{ project.title }}</h3>
-              <p class="text-slate-600 text-sm leading-relaxed mb-2">{{ project.description }}</p>
-              <div class="text-xs text-slate-500 italic"><span class="font-bold text-slate-400 uppercase text-[9px] tracking-wider not-italic mr-2">Scope:</span>{{ project.scope }}</div>
-            </div>
-          </div>
-
-          <!-- 2. Featured Image (Right - Large Sticky) -->
-          <div class="w-full lg:w-1/2 relative">
-            <div class="sticky top-32">
-               <div class="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                 <img [src]="singleFamilyImages[0]" alt="Single Family Featured Project" class="w-full h-full object-cover saturate-[1.1] contrast-[1.05]">
-                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/90 to-transparent p-8">
-                   <span class="text-[#d5a021] text-xs font-bold uppercase tracking-[0.2em] mb-2 block">Featured Project</span>
-                   <h3 class="text-white text-2xl font-bold">Santa Vista Way</h3>
-                 </div>
-               </div>
-            </div>
-          </div>
-        </div>
 
         <!-- SITE INSPECTIONS SECTION -->
         <section class="inspection-services rounded-lg overflow-hidden bg-slate-900 border border-slate-800 relative shadow-2xl">
@@ -586,10 +565,10 @@ export class ExperiencePageComponent {
       services: ['Architecture Coordination', 'Civil Engineering', 'Permitting'],
     },
 
-    // MULTI-FAMILY PROJECTS
+    // MULTI / FAMILY PROJECTS
     {
       title: 'Oaks of Leander - Leander, TX',
-      category: 'Multifamily',
+      category: 'Multi / Family',
       location: 'Leander, TX',
       image: 'assets/projects/MULTI-FAMILY/MULTI-FAMILY_oaks_of_Leander_Leander_TX.jpg',
       description: 'The proposed development consists of 200-units apartment complex with Club house and Swimming pool.',
@@ -598,7 +577,7 @@ export class ExperiencePageComponent {
     },
     {
       title: 'Whitestone Oaks - Cedar Park, TX',
-      category: 'Multifamily',
+      category: 'Multi / Family',
       location: 'Cedar Park, TX',
       image: 'assets/projects/MULTI-FAMILY/multi-family_whitestone_ oaks_apartment.jpg',
       description: 'The proposed development consists of 96-units apartment complex with Club house and Swimming pool.',
@@ -607,16 +586,17 @@ export class ExperiencePageComponent {
     },
     {
       title: 'Synergy Business Park - Cedar Park, TX',
-      category: 'Multifamily',
+      category: 'Offices/Business parks',
       location: 'Cedar Park, TX',
       image: 'assets/projects/MULTI-FAMILY/multi_family_Synergy _Business_Park Cedar_Park_TX.jpg',
       description: 'A 20,000 sqft industrial /office park has been designed with in City of Cedar Park.',
       scope: 'We have secured the site development and building permit.',
       services: ['Industrial Design', 'Site Permit', 'Construction Planning'],
+      rotate: 90
     },
     {
       title: 'Salerno Commercial - Round Rock, TX',
-      category: 'Multifamily',
+      category: 'Commercial',
       location: 'Round Rock, TX',
       image: 'assets/projects/MULTI-FAMILY/multi_family_Salerno_Commercial Round_Rock_Park TX_A_7,000.jpg',
       description: 'A 7,000 sqft C-store with 7 MPD gas pumps including 2,300 restaurant and 7,000 sqft retail.',
@@ -625,7 +605,7 @@ export class ExperiencePageComponent {
     },
     {
       title: 'Webberville Apartments - Austin, TX',
-      category: 'Multifamily',
+      category: 'Multi / Family',
       location: 'Austin, TX',
       image: 'assets/projects/MULTI-FAMILY/multi_family_Weberville_Apartments_Austin_TX.jpg',
       description: 'The proposed development consists of 274-units apartment complex with Club house and Swimming pool.',
@@ -634,7 +614,7 @@ export class ExperiencePageComponent {
     },
     {
       title: 'Violet Crown - Austin, TX',
-      category: 'Multifamily',
+      category: 'Multi / Family',
       location: 'Austin, TX',
       image: 'assets/projects/MULTI-FAMILY/multi_family_violet_crown_Austin_tx.jpg',
       description: 'The proposed development consists of 28-units condominiums a three study building with first floor parking in downtown Austin.',
@@ -643,7 +623,7 @@ export class ExperiencePageComponent {
     },
     {
       title: 'Greenlight Village Townhomes - Leander, TX',
-      category: 'Multifamily',
+      category: 'Multi / Family',
       location: 'Leander, TX',
       image: 'assets/projects/MULTI-FAMILY/multi_family_greenlight_village_townhomes.jpg',
       description: 'A 50-units townhomes development involved from rezoning process through site development permit.',
@@ -652,24 +632,33 @@ export class ExperiencePageComponent {
     },
     {
       title: 'Parkview at Prue Townhomes - San Antonio, TX',
-      category: 'Multifamily',
+      category: 'Multi / Family',
       location: 'San Antonio, TX',
       image: 'assets/projects/MULTI-FAMILY/multi_family_par_view.jpg',
       description: 'A 58-units townhomes development involved from rezoning process through site development permit.',
       scope: 'Complete site development services.',
       services: ['Rezoning', 'Site Development', 'Permitting']
     },
-
-    // SINGLE FAMILY PROJECTS (User List)
     {
-      title: 'Santa Vista Way - Lago Vista, TX',
-      category: 'Single Family',
+      title: 'Canyon Ridge Apartments - Lago Vista, TX',
+      category: 'Multi / Family',
       location: 'Lago Vista, TX',
       image: 'assets/projects/SINGLE_FAMILY/SINGLE_FAMILY.jpg',
-      description: 'A 30-acre tract has been developed as 15 lots luxury homes subdivision in City Lago Vista.',
-      scope: 'We have designed the all the infrastructure and secured all the approvals.',
-      services: ['Infrastructure Design', 'Approvals', 'Subdivision'],
+      description: 'A premium apartment development designed to integrate seamlessly into the high-consequence topography of Lago Vista.',
+      scope: 'Complete site development, drainage modeling, and structural engineering.',
+      services: ['Site Development', 'Drainage Modeling', 'Utility Design'],
     },
+    {
+      title: 'Vista Ridge Professional Suites - Cedar Park, TX',
+      category: 'Multi / Family',
+      location: 'Cedar Park, TX',
+      image: 'assets/projects/MULTI-FAMILY/vista_ridge_professional_suites.jpg',
+      description: 'Sophisticated professional suite development designed with modern aesthetics and functional community integration.',
+      scope: 'Site development permit, utility coordination, and grading optimization.',
+      services: ['Site Development', 'Permitting', 'Utility Design'],
+    },
+
+    // SINGLE FAMILY PROJECTS (User List)
     {
       title: 'Namami Sai - San Antonio, TX',
       category: 'Single Family',
@@ -708,7 +697,8 @@ export class ExperiencePageComponent {
     },
   ];
 
-  filters: string[] = ['All', 'Commercial', 'Retail & Restaurants', 'Single Family', 'Multifamily'];
+  filters: string[] = ['All', 'Commercial', 'Offices/Business parks', 'Retail & Restaurants', 'Single Family', 'Multi / Family'];
+  searchQuery: string = '';
   activeFilter: string = 'All';
   activeSector: string | null = null;
   sectorProgress: number = 0;
@@ -744,9 +734,9 @@ export class ExperiencePageComponent {
       metricLabel: 'Sites Developed',
       stats: ['Traffic Engineering', 'Platting', 'Expedited Permitting']
     },
-    'Multifamily': {
-      id: 'Multifamily',
-      title: 'Multifamily Developments',
+    'Multi / Family': {
+      id: 'Multi / Family',
+      title: 'Multi / Family Developments',
       tagline: 'Urban Living Excellence',
       description: 'Sophisticated civil solutions for high-density residential projects, balancing technical compliance with developer ROI.',
       metric: '14,000+',
@@ -761,6 +751,15 @@ export class ExperiencePageComponent {
       metric: '500+',
       metricLabel: 'Luxury Lots',
       stats: ['Subdivision Layout', 'Roadway Design', 'TCEQ Compliance']
+    },
+    'Offices/Business parks': {
+      id: 'Offices/Business parks',
+      title: 'Offices & Business Parks',
+      tagline: 'Strategic Corporate Environments',
+      description: 'Designing high-performance corporate campuses and business environments that foster innovation and operational excellence.',
+      metric: '5+',
+      metricLabel: 'Parks Engineered',
+      stats: ['Site Development', 'Building Permitting', 'Industrial Planning']
     }
   };
 
@@ -781,10 +780,23 @@ export class ExperiencePageComponent {
   }
 
   get filteredProjects(): Project[] {
-    if (this.activeFilter === 'All') {
-      return this.projects;
+    let filtered = this.projects;
+
+    if (this.activeFilter !== 'All') {
+      filtered = filtered.filter(p => p.category === this.activeFilter);
     }
-    return this.projects.filter(p => p.category === this.activeFilter);
+
+    if (this.searchQuery.trim()) {
+      const query = this.searchQuery.toLowerCase().trim();
+      filtered = filtered.filter(p => 
+        p.title.toLowerCase().includes(query) || 
+        p.location.toLowerCase().includes(query) || 
+        p.description.toLowerCase().includes(query) || 
+        p.scope.toLowerCase().includes(query)
+      );
+    }
+
+    return filtered;
   }
 
   getProjectsByCategory(category: string): Project[] {
@@ -867,7 +879,7 @@ export class ExperiencePageComponent {
   }
 
   getSectorIndex(categoryId: string): number {
-    const sectors = ['Commercial', 'Retail & Restaurants', 'Multifamily', 'Single Family'];
+    const sectors = ['Commercial', 'Offices/Business parks', 'Retail & Restaurants', 'Multi / Family', 'Single Family'];
     return sectors.indexOf(categoryId) + 1;
   }
 }

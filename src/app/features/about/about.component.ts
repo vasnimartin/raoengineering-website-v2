@@ -64,7 +64,7 @@ import { RouterModule } from '@angular/router';
              </div>
              <h3 class="text-sm font-bold text-slate-900 uppercase tracking-[0.3em] mb-4">Core Infrastructure</h3>
              <p class="text-slate-600 text-base leading-relaxed font-light">
-                Comprehensive expertise in the planning and design of public and private infrastructure, specializing in **institutional, multifamily, and commercial** subdivision projects.
+                Comprehensive expertise in the planning and design of public and private infrastructure, specializing in **institutional, multi / family, and commercial** subdivision projects.
              </p>
           </div>
 
