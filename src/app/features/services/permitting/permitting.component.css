@@ -95,49 +95,6 @@
     padding: 0 2rem;
 }
 
-/* STATS SECTION */
-.stats {
-    padding: 3rem 0;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.stat-item {
-    text-align: center;
-    padding: 1.5rem;
-    background: #f0f4ff;
-    /* Subtle navy tint */
-    border-radius: 8px;
-    border: 1px solid #e0e7ff;
-}
-
-.stat-number {
-    display: inline;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1e40af;
-    /* Navy 700 */
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    display: block;
-    font-size: 0.9rem;
-    color: #64748b;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 0.5rem;
-}
 
 .challenges {
     padding: 5rem 0;
